@@ -6,7 +6,7 @@ import { ButtonLink } from "./components/ButtonLink";
 import { CTASection } from "./components/CTASection";
 import { JsonLd } from "./components/JsonLd";
 import { ProcessStack } from "./components/ProcessStack";
-import { ProjectShowcase } from "./components/ProjectShowcase";
+import { ProjectGrid } from "./components/ProjectGrid";
 import { Reveal } from "./components/Reveal";
 import { ScrollChoreography } from "./components/ScrollChoreography";
 import { SectionHeading } from "./components/SectionHeading";
@@ -21,6 +21,7 @@ import {
   whyChooseUs,
 } from "./data/site";
 import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
+import { listProjects } from "./lib/dal";
 
 export const metadata: Metadata = {
   title: "Solar Installation in Ogun State | Damdavy Technologies",
@@ -36,7 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const projects = await listProjects({ limit: 4 });
   return (
     <main id="main" className="w-full max-w-full overflow-x-hidden">
       <JsonLd data={[faqJsonLd(), ...serviceListJsonLd()]} />
@@ -169,7 +173,7 @@ export default function Home() {
           <p className="text-white/70">A project gallery built from the current Damdavy website assets, modernized for stronger visual proof.</p>
         </SectionHeading>
         <div className="mt-14">
-          <ProjectShowcase />
+          <ProjectGrid projects={projects} />
         </div>
       </section>
 

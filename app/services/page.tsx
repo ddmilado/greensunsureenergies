@@ -79,6 +79,35 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+        <SectionHeading eyebrow="Popular pages" title="Deep-dive into the services you need most.">
+          <p className="text-white/70">Each of these pages is built for a specific buying moment — sizing, ROI, or post-install care.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            { title: "Residential solar", desc: "Sized-to-home systems for reliable backup.", href: "/residential-solar" },
+            { title: "Commercial solar", desc: "Systems that protect your margins and uptime.", href: "/commercial-solar" },
+            { title: "Battery backup & inverters", desc: "Lithium banks, hybrid and pure sine wave inverters.", href: "/battery-backup" },
+            { title: "Solar maintenance", desc: "Cleaning, monitoring, and fast fault response.", href: "/solar-maintenance" },
+            { title: "Solar in Ogun State", desc: "Local installs across Sagamu, Ibafo, Otta, and more.", href: "/solar-installation-ogun-state" },
+            { title: "Our projects", desc: "Real case studies from recent installs.", href: "/projects" },
+          ].map((card) => (
+            <a
+              key={card.title}
+              href={card.href}
+              className="group block rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 transition hover:border-[var(--solar-lime)]/40 hover:bg-white/[0.07]"
+            >
+              <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{card.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-white/70">{card.desc}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--solar-lime)]">
+                Read more
+                <span aria-hidden className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <CTASection />
     </main>
   );

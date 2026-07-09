@@ -176,3 +176,28 @@ export function breadcrumbsJsonLd(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+export function articleJsonLd(input: {
+  title: string;
+  description: string;
+  image?: string;
+  datePublished: string;
+  author: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    image: input.image ? [`${site.url}${input.image.startsWith("/") ? "" : "/"}${input.image}`] : undefined,
+    datePublished: input.datePublished,
+    author: { "@type": "Organization", name: input.author },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      logo: { "@type": "ImageObject", url: `${site.url}/logo-banner.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": input.url },
+  };
+}

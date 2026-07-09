@@ -98,6 +98,7 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Store", href: "/store" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/our-blog" },
   { label: "Contact", href: "/contact-us" },
@@ -322,4 +323,6 @@ export const supportLinks = [
   { label: "Email support", href: site.emailHref },
   { label: "Request quote", href: "/contact-us#quote" },
   { label: "Privacy policy", href: "/privacy-policy" },
+  { label: "Terms of service", href: "/terms" },
+  { label: "Cookie policy", href: "/cookie-policy" },
 ];

@@ -3,13 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { List, X } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
+import { List, X, ShoppingCart, User } from "@phosphor-icons/react";
 import { navItems, site } from "../data/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/cart/count")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!cancelled && d && typeof d.count === "number") setCartCount(d.count);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 md:pt-6">
@@ -47,6 +61,25 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/cart"
+            aria-label="Cart"
+            className="relative grid size-11 place-items-center rounded-full border border-white/16 bg-white/8 text-white transition hover:bg-white/16"
+          >
+            <ShoppingCart size={20} weight="bold" />
+            {cartCount > 0 && (
+              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[var(--solar-lime)] px-1 text-[10px] font-bold text-[var(--ink-950)]">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+          <Link
+            href="/account"
+            aria-label="Account"
+            className="hidden md:grid size-11 place-items-center rounded-full border border-white/16 bg-white/8 text-white transition hover:bg-white/16"
+          >
+            <User size={20} weight="bold" />
+          </Link>
           <a
             href={site.phoneHref}
             className="hidden rounded-full bg-[var(--solar-lime)] px-5 py-2.5 text-sm font-semibold text-[var(--ink-950)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white active:scale-[0.98] md:inline-flex"
