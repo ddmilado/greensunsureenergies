@@ -1,8 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f4f8fb;
+  --mist: #eaf5f7;
+  --shell: #f7fbfc;
+  --brand-blue: #0789c2;
+  --brand-blue-dark: #045c82;
+  --energy-cyan: #2fe0ff;
+  --solar-lime: #92d243;
+  --ink-950: #03111f;
+  --ink-900: #071827;
+  --ink-700: #263847;
+  --ink-600: #506170;
+  --ink-300: #9eacb6;
+  --line: rgba(7, 24, 39, 0.1);
+  --ring: rgba(47, 224, 255, 0.42);
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --ease-out-heavy: cubic-bezier(0.32, 0.72, 0, 1);
+  --background: var(--paper);
+  --foreground: var(--ink-950);
 }
 
 @theme inline {
@@ -12,15 +29,89 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(47, 224, 255, 0.14), transparent 32rem),
+    radial-gradient(circle at 88% 10%, rgba(146, 210, 67, 0.14), transparent 30rem),
+    var(--paper);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image:
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.7) 45% 46%, transparent 47% 100%),
+    radial-gradient(circle at 30% 30%, rgba(3, 17, 31, 0.9) 0 1px, transparent 1px);
+  background-size: 220px 220px, 4px 4px;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--solar-lime);
+  color: var(--ink-950);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.form-field {
+  min-height: 3.25rem;
+  width: 100%;
+  border-radius: 1.1rem;
+  border: 1px solid var(--line);
+  background: var(--shell);
+  padding: 0.85rem 1rem;
+  color: var(--ink-950);
+  outline: none;
+  transition: border-color 320ms var(--ease-out-heavy), box-shadow 320ms var(--ease-out-heavy), background 320ms var(--ease-out-heavy);
+}
+
+.form-field::placeholder {
+  color: var(--ink-300);
+}
+
+.form-field:focus {
+  border-color: var(--brand-blue);
+  background: white;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.energy-grid {
+  background-image:
+    linear-gradient(rgba(47, 224, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 224, 255, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

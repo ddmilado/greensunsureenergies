@@ -1,0 +1,14 @@
+{
+  "name": "Damdavy Technologies",
+  "short_name": "Damdavy",
+  "description": "Dependable solar energy systems for Nigerian homes and businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#03111f",
+  "theme_color": "#03111f",
+  "lang": "en-NG",
+  "categories": ["business", "energy"],
+  "icons": [
+    { "src": "/favicon.png", "sizes": "any", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
