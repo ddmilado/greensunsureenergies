@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { CheckCircle, Package, XCircle, Clock } from "@phosphor-icons/react/dist/ssr";
 import { createServerClient_ } from "@/app/lib/supabase/server";
 import { paystackVerify } from "@/app/lib/paystack";
 
-export const metadata = { title: "Order complete | Damdavy" };
+export const metadata: Metadata = { title: "Order status | Damdavy" };
 export const dynamic = "force-dynamic";
 
 export default async function CheckoutReturnPage({
@@ -22,8 +24,6 @@ export default async function CheckoutReturnPage({
     .eq("paystack_reference", reference)
     .maybeSingle();
 
-  // Verify with Paystack. If successful but the DB hasn't been updated yet
-  // (e.g. webhook not delivered), update here too as a fallback.
   let status = order?.status ?? "pending";
   if (order && order.status === "pending") {
     try {
@@ -44,41 +44,74 @@ export default async function CheckoutReturnPage({
         await sb.from("orders").update({ status: "failed" }).eq("id", order.id);
         status = "failed";
       }
-    } catch (e) {
-      // ignore — webhook will reconcile
+    } catch {
+      // webhook will reconcile
     }
   }
 
+  const formatNGN = (kobo: number) =>
+    new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", maximumFractionDigits: 0 }).format(
+      Math.round(kobo / 100),
+    );
+
   return (
-    <main className="mx-auto max-w-2xl px-6 py-16 text-center">
-      {status === "paid" ? (
-        <>
-          <h1 className="text-3xl font-semibold tracking-tight">Thank you — your order is paid</h1>
-          <p className="mt-3 text-sm text-neutral-600">
-            We've sent a confirmation to {order?.email}. You'll get tracking details when your order ships.
-          </p>
-          <p className="mt-1 text-xs text-neutral-500">Reference: {reference}</p>
-          <Link href="/account/orders" className="mt-8 inline-block rounded-md bg-black px-5 py-3 text-sm font-medium text-white">
-            View my orders
-          </Link>
-        </>
-      ) : status === "failed" ? (
-        <>
-          <h1 className="text-3xl font-semibold tracking-tight">Payment failed</h1>
-          <p className="mt-3 text-sm text-neutral-600">No charge was made. Please try again.</p>
-          <Link href="/cart" className="mt-8 inline-block rounded-md bg-black px-5 py-3 text-sm font-medium text-white">
-            Back to cart
-          </Link>
-        </>
-      ) : (
-        <>
-          <h1 className="text-3xl font-semibold tracking-tight">Payment pending</h1>
-          <p className="mt-3 text-sm text-neutral-600">
-            We're still confirming your payment. Refresh this page in a moment.
-          </p>
-          <p className="mt-1 text-xs text-neutral-500">Reference: {reference}</p>
-        </>
-      )}
+    <main id="main" className="overflow-x-hidden">
+      <section className="px-4 pt-32 md:px-8 md:pt-40">
+        <div className="mx-auto max-w-xl py-16 text-center md:py-24">
+          {status === "paid" ? (
+            <>
+              <div className="mx-auto grid size-20 place-items-center rounded-full bg-emerald-50 ring-1 ring-emerald-200">
+                <CheckCircle size={40} weight="duotone" className="text-emerald-600" />
+              </div>
+              <h1 className="mt-8 text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">
+                Thank you — your order is paid
+              </h1>
+              <p className="mt-4 text-base leading-8 text-[var(--ink-600)]">
+                We&rsquo;ve sent a confirmation to {order?.email}. You&rsquo;ll get tracking details when your order ships.
+              </p>
+              <p className="mt-3 text-xs text-[var(--ink-300)]">Reference: {reference}</p>
+              <Link
+                href="/account/orders"
+                className="mt-10 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--ink-950)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+              >
+                <Package size={18} weight="bold" />
+                View my orders
+              </Link>
+            </>
+          ) : status === "failed" ? (
+            <>
+              <div className="mx-auto grid size-20 place-items-center rounded-full bg-red-50 ring-1 ring-red-200">
+                <XCircle size={40} weight="duotone" className="text-red-600" />
+              </div>
+              <h1 className="mt-8 text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">
+                Payment failed
+              </h1>
+              <p className="mt-4 text-base leading-8 text-[var(--ink-600)]">
+                No charge was made. Please try again or contact us if the issue persists.
+              </p>
+              <Link
+                href="/cart"
+                className="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--ink-950)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+              >
+                Back to cart
+              </Link>
+            </>
+          ) : (
+            <>
+              <div className="mx-auto grid size-20 place-items-center rounded-full bg-amber-50 ring-1 ring-amber-200">
+                <Clock size={40} weight="duotone" className="text-amber-600" />
+              </div>
+              <h1 className="mt-8 text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">
+                Payment pending
+              </h1>
+              <p className="mt-4 text-base leading-8 text-[var(--ink-600)]">
+                We&rsquo;re still confirming your payment. Refresh this page in a moment.
+              </p>
+              <p className="mt-3 text-xs text-[var(--ink-300)]">Reference: {reference}</p>
+            </>
+          )}
+        </div>
+      </section>
     </main>
   );
 }

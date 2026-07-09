@@ -1,36 +1,20 @@
-"use client";
+import { AuthLayout } from "../components/AuthLayout";
+import { LoginForm } from "./LoginForm";
 
-import Link from "next/link";
-import { useActionState } from "react";
-import { loginAction, type AuthFormState } from "@/app/lib/actions/auth";
+export const metadata = { title: "Sign in | Damdavy" };
 
 export default function LoginPage() {
-  const [state, action, pending] = useActionState<AuthFormState | undefined, FormData>(loginAction, undefined);
   return (
-    <main className="mx-auto max-w-md px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Sign in</h1>
-      <p className="mt-2 text-sm text-neutral-500">
-        New here? <Link href="/signup" className="underline">Create an account</Link>
-      </p>
-      <form action={action} className="mt-8 space-y-5">
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium">Email</label>
-          <input id="email" name="email" type="email" required
-            className="mt-1 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm" />
-          {state?.errors?.email && <p className="mt-1 text-xs text-red-600">{state.errors.email[0]}</p>}
-        </div>
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium">Password</label>
-          <input id="password" name="password" type="password" required
-            className="mt-1 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm" />
-          {state?.errors?.password && <p className="mt-1 text-xs text-red-600">{state.errors.password[0]}</p>}
-        </div>
-        {state?.message && <p className="text-sm text-red-600">{state.message}</p>}
-        <button disabled={pending} type="submit"
-          className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white disabled:opacity-60">
-          {pending ? "Signing in…" : "Sign in"}
-        </button>
-      </form>
-    </main>
+    <AuthLayout
+      eyebrow="Welcome back"
+      title="Sign in to manage your orders and quote history."
+      subtitle="Track your orders, save quotes, and pick up where you left off with the Damdavy team."
+    >
+      <h1 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">Sign in</h1>
+      <p className="mt-1.5 text-sm text-neutral-500">Use your Damdavy account email and password.</p>
+      <div className="mt-7">
+        <LoginForm />
+      </div>
+    </AuthLayout>
   );
 }
