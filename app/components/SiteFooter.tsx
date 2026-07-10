@@ -10,8 +10,10 @@ export function SiteFooter() {
         <div>
           <div className="flex items-center gap-4">
             <Image src="/brand/Icon alone Green.png" alt="" width={48} height={48} className="size-12 shrink-0 rounded-full object-contain" />
-            <div className="text-sm font-semibold tracking-[-0.02em] text-white">
-              Damdavy<br />Technologies
+            <div className="leading-[1.15] tracking-[-0.01em] text-white">
+              <span className="text-sm font-bold">Damdavy</span>
+              <br />
+              <span className="text-[11px] font-semibold tracking-[0.04em] text-white/80">Technologies</span>
             </div>
           </div>
           <p className="mt-5 max-w-md text-base leading-7 text-white/68">
