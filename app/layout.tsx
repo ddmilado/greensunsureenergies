@@ -51,16 +51,16 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: "/logo-banner.png",
-        width: 887,
-        height: 330,
-        alt: "Damdavy Technologies logo",
-      },
-      {
         url: "/hero-2.jpg",
         width: 1400,
         height: 969,
         alt: "Solar panels installed by Damdavy Technologies",
+      },
+      {
+        url: "/favicon.svg",
+        width: 100,
+        height: 100,
+        alt: "Damdavy Technologies logo",
       },
     ],
     locale: "en_NG",
@@ -88,7 +88,10 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
     apple: [{ url: "/favicon.png" }],
   },
   manifest: "/site.webmanifest",
