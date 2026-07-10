@@ -35,9 +35,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="mt-6 border-t border-neutral-100 pt-4 text-xs text-neutral-500">
           <p className="font-medium text-neutral-700">{user.fullName}</p>
           <p>{user.email}</p>
-          <Link href="/account" className="mt-3 inline-block text-neutral-600 underline">
-            ← Back to account
-          </Link>
+
         </div>
       </aside>
       <section>{children}</section>

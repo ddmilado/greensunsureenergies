@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { JsonLd } from "./components/JsonLd";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { AnalyticsScripts } from "./components/AnalyticsScripts";
+import { ChatBot } from "./components/ChatBot";
 import { site } from "./data/site";
 import { localBusinessJsonLd, organizationJsonLd, websiteJsonLd } from "./data/jsonLd";
 import "./globals.css";
@@ -107,6 +111,10 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <AnalyticsScripts />
+        <ChatBot />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

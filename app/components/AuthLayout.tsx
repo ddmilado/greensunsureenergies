@@ -33,9 +33,6 @@ export function AuthLayout({
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,13,24,0.18),rgba(3,13,24,0.78))]" />
           <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-            <Link href="/" className="mb-6 inline-flex items-center gap-2 text-sm text-white/72 transition hover:text-white">
-              <span aria-hidden>←</span> Back to {site.name}
-            </Link>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)]">
               {eyebrow}
             </p>

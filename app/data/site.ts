@@ -270,20 +270,22 @@ export const testimonials = [
 
 export const blogPosts = [
   {
-    title: "5 non-negotiable questions to ask before you pay",
+    title: "5 Non-Negotiable Questions to Ask Before You Pay",
+    slug: "5-non-negotiable-questions-to-ask-before-you-pay",
     category: "Info",
     date: "December 10, 2025",
     excerpt:
-      "Choosing the right solar installer starts with the questions you ask before paying for your home or business system.",
-    href: "/our-blog#solar-installer-questions",
+      "Choosing the right solar installer starts with the questions you ask before paying. Here are the five non-negotiable questions you must ask any potential solar installer before signing a contract.",
+    href: "/our-blog/5-non-negotiable-questions-to-ask-before-you-pay",
   },
   {
-    title: "The ROI of solar for Nigerian businesses",
+    title: "The ROI of Solar for Nigerian Businesses",
+    slug: "the-business-case-for-solar",
     category: "Business",
     date: "December 10, 2025",
     excerpt:
-      "For Nigerian SMEs, energy costs affect margins daily. Solar can shift fuel spend into a predictable long-term asset.",
-    href: "/our-blog#solar-business-roi",
+      "For Nigerian SMEs, energy costs affect margins daily. Solar can shift fuel spend into a predictable long-term asset. Learn how to calculate ROI, achieve cost savings, and boost operational efficiency.",
+    href: "/our-blog/the-business-case-for-solar",
   },
 ];
 

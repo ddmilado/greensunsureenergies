@@ -49,12 +49,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
             >
               Call {site.phone}
             </a>
-            <Link
-              href="/"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--line)] bg-white px-6 py-3 text-sm font-semibold text-[var(--ink-950)] transition hover:border-[var(--brand-blue)]"
-            >
-              Back to home
-            </Link>
+
           </div>
         </div>
       </section>

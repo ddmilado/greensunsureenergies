@@ -10,8 +10,9 @@ const MAX_AGE_SECONDS = 60 * 60 * 24 * 30; // 30d
 
 type GuestCart = { items: { product_id: string; quantity: number }[] };
 
-function readGuestCart(): GuestCart {
-  const raw = (cookies() as unknown as { get: (n: string) => { value: string } | undefined }).get(COOKIE)?.value;
+async function readGuestCart(): Promise<GuestCart> {
+  const cookieStore = await cookies();
+  const raw = cookieStore.get(COOKIE)?.value;
   if (!raw) return { items: [] };
   try {
     const parsed = JSON.parse(decodeURIComponent(raw));
@@ -22,9 +23,9 @@ function readGuestCart(): GuestCart {
   return { items: [] };
 }
 
-function writeGuestCart(cart: GuestCart) {
-  const c = (cookies() as unknown as { set: (n: string, v: string, o?: object) => void });
-  c.set(COOKIE, encodeURIComponent(JSON.stringify(cart)), {
+async function writeGuestCart(cart: GuestCart) {
+  const cookieStore = await cookies();
+  cookieStore.set(COOKIE, encodeURIComponent(JSON.stringify(cart)), {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
@@ -33,8 +34,9 @@ function writeGuestCart(cart: GuestCart) {
   });
 }
 
-function clearGuestCart() {
-  (cookies() as unknown as { delete: (n: string) => void }).delete(COOKIE);
+async function clearGuestCart() {
+  const cookieStore = await cookies();
+  cookieStore.delete(COOKIE);
 }
 
 export async function getCart(): Promise<CartItem[]> {
@@ -42,7 +44,7 @@ export async function getCart(): Promise<CartItem[]> {
   const { data: userData } = await sb.auth.getUser();
   if (userData?.user) {
     // sync any guest cart into db, then return db cart
-    const guest = readGuestCart();
+    const guest = await readGuestCart();
     if (guest.items.length) {
       for (const it of guest.items) {
         await sb
@@ -52,7 +54,7 @@ export async function getCart(): Promise<CartItem[]> {
             { onConflict: "user_id,product_id" },
           );
       }
-      clearGuestCart();
+      await clearGuestCart();
     }
     const { data, error } = await sb
       .from("cart_items")
@@ -83,7 +85,7 @@ export async function getCart(): Promise<CartItem[]> {
     });
   }
   // guest path
-  const guest = readGuestCart();
+  const guest = await readGuestCart();
   if (!guest.items.length) return [];
   // hydrate product info
   const ids = guest.items.map((i) => i.product_id);
@@ -140,11 +142,11 @@ export async function addToCart(productId: string, quantity: number) {
     }
     return;
   }
-  const cart = readGuestCart();
+  const cart = await readGuestCart();
   const found = cart.items.find((i) => i.product_id === productId);
   if (found) found.quantity += quantity;
   else cart.items.push({ product_id: productId, quantity });
-  writeGuestCart(cart);
+  await writeGuestCart(cart);
 }
 
 export async function updateCartItem(productId: string, quantity: number) {
@@ -166,12 +168,12 @@ export async function updateCartItem(productId: string, quantity: number) {
     }
     return;
   }
-  const cart = readGuestCart();
+  const cart = await readGuestCart();
   const found = cart.items.find((i) => i.product_id === productId);
   if (!found) return;
   if (quantity <= 0) cart.items = cart.items.filter((i) => i.product_id !== productId);
   else found.quantity = quantity;
-  writeGuestCart(cart);
+  await writeGuestCart(cart);
 }
 
 export async function removeFromCart(productId: string) {
@@ -185,7 +187,7 @@ export async function clearCart() {
     await sb.from("cart_items").delete().eq("user_id", userData.user.id);
     return;
   }
-  clearGuestCart();
+  await clearGuestCart();
 }
 
 export function cartTotalsKobo(items: CartItem[]) {

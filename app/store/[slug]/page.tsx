@@ -42,21 +42,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <main id="main" className="overflow-x-hidden">
       <section className="px-4 pt-32 md:px-8 md:pt-40">
         <div className="mx-auto max-w-7xl">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-[var(--ink-600)]">
-            <Link href="/store" className="transition hover:text-[var(--ink-950)]">Store</Link>
-            {product.category && (
-              <>
-                <span className="text-[var(--ink-300)]">/</span>
-                <Link href={`/store?category=${product.category.slug}`} className="transition hover:text-[var(--ink-950)]">
-                  {product.category.name}
-                </Link>
-              </>
-            )}
-            <span className="text-[var(--ink-300)]">/</span>
-            <span className="font-medium text-[var(--ink-950)]">{product.name}</span>
-          </nav>
-
           <div className="mt-8 grid gap-10 lg:grid-cols-2">
             {/* Gallery */}
             <div className="grid gap-3">

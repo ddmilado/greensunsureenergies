@@ -39,7 +39,7 @@ export function SiteHeader() {
             <Image src="/favicon.png" alt="Damdavy Technologies mark" width={36} height={40} />
           </span>
           <span className="hidden text-sm font-semibold tracking-[-0.02em] text-white sm:block">
-            Damdavy
+            Damdavy<br />Technologies
           </span>
         </Link>
 

@@ -78,7 +78,7 @@ export default async function Home() {
                   alt="Solar panels and clean energy infrastructure"
                   fill
                   sizes="42vw"
-                  preload
+                  priority
                   className="object-cover opacity-74 saturate-[0.9]"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,17,31,0.82))]" />
@@ -114,8 +114,14 @@ export default async function Home() {
             const Icon = card.icon;
             return (
               <Reveal key={card.title} delay={index * 0.06}>
-                <article className="h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-                  <div className="h-full rounded-[1.85rem] bg-white p-7">
+                <article className="group h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
+                  <div className="relative h-full overflow-hidden rounded-[1.85rem] bg-white p-7">
+                    {index === 1 && (
+                      <div className="absolute -bottom-10 -right-10 h-52 w-52 rounded-full bg-[var(--energy-cyan)] opacity-[0.06] blur-3xl" />
+                    )}
+                    {index === 2 && (
+                      <div className="absolute -bottom-8 -right-8 h-44 w-44 rounded-full bg-[var(--solar-lime)] opacity-[0.06] blur-3xl" />
+                    )}
                     <span className="grid size-14 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-blue)]">
                       <Icon size={30} weight="duotone" />
                     </span>

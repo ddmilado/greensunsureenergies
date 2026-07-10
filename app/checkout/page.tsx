@@ -26,9 +26,6 @@ export default async function CheckoutPage() {
     <main id="main" className="overflow-x-hidden">
       <section className="px-4 pt-32 md:px-8 md:pt-40">
         <div className="mx-auto max-w-6xl">
-          <Link href="/cart" className="inline-flex items-center gap-2 text-sm text-[var(--ink-600)] transition hover:text-[var(--ink-950)]">
-            <ArrowLeft size={16} /> Back to cart
-          </Link>
           <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-950)] md:text-5xl">
             Checkout
           </h1>

@@ -28,10 +28,10 @@ export function ProjectShowcase({ full = false }: { full?: boolean }) {
                 <span className="mb-4 inline-flex rounded-full bg-white/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/78 backdrop-blur-md">
                   {project.category}
                 </span>
-                <h3 className="max-w-xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
+                <h3 className="line-clamp-2 max-w-xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
                   {project.title}
                 </h3>
-                <p className="mt-4 max-w-xl text-base leading-7 text-white/74">{project.text}</p>
+                <p className="mt-4 line-clamp-3 max-w-xl text-base leading-7 text-white/74">{project.text}</p>
               </div>
             </div>
           </article>

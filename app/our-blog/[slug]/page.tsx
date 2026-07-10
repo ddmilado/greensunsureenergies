@@ -130,9 +130,6 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       <article>
         <header className="bg-[var(--ink-950)] px-4 pb-20 pt-40 text-white md:px-8 md:pb-28 md:pt-48">
           <div className="mx-auto max-w-3xl">
-            <Link href="/our-blog" className="inline-flex items-center gap-2 text-sm font-medium text-white/60 transition hover:text-white">
-              <span aria-hidden>←</span> Back to blog
-            </Link>
             <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--solar-lime)]">
               <span>{post.category ?? "Article"}</span>
               <span className="text-white/30">·</span>

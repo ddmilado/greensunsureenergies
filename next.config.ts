@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' data:",
           "img-src 'self' data: blob: https:",
-          "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com",
+          "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://vitals.vercel-insights.com https://api.openai.com",
           "frame-src 'self' https://www.google.com",
           "base-uri 'self'",
           "form-action 'self'",

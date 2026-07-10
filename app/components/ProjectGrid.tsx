@@ -43,11 +43,11 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
                 <ArrowUpRight size={18} weight="bold" className="text-white group-hover:text-[var(--ink-950)]" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                <h3 className="max-w-2xl text-2xl font-semibold tracking-[-0.04em] text-white md:text-3xl">
+                <h3 className="line-clamp-2 max-w-2xl text-2xl font-semibold tracking-[-0.04em] text-white md:text-3xl">
                   {project.title}
                 </h3>
                 {project.excerpt && (
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-white/74 md:text-base">
+                  <p className="mt-3 line-clamp-2 max-w-2xl text-sm leading-6 text-white/74 md:text-base">
                     {project.excerpt}
                   </p>
                 )}

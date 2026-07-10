@@ -1,10 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MagnifyingGlass, ArrowRight, Package } from "@phosphor-icons/react/dist/ssr";
+import {
+  MagnifyingGlass,
+  Package,
+  SolarPanel,
+  BatteryCharging,
+  PlugCharging,
+  Wrench,
+  Lightning,
+  Monitor,
+} from "@phosphor-icons/react/dist/ssr";
 import { listProducts, listCategories } from "@/app/lib/dal";
 import { formatNGN } from "@/app/lib/format";
 import { addToCartAction } from "@/app/lib/actions/store";
 import { AddToCartButton } from "./_components/AddToCartButton";
+
+const CATEGORY_ICONS: Record<string, { icon: typeof SolarPanel; color: string }> = {
+  panels: { icon: SolarPanel, color: "text-[var(--brand-blue)]" },
+  batteries: { icon: BatteryCharging, color: "text-[var(--solar-lime)]" },
+  inverters: { icon: PlugCharging, color: "text-[var(--energy-cyan)]" },
+  accessories: { icon: Wrench, color: "text-[var(--ink-600)]" },
+  cables: { icon: Lightning, color: "text-amber-500" },
+  monitoring: { icon: Monitor, color: "text-violet-500" },
+};
+
+const DEFAULT_ICON = { icon: Package, color: "text-[var(--ink-600)]" };
 
 export const metadata: Metadata = {
   title: "Solar Store | Batteries, Inverters, Panels & Accessories",
@@ -84,19 +104,26 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
               >
                 All products
               </Link>
-              {categories.map((c) => (
-                <Link
-                  key={c.id}
-                  href={`/store?category=${c.slug}`}
-                  className={`rounded-xl px-3 py-2 text-sm font-medium transition ${
-                    sp.category === c.slug
-                      ? "bg-[var(--ink-950)] text-white"
-                      : "text-[var(--ink-700)] hover:bg-[var(--shell)]"
-                  }`}
-                >
-                  {c.name}
-                </Link>
-              ))}
+              {categories.map((c) => {
+                const { icon: CatIcon, color } = CATEGORY_ICONS[c.slug] ?? DEFAULT_ICON;
+                const active = sp.category === c.slug;
+                return (
+                  <Link
+                    key={c.id}
+                    href={`/store?category=${c.slug}`}
+                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${
+                      active
+                        ? "bg-[var(--ink-950)] text-white"
+                        : "text-[var(--ink-700)] hover:bg-[var(--shell)]"
+                    }`}
+                  >
+                    <span className={`flex size-8 items-center justify-center rounded-lg ${active ? "bg-white/12" : "bg-[var(--mist)]"} ${active ? "text-white" : color}`}>
+                      <CatIcon size={16} weight={active ? "fill" : "duotone"} />
+                    </span>
+                    {c.name}
+                  </Link>
+                );
+              })}
             </nav>
           </aside>
 

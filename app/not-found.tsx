@@ -17,8 +17,7 @@ export default function NotFound() {
             The link you followed does not exist, or it has been moved. Let&rsquo;s get you back to the main panel.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
-            <ButtonLink href="/">Back to home</ButtonLink>
-            <ButtonLink href="/contact-us#quote" variant="secondary">
+            <ButtonLink href="/contact-us#quote" variant="primary">
               Request a quote
             </ButtonLink>
           </div>

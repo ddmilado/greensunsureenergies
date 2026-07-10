@@ -94,7 +94,7 @@ export default async function BlogPage() {
                       {post.title}
                     </h2>
                     {post.excerpt && (
-                      <p className="mt-4 text-base leading-7 text-[var(--ink-600)]">{post.excerpt}</p>
+                      <p className="mt-4 line-clamp-3 text-base leading-7 text-[var(--ink-600)]">{post.excerpt}</p>
                     )}
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-blue)]">
                       Read article
