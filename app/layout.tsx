@@ -90,9 +90,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.png", sizes: "48x48", type: "image/png" },
     ],
-    apple: [{ url: "/favicon.png" }],
+    shortcut: "/favicon.ico",
+    apple: { url: "/favicon.png", sizes: "48x48" },
   },
   manifest: "/site.webmanifest",
   verification: {

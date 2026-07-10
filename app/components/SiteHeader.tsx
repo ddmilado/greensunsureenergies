@@ -43,7 +43,7 @@ export function SiteHeader() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/14 bg-[rgba(4,19,34,0.68)] px-3 py-2 shadow-[0_24px_80px_rgba(0,23,38,0.32)] backdrop-blur-2xl">
         <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           <span className="grid size-11 place-items-center overflow-hidden rounded-full bg-white">
-            <Image src="/favicon.png" alt="Damdavy Technologies mark" width={36} height={40} />
+            <Image src="/favicon.png" alt="Damdavy Technologies mark" width={36} height={36} />
           </span>
           <span className="hidden text-sm font-semibold tracking-[-0.02em] text-white sm:block">
             Damdavy<br />Technologies

@@ -10,6 +10,7 @@
   "categories": ["business", "energy"],
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
-    { "src": "/favicon.png", "sizes": "380x430", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/favicon.png", "sizes": "48x48", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon", "purpose": "any maskable" }
   ]
 }
