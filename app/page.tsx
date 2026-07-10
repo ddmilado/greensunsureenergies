@@ -46,7 +46,7 @@ export default async function Home() {
       <JsonLd data={[faqJsonLd(), ...serviceListJsonLd()]} />
       <ScrollChoreography />
 
-      <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--ink-950)] px-4 pb-20 pt-32 text-white md:px-8 md:pt-40">
+      <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--ink-950)] px-4 pb-20 pt-24 text-white md:px-8 md:pt-40">
         <EnergyScene />
         <div className="energy-grid absolute inset-0 opacity-70" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(47,224,255,0.24),transparent_35%),linear-gradient(180deg,rgba(3,17,31,0.15),rgba(3,17,31,0.92))]" />
@@ -165,7 +165,7 @@ export default async function Home() {
           {featureList.map((feature) => {
             const Icon = feature.icon;
             return (
-              <div key={feature.title} className="flex items-center gap-3 rounded-full border border-white/10 bg-white/6 px-4 py-3 text-sm text-white/72">
+              <div key={feature.title} className="flex items-center gap-3 rounded-xl md:rounded-full border border-white/10 bg-white/6 px-4 py-3 text-sm text-white/72">
                 <Icon size={19} className="shrink-0 text-[var(--solar-lime)]" />
                 {feature.title}
               </div>

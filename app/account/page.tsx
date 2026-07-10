@@ -14,7 +14,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
 
   return (
     <main id="main" className="overflow-x-hidden">
-      <section className="px-4 pt-32 md:px-8 md:pt-40">
+      <section className="px-4 pt-24 md:px-8 md:pt-40">
         <div className="mx-auto max-w-5xl pb-16">
           {sp.welcome === "1" && (
             <div className="mb-6 flex items-center gap-3 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-800 ring-1 ring-emerald-200">
@@ -24,11 +24,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           )}
 
           {/* Header */}
-          <div className="flex items-center gap-4">
-            <div className="grid size-16 place-items-center rounded-full bg-[var(--ink-950)] text-white">
-              <UserCircle size={32} weight="duotone" />
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center">
+            <div className="grid size-14 shrink-0 place-items-center rounded-full bg-[var(--ink-950)] text-white sm:size-16">
+              <UserCircle size={28} weight="duotone" className="sm:size-8" />
             </div>
-            <div>
+            <div className="text-center sm:text-left">
               <h1 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--ink-950)] md:text-4xl">
                 {user.fullName}
               </h1>

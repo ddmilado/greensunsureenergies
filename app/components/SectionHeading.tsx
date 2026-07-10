@@ -19,7 +19,7 @@ export function SectionHeading({
         </p>
       ) : null}
       <div className={`grid gap-6 ${children ? "lg:grid-cols-[0.9fr_0.7fr] lg:items-end" : ""}`}>
-        <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-[0.96] tracking-[-0.06em] text-[var(--ink-950)] md:text-6xl">
+        <h2 className="max-w-4xl text-balance text-[2rem] font-semibold leading-[0.96] tracking-[-0.06em] text-[var(--ink-950)] md:text-6xl">
           {title}
         </h2>
         {children ? (

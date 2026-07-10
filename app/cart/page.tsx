@@ -20,7 +20,7 @@ export default async function CartPage() {
   if (items.length === 0) {
     return (
       <main id="main" className="overflow-x-hidden">
-        <section className="px-4 pt-32 md:px-8 md:pt-40">
+        <section className="px-4 pt-24 md:px-8 md:pt-40">
           <div className="mx-auto max-w-xl py-24 text-center md:py-32">
             <div className="mx-auto grid size-16 place-items-center rounded-full bg-[var(--shell)] ring-1 ring-[var(--line)]">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[var(--brand-blue)]">
@@ -48,7 +48,7 @@ export default async function CartPage() {
 
   return (
     <main id="main" className="overflow-x-hidden">
-      <section className="px-4 pt-32 md:px-8 md:pt-40">
+      <section className="px-4 pt-24 md:px-8 md:pt-40">
         <div className="mx-auto max-w-6xl">
           <Link href="/store" className="inline-flex items-center gap-2 text-sm text-[var(--ink-600)] transition hover:text-[var(--ink-950)]">
             <ArrowLeft size={16} /> Continue shopping
@@ -65,9 +65,9 @@ export default async function CartPage() {
             <ul className="overflow-hidden rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
               <div className="divide-y divide-[var(--line)] rounded-[1.6rem] bg-white">
                 {items.map((it) => (
-                  <li key={it.product_id} className="flex items-center gap-4 p-4">
+                  <li key={it.product_id} className="flex flex-wrap items-center gap-3 p-4 sm:flex-nowrap sm:gap-4">
                     {/* Image */}
-                    <div className="size-20 shrink-0 overflow-hidden rounded-2xl bg-[var(--mist)]">
+                    <div className="size-16 shrink-0 overflow-hidden rounded-2xl bg-[var(--mist)] sm:size-20">
                       {it.product?.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={it.product.image} alt={it.product?.name ?? "Item"} className="h-full w-full object-cover" />

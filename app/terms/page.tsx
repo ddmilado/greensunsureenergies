@@ -15,7 +15,7 @@ export default function TermsPage() {
   return (
     <main id="main" className="overflow-x-hidden">
       <JsonLd data={breadcrumbsJsonLd([{ name: "Home", path: "/" }, { name: "Terms of service", path: "/terms" }])} />
-      <section className="px-4 pb-20 pt-40 md:px-8 md:pb-28 md:pt-48">
+      <section className="px-4 pb-20 pt-28 md:px-8 md:pb-28 md:pt-48">
         <div className="mx-auto max-w-3xl">
           <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-blue)]">Legal</p>
           <h1 className="mt-3 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.05em] md:text-6xl">

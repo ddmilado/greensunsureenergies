@@ -24,7 +24,7 @@ export default async function CheckoutPage() {
 
   return (
     <main id="main" className="overflow-x-hidden">
-      <section className="px-4 pt-32 md:px-8 md:pt-40">
+      <section className="px-4 pt-24 md:px-8 md:pt-40">
         <div className="mx-auto max-w-6xl">
           <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-950)] md:text-5xl">
             Checkout

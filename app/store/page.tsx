@@ -51,7 +51,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
   return (
     <main id="main" className="overflow-x-hidden">
       {/* Hero section */}
-      <section className="bg-[var(--ink-950)] px-4 pb-16 pt-40 text-white md:px-8 md:pt-48">
+      <section className="bg-[var(--ink-950)] px-4 pb-16 pt-28 text-white md:px-8 md:pt-48">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)]">Store</p>
           <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.05em] md:text-6xl">
