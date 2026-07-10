@@ -8,14 +8,12 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-[var(--ink-950)] px-4 py-12 text-white md:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
-          <Image
-            src="/brand/Icon and name Green White.png"
-            alt="Damdavy Technologies"
-            width={320}
-            height={72}
-            className="h-14 w-auto object-contain"
-            priority
-          />
+          <div className="flex items-center gap-4">
+            <Image src="/brand/Icon alone Green.png" alt="" width={48} height={48} className="size-12 shrink-0 rounded-full object-contain" />
+            <div className="text-sm font-semibold tracking-[-0.02em] text-white">
+              Damdavy<br />Technologies
+            </div>
+          </div>
           <p className="mt-5 max-w-md text-base leading-7 text-white/68">
             We help homes and businesses cut fuel costs and enjoy true energy freedom with dependable solar systems, expert installation, and long-term support.
           </p>
