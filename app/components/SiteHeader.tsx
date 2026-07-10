@@ -42,10 +42,8 @@ export function SiteHeader() {
       </a>
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/14 bg-[rgba(4,19,34,0.68)] px-3 py-2 shadow-[0_24px_80px_rgba(0,23,38,0.32)] backdrop-blur-2xl">
         <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-          <Image src="/brand/Icon alone blue.png" alt="" width={36} height={36} className="size-9 shrink-0 rounded-full object-contain sm:size-11" />
-          <span className="hidden text-sm font-semibold tracking-[-0.02em] text-white sm:block">
-            Damdavy<br />Technologies
-          </span>
+          <Image src="/brand/Icon alone Green.png" alt="" width={36} height={36} className="size-9 shrink-0 rounded-full object-contain sm:hidden" />
+          <Image src="/brand/Icon and name Green White.png" alt="Damdavy Technologies" width={240} height={54} className="hidden h-14 w-auto object-contain sm:block" priority />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
