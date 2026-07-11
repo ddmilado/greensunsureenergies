@@ -20,6 +20,7 @@ import {
   valueCards,
   whyChooseUs,
 } from "./data/site";
+import { AnimatedCounter } from "./components/AnimatedCounter";
 import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
 import { listProjects } from "./lib/dal";
 
@@ -56,8 +57,8 @@ export default async function Home() {
             <p className="mb-6 inline-flex rounded-full border border-white/14 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)] backdrop-blur-md">
               Solar energy systems for homes and businesses
             </p>
-            <h1 className="max-w-6xl text-balance text-[clamp(3.6rem,8vw,8.4rem)] font-semibold leading-[0.84] tracking-[-0.085em]">
-              Bright power, brighter smiles.
+            <h1 className="max-w-6xl text-balance text-[clamp(3.6rem,8vw,8.4rem)] font-semibold leading-[1.08] tracking-[-0.065em]">
+              Bright power,<br />brighter smiles.
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
               Dependable solar systems that light up homes, strengthen businesses, and bring peace of mind.
@@ -97,7 +98,13 @@ export default async function Home() {
           {stats.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.05}>
               <div className="rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)]">
-                <p className="text-5xl font-semibold tracking-[-0.07em] text-[var(--brand-blue)] tabular-nums">{stat.value}</p>
+                <p className="text-5xl font-semibold tracking-[-0.07em] text-[var(--brand-blue)] tabular-nums">
+                  {stat.value.endsWith("+") ? (
+                    <AnimatedCounter value={Number.parseInt(stat.value)} suffix="+" />
+                  ) : (
+                    <AnimatedCounter value={Number.parseFloat(stat.value)} decimals={1} />
+                  )}
+                </p>
                 <p className="mt-3 text-sm font-medium text-[var(--ink-600)]">{stat.label}</p>
               </div>
             </Reveal>
@@ -193,15 +200,25 @@ export default async function Home() {
       </section>
 
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Testimonials" title="Customers talk about reliability, support, and practical training.">
-          <p>Reviews extracted from the current Damdavy website and tightened for readability.</p>
+        <SectionHeading eyebrow="Testimonials" title="What customers say about Damdavy.">
+          <p>Real feedback from real clients — pulled from Google My Business, training events, and direct conversations.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 columns-1 gap-5 space-y-5 md:columns-2 xl:columns-3 max-w-7xl">
           {testimonials.map((item, index) => (
             <Reveal key={item.name} delay={index * 0.04}>
-              <figure className="break-inside-avoid rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)]">
-                <blockquote className="text-lg leading-8 tracking-[-0.02em] text-[var(--ink-700)]">“{item.quote}”</blockquote>
-                <figcaption className="mt-6 text-sm font-semibold text-[var(--ink-950)]">{item.name}</figcaption>
+              <figure className="break-inside-avoid rounded-[2rem] bg-white p-6 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)]">
+                <div className="flex items-center gap-1.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--brand-blue)" className="text-[var(--brand-blue)]">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">“{item.quote}”</blockquote>
+                <figcaption className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4 text-sm font-semibold text-[var(--ink-950)]">
+                  <span className="grid size-8 place-items-center rounded-full bg-[var(--brand-blue)] text-[11px] font-bold text-white">{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
+                  {item.name}
+                </figcaption>
               </figure>
             </Reveal>
           ))}
