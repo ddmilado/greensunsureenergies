@@ -216,7 +216,7 @@ export default async function Home() {
                 </div>
                 <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">“{item.quote}”</blockquote>
                 <figcaption className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4 text-sm font-semibold text-[var(--ink-950)]">
-                  <span className="grid size-8 place-items-center rounded-full bg-[var(--brand-blue)] text-[11px] font-bold text-white">{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
+                  <span className="grid size-8 place-items-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: `var(--avatar-${(item.name.length * 7 + item.name.charCodeAt(0)) % 16})` }}>{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
                   {item.name}
                 </figcaption>
               </figure>

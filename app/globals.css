@@ -22,6 +22,22 @@
   --ease-out-heavy: cubic-bezier(0.32, 0.72, 0, 1);
   --background: var(--paper);
   --foreground: var(--ink-950);
+  --avatar-0: #f44336;
+  --avatar-1: #e91e63;
+  --avatar-2: #9c27b0;
+  --avatar-3: #673ab7;
+  --avatar-4: #3f51b5;
+  --avatar-5: #2196f3;
+  --avatar-6: #03a9f4;
+  --avatar-7: #009688;
+  --avatar-8: #4caf50;
+  --avatar-9: #8bc34a;
+  --avatar-10: #cddc39;
+  --avatar-11: #ffc107;
+  --avatar-12: #ff9800;
+  --avatar-13: #ff5722;
+  --avatar-14: #795548;
+  --avatar-15: #607d8b;
 }
 
 @theme inline {
