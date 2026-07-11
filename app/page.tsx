@@ -209,7 +209,7 @@ export default async function Home() {
               <figure className="break-inside-avoid rounded-[2rem] bg-white p-6 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)]">
                 <div className="flex items-center gap-1.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--brand-blue)" className="text-[var(--brand-blue)]">
+                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#f5b342" className="text-[#f5b342]">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                   ))}
