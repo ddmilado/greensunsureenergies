@@ -8,12 +8,12 @@ import { aboutCopy, stats, valueCards } from "../data/site";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "About Damdavy Technologies | Solar Energy Experts in Nigeria",
+  title: "About Mainstream Green Energy Solutions | Solar Energy Experts in Nigeria",
   description:
-    "Damdavy Technologies is a Nigerian solar company helping homes and businesses reduce fuel costs and enjoy steady electricity with dependable, cost-saving solar systems.",
+    "Mainstream Green Energy Solutions is a Nigerian solar company helping homes and businesses reduce fuel costs and enjoy steady electricity with dependable, cost-saving solar systems.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Damdavy Technologies | Solar Energy Experts",
+    title: "About Mainstream Green Energy Solutions | Solar Energy Experts",
     description:
       "A Nigerian solar company delivering dependable, cost-saving solar systems for homes and businesses.",
     url: "/about",
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         title="Energy that works. Smiles that last."
         kicker="Who we are"
-        text="Damdavy Technologies makes energy simple, dependable, and truly yours with solar systems built around real homes and businesses."
+        text="Mainstream Green Energy Solutions makes energy simple, dependable, and truly yours with solar systems built around real homes and businesses."
         image="/hero-3.jpg"
       />
 

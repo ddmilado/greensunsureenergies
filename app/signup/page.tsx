@@ -1,12 +1,12 @@
 import { AuthLayout } from "../components/AuthLayout";
 import { SignupForm } from "./SignupForm";
 
-export const metadata = { title: "Create your account | Damdavy" };
+export const metadata = { title: "Create your account | Mainstream Green" };
 
 export default function SignupPage() {
   return (
     <AuthLayout
-      eyebrow="Join Damdavy"
+      eyebrow="Join Mainstream Green"
       title="Create an account to track orders and quote history."
       subtitle="Save your shipping address, pick up a quote, and manage everything in one place — your data stays on your device."
       image="/hero-2.jpg"

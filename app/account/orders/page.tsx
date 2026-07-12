@@ -5,7 +5,7 @@ import { listUserOrders } from "@/app/lib/dal";
 import { formatNGN } from "@/app/lib/format";
 import { StatusPill } from "../../components/StoreUI";
 
-export const metadata: Metadata = { title: "My orders | Damdavy", alternates: { canonical: "/account/orders" } };
+export const metadata: Metadata = { title: "My orders | Mainstream Green", alternates: { canonical: "/account/orders" } };
 export const dynamic = "force-dynamic";
 
 function formatDate(value: string): string {

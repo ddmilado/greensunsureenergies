@@ -26,8 +26,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Damdavy Technologies — Solar Installation in Ogun State, Nigeria",
-    template: "%s — Damdavy Technologies",
+    default: "Mainstream Green Energy Solutions — Solar Installation in Ogun State, Nigeria",
+    template: "%s — Mainstream Green Energy Solutions",
   },
   description: site.longDescription,
   applicationName: site.name,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { email: false, address: true, telephone: true },
   openGraph: {
-    title: "Damdavy Technologies — Solar Energy Systems in Nigeria",
+    title: "Mainstream Green Energy Solutions — Solar Energy Systems in Nigeria",
     description:
       "Dependable solar systems that cut fuel costs, power homes and businesses, and keep support close after installation.",
     url: site.url,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
         url: "/hero-2.jpg",
         width: 1400,
         height: 969,
-        alt: "Solar panels installed by Damdavy Technologies",
+        alt: "Solar panels installed by Mainstream Green Energy Solutions",
       },
       {
         url: "/favicon.svg",
         width: 100,
         height: 100,
-        alt: "Damdavy Technologies logo",
+        alt: "Mainstream Green Energy Solutions logo",
       },
     ],
     locale: "en_NG",
@@ -69,11 +69,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Damdavy Technologies — Solar Energy Systems in Nigeria",
+    title: "Mainstream Green Energy Solutions — Solar Energy Systems in Nigeria",
     description:
       "Dependable solar systems for Nigerian homes and businesses. Installation, batteries, maintenance, and support.",
     images: ["/hero-2.jpg"],
-    creator: "@damdavytech",
+    creator: "@mainstreamgreen",
   },
   robots: {
     index: true,

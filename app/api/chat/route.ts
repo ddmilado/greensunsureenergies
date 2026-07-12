@@ -12,7 +12,7 @@ const MAX_HISTORY = 8;
 
 const PAGES = [
   { title: "Home", path: "/" },
-  { title: "About Damdavy", path: "/about" },
+  { title: "About Mainstream Green", path: "/about" },
   { title: "All Services", path: "/services" },
   { title: "Residential Solar", path: "/residential-solar" },
   { title: "Commercial Solar", path: "/commercial-solar" },
@@ -29,12 +29,12 @@ const PAGES = [
   { title: "Cookie Policy", path: "/cookie-policy" },
 ];
 
-const SYSTEM_PROMPT = `You are a friendly sales assistant for Damdavy Technologies, a Nigerian solar company est. 2018.
+const SYSTEM_PROMPT = `You are a friendly sales assistant for Mainstream Green Energy Solutions, a Nigerian solar company est. 2018.
 
 BUSINESS INFO:
 - Location: 214 Ibadan road, Imowo, Ogun State
 - Phone: +234 706 667 0673
-- Email: ask@damdavytechnologies.com.ng
+- Email: ask@mainstreamgreenenergy.com.ng
 - Hours: Mon-Sat 8am-6pm
 - Service areas: ${site.areasServed.join(", ")}
 - Tagline: "Energy that works. Smiles that last."

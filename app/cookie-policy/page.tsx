@@ -5,8 +5,8 @@ import { JsonLd } from "../components/JsonLd";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Cookie policy | Damdavy Technologies",
-  description: "How Damdavy Technologies uses cookies and similar technologies on this website.",
+  title: "Cookie policy | Mainstream Green Energy Solutions",
+  description: "How Mainstream Green Energy Solutions uses cookies and similar technologies on this website.",
   alternates: { canonical: "/cookie-policy" },
 };
 

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Commercial Solar Systems | Damdavy Technologies",
+  title: "Commercial Solar Systems | Mainstream Green Energy Solutions",
   description:
     "Commercial and industrial solar systems that cut fuel costs, keep operations productive during outages, and lock in energy spend. Offices, retail, facilities, and more.",
   alternates: { canonical: "/commercial-solar" },
   openGraph: {
-    title: "Commercial Solar Systems | Damdavy Technologies",
+    title: "Commercial Solar Systems | Mainstream Green Energy Solutions",
     description: "Cut fuel costs, keep operations productive, lock in energy spend.",
     url: "/commercial-solar",
     type: "website",

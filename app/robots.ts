@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = "https://damdavytechnologies.com.ng";
+  const base = "https://mainstreamgreenenergy.com.ng";
 
   return {
     rules: [
       // Explicitly allow the major AI/LLM training and answer crawlers so
-      // Damdavy content can surface in AI chatbot answers and citations.
+      // Mainstream Green content can surface in AI chatbot answers and citations.
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "OAI-SearchBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },

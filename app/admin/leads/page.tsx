@@ -2,7 +2,7 @@ import { listLeads } from "@/app/lib/dal";
 import { deleteLeadAction, updateLeadStatusAction } from "@/app/lib/actions/content";
 import type { LeadStatus } from "@/app/lib/types";
 
-export const metadata = { title: "Admin · Leads | Damdavy" };
+export const metadata = { title: "Admin · Leads | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 const STATUSES: LeadStatus[] = ["new", "contacted", "qualified", "won", "lost"];

@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f4f8fb;
-  --mist: #eaf5f7;
-  --shell: #f7fbfc;
-  --brand-green: #afeb00;
-  --brand-green-dark: #8fbf00;
-  --brand-blue: #150d8a;
-  --brand-blue-dark: #0f0968;
-  --energy-cyan: #2fe0ff;
-  --solar-lime: #afeb00;
-  --ink-950: #03111f;
-  --ink-900: #071827;
-  --ink-700: #263847;
-  --ink-600: #506170;
-  --ink-300: #9eacb6;
-  --line: rgba(7, 24, 39, 0.1);
-  --ring: rgba(21, 13, 138, 0.42);
+  --paper: #f1f8f3;
+  --mist: #e6f6ec;
+  --shell: #f4fbf6;
+  --brand-green: #00c853;
+  --brand-green-dark: #009e44;
+  --brand-blue: #043d2b;
+  --brand-blue-dark: #032a1d;
+  --energy-cyan: #19e08a;
+  --solar-lime: #00e676;
+  --ink-950: #03150d;
+  --ink-900: #06231a;
+  --ink-700: #163a2b;
+  --ink-600: #3f6b54;
+  --ink-300: #8fb3a1;
+  --line: rgba(4, 61, 43, 0.12);
+  --ring: rgba(0, 200, 83, 0.42);
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
   --ease-out-heavy: cubic-bezier(0.32, 0.72, 0, 1);
@@ -58,8 +58,8 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 12% 0%, rgba(47, 224, 255, 0.14), transparent 32rem),
-    radial-gradient(circle at 88% 10%, rgba(146, 210, 67, 0.14), transparent 30rem),
+    radial-gradient(circle at 12% 0%, rgba(25, 224, 138, 0.16), transparent 32rem),
+    radial-gradient(circle at 88% 10%, rgba(0, 200, 83, 0.16), transparent 30rem),
     var(--paper);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
@@ -117,8 +117,8 @@ a {
 
 .energy-grid {
   background-image:
-    linear-gradient(rgba(47, 224, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(47, 224, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(25, 224, 138, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 224, 138, 0.1) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(circle at center, black, transparent 72%);
 }

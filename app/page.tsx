@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { EnergyScene } from "./components/EnergyScene";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "./components/ButtonLink";
@@ -9,6 +8,7 @@ import { ProcessStack } from "./components/ProcessStack";
 import { ProjectGrid } from "./components/ProjectGrid";
 import { Reveal } from "./components/Reveal";
 import { ScrollChoreography } from "./components/ScrollChoreography";
+import { HeroVideo } from "./components/HeroVideo";
 import { SectionHeading } from "./components/SectionHeading";
 import { ServiceBento } from "./components/ServiceBento";
 import {
@@ -25,12 +25,12 @@ import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
 import { listProjects } from "./lib/dal";
 
 export const metadata: Metadata = {
-  title: "Solar Installation in Ogun State | Damdavy Technologies",
+  title: "Solar Installation in Ogun State | Mainstream Green Energy Solutions",
   description:
     "Dependable solar systems for Nigerian homes and businesses. Cut fuel costs, enjoy uninterrupted power, and get expert installation, batteries, and long-term support.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Damdavy Technologies — Solar Installation in Ogun State",
+    title: "Mainstream Green Energy Solutions — Solar Installation in Ogun State",
     description:
       "Dependable solar systems for Nigerian homes and businesses. Cut fuel costs, enjoy uninterrupted power, and get expert installation and support.",
     url: site.url,
@@ -50,7 +50,7 @@ export default async function Home() {
       <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--ink-950)] px-4 pb-20 pt-24 text-white md:px-8 md:pt-40">
         <EnergyScene />
         <div className="energy-grid absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(47,224,255,0.24),transparent_35%),linear-gradient(180deg,rgba(3,17,31,0.15),rgba(3,17,31,0.92))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(0,230,118,0.24),transparent_35%),linear-gradient(180deg,rgba(3,21,13,0.15),rgba(3,21,13,0.92))]" />
 
         <div className="relative z-10 mx-auto grid min-h-[calc(100dvh-10rem)] max-w-7xl items-center gap-12 lg:grid-cols-[1fr_0.72fr]">
           <Reveal>
@@ -66,7 +66,7 @@ export default async function Home() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact-us#quote">Request quote</ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
-                Call Damdavy
+                Call Mainstream Green
               </ButtonLink>
             </div>
           </Reveal>
@@ -74,15 +74,8 @@ export default async function Home() {
           <Reveal delay={0.12} className="relative hidden lg:block">
             <div className="rounded-[2.75rem] bg-white/8 p-2 ring-1 ring-white/14 backdrop-blur-md">
               <div className="relative min-h-[560px] overflow-hidden rounded-[2.25rem] bg-[var(--ink-900)]">
-                <Image
-                  src="/hero-2.jpg"
-                  alt="Solar panels and clean energy infrastructure"
-                  fill
-                  sizes="42vw"
-                  priority
-                  className="object-cover opacity-74 saturate-[0.9]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,17,31,0.82))]" />
+                <HeroVideo />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,21,13,0.82))]" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-[1.75rem] border border-white/12 bg-white/10 p-5 backdrop-blur-xl">
                   <p className="text-sm text-white/62">Live energy mission</p>
                   <p className="mt-2 text-2xl font-semibold tracking-[-0.04em]">Fuel-free freedom for everyday power.</p>
@@ -183,7 +176,7 @@ export default async function Home() {
 
       <section className="bg-[var(--ink-950)] px-4 pb-24 text-white md:px-8 md:pb-40">
         <SectionHeading eyebrow="Recent projects" title="Real solar work for roofs, facilities, and businesses.">
-          <p className="text-white/70">A project gallery built from the current Damdavy website assets, modernized for stronger visual proof.</p>
+          <p className="text-white/70">A project gallery built from the current Mainstream Green website assets, modernized for stronger visual proof.</p>
         </SectionHeading>
         <div className="mt-14">
           <ProjectGrid projects={projects} />
@@ -200,7 +193,7 @@ export default async function Home() {
       </section>
 
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Testimonials" title="What customers say about Damdavy.">
+        <SectionHeading eyebrow="Testimonials" title="What customers say about Mainstream Green.">
           <p>Real feedback from real clients — pulled from Google My Business, training events, and direct conversations.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 columns-1 gap-5 space-y-5 md:columns-2 xl:columns-3 max-w-7xl">

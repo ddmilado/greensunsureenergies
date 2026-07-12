@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { List, X, ShoppingCart, User } from "@phosphor-icons/react";
 import { navItems, site } from "../data/site";
+import { Logo } from "./Logo";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -41,9 +42,8 @@ export function SiteHeader() {
         Skip to content
       </a>
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/14 bg-[rgba(4,19,34,0.68)] px-3 py-2 shadow-[0_24px_80px_rgba(0,23,38,0.32)] backdrop-blur-2xl">
-        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-          <Image src="/brand/Icon alone Green.png" alt="" width={36} height={36} className="size-9 shrink-0 rounded-full object-contain sm:hidden" />
-          <Image src="/brand/Icon and name Green White.png" alt="Damdavy Technologies" width={240} height={54} className="hidden h-14 w-auto sm:block" priority />
+        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
+          <Logo />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -53,7 +53,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300 ${
                   active ? "bg-white text-[var(--ink-950)]" : "text-white/72 hover:bg-white/10 hover:text-white"
                 }`}
               >

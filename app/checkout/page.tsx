@@ -7,7 +7,7 @@ import { getSessionUser } from "@/app/lib/dal";
 import { formatNGN } from "@/app/lib/format";
 import { CheckoutForm } from "./CheckoutForm";
 
-export const metadata: Metadata = { title: "Checkout | Damdavy", alternates: { canonical: "/checkout" } };
+export const metadata: Metadata = { title: "Checkout | Mainstream Green", alternates: { canonical: "/checkout" } };
 export const dynamic = "force-dynamic";
 
 export default async function CheckoutPage() {

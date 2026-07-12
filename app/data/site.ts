@@ -14,19 +14,19 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 export const site = {
-  name: "Damdavy Technologies",
-  legalName: "Damdavy Technologies",
-  tagline: "Energy that works. Smiles that last.",
-  headline: "Bright power, brighter smiles.",
+  name: "Mainstream Green Energy Solutions",
+  legalName: "Mainstream Green Energy Solutions",
+  tagline: "Clean energy that powers progress.",
+  headline: "Bright power, greener tomorrow.",
   description:
-    "Dependable solar systems that light up homes, strengthen businesses, and bring peace of mind.",
+    "Dependable green energy and solar systems that light up homes, strengthen businesses, and protect the planet.",
   longDescription:
-    "Damdavy Technologies is a Nigerian solar energy company in Ogun State that designs, installs, and maintains solar power systems for homes and businesses. We help clients reduce fuel and generator costs, enjoy uninterrupted electricity, and get long-term support after installation. Services include solar panel sales and installation, commercial and residential solar systems, battery backup and inverters, energy audits, and performance monitoring.",
-  url: "https://damdavytechnologies.com.ng",
+    "Mainstream Green Energy Solutions is a Nigerian green energy company that designs, installs, and maintains solar power systems for homes and businesses. We help clients reduce fuel and generator costs, enjoy uninterrupted electricity, and get long-term support after installation. Services include solar panel sales and installation, commercial and residential solar systems, battery backup and inverters, energy audits, and performance monitoring.",
+  url: "https://mainstreamgreenenergy.com.ng",
   phone: "+234 706 667 0673",
   phoneHref: "tel:+2347066670673",
-  email: "ask@damdavytechnologies.com.ng",
-  emailHref: "mailto:ask@damdavytechnologies.com.ng",
+  email: "hello@mainstreamgreenenergy.com.ng",
+  emailHref: "mailto:hello@mainstreamgreenenergy.com.ng",
   address: {
     street: "214 Ibadan road, beside Gatelink filling station, express",
     locality: "Imowo",
@@ -42,11 +42,11 @@ export const site = {
   geo: { latitude: 6.7, longitude: 3.27 },
   areasServed: ["Ogun State", "Lagos State", "Ibadan", "Nigeria"],
   mapHref:
-    "https://www.google.com/maps/search/?api=1&query=Damdavy%20Technologies%20214%20Ibadan%20road%20Imowo%20Ogun%20State",
+    "https://www.google.com/maps/search/?api=1&query=Mainstream%20Green%20Energy%20Solutions%20Ibadan%20road%20Ogun%20State",
   social: {
-    facebook: "https://www.facebook.com/damdavytechnologies",
-    instagram: "https://www.instagram.com/damdavytechnologies",
-    twitter: "https://twitter.com/damdavytech",
+    facebook: "https://www.facebook.com/mainstreamgreenenergysolutions",
+    instagram: "https://www.instagram.com/mainstreamgreenenergy",
+    twitter: "https://twitter.com/mainstreamgreen",
   },
   keywords: [
     "solar installation Nigeria",
@@ -57,18 +57,18 @@ export const site = {
     "battery backup and inverters",
     "solar maintenance and monitoring",
     "solar energy audit",
-    "Damdavy Technologies",
+    "Mainstream Green Energy Solutions",
   ],
 };
 
 export const faqPageItems = [
   {
-    question: "What solar services does Damdavy Technologies offer?",
+    question: "What solar services does Mainstream Green Energy Solutions offer?",
     answer:
-      "Damdavy Technologies offers solar panel sales and installation, commercial and residential solar systems, battery backup and inverter systems, energy audits and consultation, and ongoing maintenance with performance monitoring.",
+      "Mainstream Green Energy Solutions offers solar panel sales and installation, commercial and residential solar systems, battery backup and inverter systems, energy audits and consultation, and ongoing maintenance with performance monitoring.",
   },
   {
-    question: "Where is Damdavy Technologies located?",
+    question: "Where is Mainstream Green Energy Solutions located?",
     answer:
       "Our head office is at 214 Ibadan road, beside Gatelink filling station, express, Imowo 120101, Ogun State, Nigeria. We serve clients across Ogun State, Lagos, Ibadan, and wider Nigeria.",
   },
@@ -78,7 +78,7 @@ export const faqPageItems = [
       "We start with an energy audit that reviews your appliances, operating hours, backup expectations, and budget before recommending panel, battery, and inverter sizes. The assessment can be done on-site or virtually.",
   },
   {
-    question: "Does Damdavy install solar for businesses?",
+    question: "Does Mainstream Green install solar for businesses?",
     answer:
       "Yes. We design commercial solar systems that reduce fuel costs and keep operations productive during grid outages, for offices, retail, facilities, and industrial sites.",
   },
@@ -246,12 +246,12 @@ export const testimonials = [
   {
     name: "Adewale Ogunnugba",
     quote:
-      "The practical aspects made me understand how solar works, including calculations for panels, battery size, and inverter size. I look forward to more Damdavy Technologies training.",
+      "The practical aspects made me understand how solar works, including calculations for panels, battery size, and inverter size. I look forward to more Mainstream Green Energy Solutions training.",
   },
   {
     name: "Temitope Racheal",
     quote:
-      "A very professional company. Damdavy Technologies installed a ground solar array on our property and everything worked perfectly. I highly recommend them.",
+      "A very professional company. Mainstream Green Energy Solutions installed a ground solar array on our property and everything worked perfectly. I highly recommend them.",
   },
   {
     name: "Omoyemi Adeyinka",
@@ -260,7 +260,7 @@ export const testimonials = [
   {
     name: "Jesubanwo Adejoke Oluwatoyin",
     quote:
-      "Damdavy Technologies is the best of its kind. Their service is on a higher level. I would definitely do more business with them.",
+      "Mainstream Green Energy Solutions is the best of its kind. Their service is on a higher level. I would definitely do more business with them.",
   },
   {
     name: "Olayinka Olumide",
@@ -303,7 +303,7 @@ export const faqItems = [
   {
     question: "Do you support systems after installation?",
     answer:
-      "Yes. Damdavy emphasizes post-installation monitoring, quick fault resolution, customer support, and maintenance.",
+      "Yes. Mainstream Green emphasizes post-installation monitoring, quick fault resolution, customer support, and maintenance.",
   },
 ];
 

@@ -148,7 +148,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">{post.excerpt}</p>
             )}
             <p className="mt-8 text-sm text-white/56">
-              By <span className="font-semibold text-white/80">{post.author_name ?? "Damdavy Team"}</span>
+              By <span className="font-semibold text-white/80">{post.author_name ?? "Mainstream Green Team"}</span>
             </p>
           </div>
         </header>

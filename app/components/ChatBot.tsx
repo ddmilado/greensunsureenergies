@@ -73,7 +73,7 @@ export function ChatBot() {
                 <ChatCircleDots size={20} weight="fill" className="text-[var(--ink-950)]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">Damdavy Assistant</p>
+                <p className="text-sm font-semibold text-white">Mainstream Green Assistant</p>
                 <span className="inline-flex items-center gap-1 rounded-full border border-[var(--solar-lime)]/30 bg-[var(--solar-lime)]/15 px-2 py-0.5 text-[10px] font-medium text-[var(--solar-lime)]">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--solar-lime)]" />
                   Online

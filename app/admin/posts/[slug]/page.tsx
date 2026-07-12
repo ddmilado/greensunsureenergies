@@ -25,7 +25,7 @@ export default async function EditPostPage({ params }: { params: Promise<Params>
             title: post.title,
             slug: post.slug,
             category: post.category ?? "",
-            author_name: post.author_name ?? "Damdavy Team",
+            author_name: post.author_name ?? "Mainstream Green Team",
             reading_minutes: post.reading_minutes ?? 5,
             excerpt: post.excerpt ?? "",
             body: post.body ?? "",

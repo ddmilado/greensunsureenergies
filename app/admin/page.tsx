@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { adminListProducts, listLeads, listPosts, listProjects } from "@/app/lib/dal";
 
-export const metadata = { title: "Admin overview | Damdavy" };
+export const metadata = { title: "Admin overview | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminOverviewPage() {

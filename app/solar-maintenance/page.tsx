@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Solar Maintenance & Monitoring | Damdavy Technologies",
+  title: "Solar Maintenance & Monitoring | Mainstream Green Energy Solutions",
   description:
     "Scheduled cleaning, inspections, performance monitoring, and 24/7 fault response for residential and commercial solar systems across Nigeria.",
   alternates: { canonical: "/solar-maintenance" },
   openGraph: {
-    title: "Solar Maintenance & Monitoring | Damdavy Technologies",
+    title: "Solar Maintenance & Monitoring | Mainstream Green Energy Solutions",
     description: "Keep your solar system performing like new.",
     url: "/solar-maintenance",
     type: "website",

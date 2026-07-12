@@ -1,7 +1,7 @@
 import { PostForm } from "../PostForm";
 import { createPostAction } from "@/app/lib/actions/content";
 
-export const metadata = { title: "Admin · New post | Damdavy" };
+export const metadata = { title: "Admin · New post | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 export default function NewPostPage() {

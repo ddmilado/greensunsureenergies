@@ -4,7 +4,7 @@ import { UserCircle, Package, SignOut, ArrowRight, GearSix } from "@phosphor-ico
 import { logoutAction } from "@/app/lib/actions/auth";
 import { getSessionUser } from "@/app/lib/dal";
 
-export const metadata: Metadata = { title: "My account | Damdavy", alternates: { canonical: "/account" } };
+export const metadata: Metadata = { title: "My account | Mainstream Green", alternates: { canonical: "/account" } };
 export const dynamic = "force-dynamic";
 
 export default async function AccountPage({ searchParams }: { searchParams: Promise<{ welcome?: string }> }) {
@@ -19,7 +19,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           {sp.welcome === "1" && (
             <div className="mb-6 flex items-center gap-3 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-800 ring-1 ring-emerald-200">
               <UserCircle size={24} weight="duotone" />
-              Welcome to Damdavy, {user.fullName}. Your account has been created.
+              Welcome to Mainstream Green, {user.fullName}. Your account has been created.
             </div>
           )}
 

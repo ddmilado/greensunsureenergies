@@ -8,7 +8,7 @@ export function AuthLayout({
   subtitle,
   children,
   image = "/hero-3.jpg",
-  imageAlt = "Damdavy solar installation",
+  imageAlt = "Mainstream Green solar installation",
 }: {
   eyebrow: string;
   title: string;

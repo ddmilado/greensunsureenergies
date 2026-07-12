@@ -2,7 +2,7 @@ import Link from "next/link";
 import { listPosts } from "@/app/lib/dal";
 import { deletePostAction } from "@/app/lib/actions/content";
 
-export const metadata = { title: "Admin · Posts | Damdavy" };
+export const metadata = { title: "Admin · Posts | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminPostsListPage() {

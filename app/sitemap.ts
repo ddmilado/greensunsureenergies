@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listAllPostSlugs, listAllProjectSlugs } from "./lib/dal";
 
-const BASE = "https://damdavytechnologies.com.ng";
+const BASE = "https://mainstreamgreenenergy.com.ng";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

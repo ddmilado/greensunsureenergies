@@ -17,7 +17,7 @@ export function ProjectShowcase({ full = false }: { full?: boolean }) {
             <div className="relative flex h-full min-h-[430px] overflow-hidden rounded-[2.05rem] bg-[var(--ink-900)]">
               <Image
                 src={project.image}
-                alt={`${project.title} by Damdavy Technologies`}
+                alt={`${project.title} by Mainstream Green Energy Solutions`}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover opacity-78 saturate-[0.92] transition duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 group-hover:opacity-95"

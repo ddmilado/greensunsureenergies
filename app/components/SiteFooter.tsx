@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { EnvelopeSimple, FacebookLogo, InstagramLogo, MapPin, Phone, XLogo } from "@phosphor-icons/react/dist/ssr";
 import { navItems, site, supportLinks } from "../data/site";
+import { Logo } from "./Logo";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-[var(--ink-950)] px-4 py-12 text-white md:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
-          <Image src="/brand/Icon and name Green White.png" alt="Damdavy Technologies" width={280} height={63} className="h-16 w-auto" priority />
+          <Logo />
           <p className="mt-5 max-w-md text-base leading-7 text-white/68">
             We help homes and businesses cut fuel costs and enjoy true energy freedom with dependable solar systems, expert installation, and long-term support.
           </p>
@@ -59,7 +60,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/48 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} Damdavy Technologies. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Mainstream Green Energy Solutions. All rights reserved.</p>
       </div>
     </footer>
   );

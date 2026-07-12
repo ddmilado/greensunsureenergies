@@ -252,7 +252,7 @@ const PostInputSchema = z.object({
   excerpt: z.string().max(400).optional().default(""),
   body: z.string().max(50000).optional().default(""),
   cover_image: z.string().max(500).optional().default(""),
-  author_name: z.string().max(80).optional().default("Damdavy Team"),
+  author_name: z.string().max(80).optional().default("Mainstream Green Team"),
   reading_minutes: z.coerce.number().int().min(1).max(60).default(5),
   active: z.union([z.literal("on"), z.literal("true"), z.literal("false"), z.literal("")]).optional(),
 });
@@ -313,7 +313,7 @@ function toPostRow(input: z.infer<typeof PostInputSchema>) {
     excerpt: input.excerpt || null,
     body: input.body || null,
     cover_image: input.cover_image || null,
-    author_name: input.author_name || "Damdavy Team",
+    author_name: input.author_name || "Mainstream Green Team",
     reading_minutes: input.reading_minutes,
     active: input.active !== "false",
     published_at: new Date().toISOString(),

@@ -16,7 +16,7 @@ export function ButtonLink({
   className = "",
 }: ButtonLinkProps) {
   const base =
-    "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-5 py-2.5 text-sm font-semibold tracking-[-0.01em] transition-[transform,background,color,border-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300";
+    "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-5 py-2.5 text-sm font-semibold tracking-[-0.01em] transition-[transform,background,color,border-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300";
   const variants = {
     primary:
       "bg-[var(--solar-lime)] text-[var(--ink-950)] shadow-[0_18px_60px_rgba(146,210,67,0.24)] hover:bg-white",

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { listProjects } from "@/app/lib/dal";
 import { deleteProjectAction } from "@/app/lib/actions/content";
 
-export const metadata = { title: "Admin · Projects | Damdavy" };
+export const metadata = { title: "Admin · Projects | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminProjectsListPage() {

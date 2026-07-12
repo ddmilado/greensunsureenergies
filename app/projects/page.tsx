@@ -9,12 +9,12 @@ import { faqItems } from "../data/site";
 import { breadcrumbsJsonLd, faqJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Solar Projects & Installations | Damdavy Technologies",
+  title: "Solar Projects & Installations | Mainstream Green Energy Solutions",
   description:
-    "See Damdavy Technologies solar installations for residential roofs, commercial buildings, industrial backup, and open-field arrays across Nigeria.",
+    "See Mainstream Green Energy Solutions solar installations for residential roofs, commercial buildings, industrial backup, and open-field arrays across Nigeria.",
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: "Solar Projects & Installations | Damdavy Technologies",
+    title: "Solar Projects & Installations | Mainstream Green Energy Solutions",
     description: "Residential, commercial, industrial, and open-field solar installations in Nigeria.",
     url: "/projects",
     type: "website",
@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
       <PageHero
         title="Solar projects built for daily reliability."
         kicker="Projects"
-        text="A visual look at residential, commercial, industrial, and larger solar installations delivered by Damdavy Technologies."
+        text="A visual look at residential, commercial, industrial, and larger solar installations delivered by Mainstream Green Energy Solutions."
         image="/solar-inspect.jpg"
       />
 

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Solar Installation in Ogun State | Damdavy Technologies",
+  title: "Solar Installation in Ogun State | Mainstream Green Energy Solutions",
   description:
     "Solar panel and battery installation across Ogun State, Lagos, and Ibadan. Local team, fast response, and a track record of residential and commercial installs.",
   alternates: { canonical: "/solar-installation-ogun-state" },
   openGraph: {
-    title: "Solar Installation in Ogun State | Damdavy Technologies",
+    title: "Solar Installation in Ogun State | Mainstream Green Energy Solutions",
     description: "Local solar installers in Ogun State, Lagos, and Ibadan.",
     url: "/solar-installation-ogun-state",
     type: "website",

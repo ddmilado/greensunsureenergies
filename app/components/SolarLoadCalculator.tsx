@@ -205,7 +205,7 @@ export function SolarLoadCalculator() {
 
             <p className="mt-4 text-xs text-[var(--ink-300)]">
               * Estimates based on 5 peak sun hours, 50% depth of discharge, and ₦250–400/watt installed cost.
-              Contact Damdavy for a precise site assessment.
+              Contact Mainstream Green for a precise site assessment.
             </p>
           </>
         )}

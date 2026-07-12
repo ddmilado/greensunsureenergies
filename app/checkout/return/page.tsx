@@ -5,7 +5,7 @@ import { CheckCircle, Package, XCircle, Clock } from "@phosphor-icons/react/dist
 import { createServerClient_ } from "@/app/lib/supabase/server";
 import { paystackVerify } from "@/app/lib/paystack";
 
-export const metadata: Metadata = { title: "Order status | Damdavy" };
+export const metadata: Metadata = { title: "Order status | Mainstream Green" };
 export const dynamic = "force-dynamic";
 
 export default async function CheckoutReturnPage({
