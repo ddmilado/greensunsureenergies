@@ -23,28 +23,28 @@ export const site = {
   longDescription:
     "Mainstream Green Energy Solutions is a Nigerian green energy company that designs, installs, and maintains solar power systems for homes and businesses. We help clients reduce fuel and generator costs, enjoy uninterrupted electricity, and get long-term support after installation. Services include solar panel sales and installation, commercial and residential solar systems, battery backup and inverters, energy audits, and performance monitoring.",
   url: "https://mainstreamgreenenergy.com.ng",
-  phone: "+234 706 667 0673",
-  phoneHref: "tel:+2347066670673",
-  email: "hello@mainstreamgreenenergy.com.ng",
-  emailHref: "mailto:hello@mainstreamgreenenergy.com.ng",
+  phone: "0803 825 5246",
+  phoneHref: "tel:08038255246",
+  email: "mainstreamenergies@gmail.com",
+  emailHref: "mailto:mainstreamenergies@gmail.com",
   address: {
-    street: "214 Ibadan road, beside Gatelink filling station, express",
-    locality: "Imowo",
-    postalCode: "120101",
-    region: "Ogun State",
+    street: "Ibadan",
+    locality: "Ibadan",
+    postalCode: "",
+    region: "Oyo State",
     country: "NG",
-    full: "214 Ibadan road, beside Gatelink filling station, express, Imowo 120101, Ogun State",
+    full: "Ibadan, Oyo State, Nigeria",
   },
   hours: "Mon-Sat: 8am-6pm · Sunday: Closed",
   openingHours: [
     "Mo-Sa 08:00-18:00",
   ],
-  geo: { latitude: 6.7, longitude: 3.27 },
-  areasServed: ["Ogun State", "Lagos State", "Ibadan", "Nigeria"],
+  geo: { latitude: 7.3775, longitude: 3.947 },
+  areasServed: ["Ibadan", "Oyo State", "Lagos", "Nigeria"],
   mapHref:
-    "https://www.google.com/maps/search/?api=1&query=Mainstream%20Green%20Energy%20Solutions%20Ibadan%20road%20Ogun%20State",
+    "https://www.google.com/maps/search/?api=1&query=Mainstream%20Green%20Energy%20Solutions%20Ibadan%20Oyo%20State",
   social: {
-    facebook: "https://www.facebook.com/mainstreamgreenenergysolutions",
+    facebook: "https://web.facebook.com/Mainstream.renewableenergies",
     instagram: "https://www.instagram.com/mainstreamgreenenergy",
     twitter: "https://twitter.com/mainstreamgreen",
   },
@@ -90,7 +90,7 @@ export const faqPageItems = [
   {
     question: "How do I request a solar quote?",
     answer:
-      "Call +234 706 667 0673 or request a quote on the contact page. We provide a breakdown of cost, equipment, installation steps, and long-term savings.",
+      `Call ${site.phone} or request a quote on the contact page. We provide a breakdown of cost, equipment, installation steps, and long-term savings.`,
   },
 ];
 

@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { site } from "./data/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = "https://mainstreamgreenenergy.com.ng";
+  const base = site.url;
 
   return {
     rules: [

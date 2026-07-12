@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { submitContactAction, submitQuoteAction, type LeadFormState } from "../lib/actions/content";
 import { SubmitButton } from "../_components/SubmitButton";
+import { site } from "../data/site";
 
 export function ContactForm({ quoteOnly = false }: { quoteOnly?: boolean }) {
   const contactAction = submitContactAction;
@@ -67,7 +68,7 @@ export function ContactForm({ quoteOnly = false }: { quoteOnly?: boolean }) {
               name="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="+234 706 667 0673"
+              placeholder={site.phone}
               required
             />
             {state?.errors?.phone && <span className="text-xs text-red-600">{state.errors.phone[0]}</span>}

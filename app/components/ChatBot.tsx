@@ -3,6 +3,7 @@
 import { useChat } from "@ai-sdk/react";
 import { PaperPlaneTilt, ChatCircleDots, X } from "@phosphor-icons/react";
 import { useState, useRef, useEffect } from "react";
+import { site } from "../data/site";
 
 function renderLinks(text: string, siteOrigin: string) {
   const parts: { type: "text" | "link"; content: string; href?: string }[] = [];
@@ -162,7 +163,7 @@ export function ChatBot() {
 
             {isError && (
               <div className="mr-auto rounded-2xl rounded-bl-md bg-red-50 px-4 py-3 text-xs text-red-600 ring-1 ring-red-200">
-                Connection issue. Please try again or call +234 706 667 0673.
+                Connection issue. Please try again or call {site.phone}.
               </div>
             )}
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { EnergyScene } from "./components/EnergyScene";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "./components/ButtonLink";
 import { CTASection } from "./components/CTASection";
@@ -47,20 +46,18 @@ export default async function Home() {
       <JsonLd data={[faqJsonLd(), ...serviceListJsonLd()]} />
       <ScrollChoreography />
 
-      <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--ink-950)] px-4 pb-20 pt-24 text-white md:px-8 md:pt-40">
-        <EnergyScene />
-        <div className="energy-grid absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(0,230,118,0.24),transparent_35%),linear-gradient(180deg,rgba(3,21,13,0.15),rgba(3,21,13,0.92))]" />
+      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--ink-950)] px-4 pt-24 text-white md:px-8 md:pt-28">
+        <HeroVideo />
 
-        <div className="relative z-10 mx-auto grid min-h-[calc(100dvh-10rem)] max-w-7xl items-center gap-12 lg:grid-cols-[1fr_0.72fr]">
+        <div className="relative z-10 mx-auto w-full max-w-7xl py-20">
           <Reveal>
             <p className="mb-6 inline-flex rounded-full border border-white/14 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)] backdrop-blur-md">
               Solar energy systems for homes and businesses
             </p>
-            <h1 className="max-w-6xl text-balance text-[clamp(3.6rem,8vw,8.4rem)] font-semibold leading-[1.08] tracking-[-0.065em]">
+            <h1 className="max-w-5xl text-balance text-[clamp(3.6rem,8vw,8.4rem)] font-semibold leading-[1.08] tracking-[-0.065em] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)]">
               Bright power,<br />brighter smiles.
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/90 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
               Dependable solar systems that light up homes, strengthen businesses, and bring peace of mind.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -68,19 +65,6 @@ export default async function Home() {
               <ButtonLink href={site.phoneHref} variant="secondary">
                 Call Mainstream Green
               </ButtonLink>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.12} className="relative hidden lg:block">
-            <div className="rounded-[2.75rem] bg-white/8 p-2 ring-1 ring-white/14 backdrop-blur-md">
-              <div className="relative min-h-[560px] overflow-hidden rounded-[2.25rem] bg-[var(--ink-900)]">
-                <HeroVideo />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,21,13,0.82))]" />
-                <div className="absolute bottom-6 left-6 right-6 rounded-[1.75rem] border border-white/12 bg-white/10 p-5 backdrop-blur-xl">
-                  <p className="text-sm text-white/62">Live energy mission</p>
-                  <p className="mt-2 text-2xl font-semibold tracking-[-0.04em]">Fuel-free freedom for everyday power.</p>
-                </div>
-              </div>
             </div>
           </Reveal>
         </div>
