@@ -12,17 +12,17 @@ export function CTASection() {
           <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="mb-5 text-sm font-semibold uppercase tracking-[0.24em] text-[var(--solar-lime)]">
-                Thinking about going solar?
+                Ready to cut your energy costs?
               </p>
               <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-[0.96] tracking-[-0.06em] md:text-6xl">
-                Start your journey to reliable, affordable power.
+                Get an instant solar estimate — no commitment.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                Request a free solar estimate and get a breakdown of cost, equipment, installation steps, and long-term savings.
+                Use our solar calculator to estimate your system size, cost range, and potential savings — all before you call us.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <ButtonLink href="/contact-us#quote">Request quote</ButtonLink>
+              <ButtonLink href="/solar-calculator">Get instant solar estimate</ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
                 Call now
               </ButtonLink>

@@ -60,10 +60,10 @@ export default async function Home() {
               Bright power,<br />brighter smiles.
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-white/90 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
-              Professional solar installations, products, and training in Warri, Delta State. Empowering homes and businesses with clean, reliable energy.
+              Professional solar installation, maintenance & energy solutions in Warri, Delta State. Solar products, training & instant cost estimation. Empowering homes & businesses with clean, reliable energy.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact-us#quote">Request quote</ButtonLink>
+              <ButtonLink href="/solar-calculator">Get instant solar estimate</ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
                 Call Green Sunsure
               </ButtonLink>
