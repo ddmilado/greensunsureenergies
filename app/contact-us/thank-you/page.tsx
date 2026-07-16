@@ -45,7 +45,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
             <a
               href={site.phoneHref}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--ink-950)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
             >
               Call {site.phone}
             </a>

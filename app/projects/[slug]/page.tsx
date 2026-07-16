@@ -123,7 +123,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
       />
 
       <article>
-        <header className="bg-[var(--ink-950)] px-4 pb-20 pt-40 text-white md:px-8 md:pb-28 md:pt-48">
+        <header className="bg-[var(--surface)] px-4 pb-20 pt-40 text-white md:px-8 md:pb-28 md:pt-48">
           <div className="mx-auto max-w-4xl">
             <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--solar-lime)]">
               <span>{project.category}</span>
@@ -157,7 +157,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
         {project.cover_image && (
           <Reveal>
             <div className="mx-auto -mt-12 max-w-6xl px-4 md:px-8">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-[var(--ink-900)] shadow-[0_32px_120px_rgba(3,30,48,0.18)]">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-[var(--surface)] shadow-[0_32px_120px_rgba(3,30,48,0.18)]">
                 <Image
                   src={project.cover_image}
                   alt={project.title}
@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
               dangerouslySetInnerHTML={{ __html: html || "<p>This case study is being written. Check back soon.</p>" }}
             />
             <aside className="h-fit rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-              <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+              <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
                   Project specs
                 </h2>
@@ -198,7 +198,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
                 </dl>
                 <Link
                   href="/contact-us#quote"
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--ink-950)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--surface)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
                 >
                   Request a similar system
                 </Link>
@@ -211,7 +211,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
           <section className="px-4 py-12 md:px-8">
             <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
               {gallery.slice(1).map((g, i) => (
-                <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--ink-900)]">
+                <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--surface)]">
                   <Image src={g.url} alt={g.alt ?? project.title} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
                 </div>
               ))}
@@ -220,14 +220,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
         )}
 
         {related.length > 0 && (
-          <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-28">
+          <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-28">
             <div className="mx-auto max-w-6xl">
               <h2 className="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">More Green Sunsure projects</h2>
               <ul className="mt-10 grid gap-5 md:grid-cols-3">
                 {related.map((p) => (
                   <li key={p.id} className="rounded-[2rem] bg-white/8 p-1.5 ring-1 ring-white/12">
                     <Link href={`/projects/${p.slug}`} className="block overflow-hidden rounded-[1.6rem]">
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--ink-900)]">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--surface)]">
                         {p.cover_image ? (
                           <Image src={p.cover_image} alt={p.title} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover opacity-80 transition group-hover:scale-105" />
                         ) : (

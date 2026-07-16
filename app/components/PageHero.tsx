@@ -13,7 +13,7 @@ export function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[var(--ink-950)] px-4 pb-20 pt-28 text-white md:px-8 md:pb-28 md:pt-44">
+    <section className="relative overflow-hidden bg-[var(--surface)] px-4 pb-20 pt-28 text-white md:px-8 md:pb-28 md:pt-44">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(47,224,255,0.22),transparent_34%),radial-gradient(circle_at_82%_16%,rgba(146,210,67,0.18),transparent_30%)]" />
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
         <div className="relative z-10">

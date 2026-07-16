@@ -72,7 +72,7 @@ export default async function CheckoutReturnPage({
               <p className="mt-3 text-xs text-[var(--ink-300)]">Reference: {reference}</p>
               <Link
                 href="/account/orders"
-                className="mt-10 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--ink-950)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+                className="mt-10 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
               >
                 <Package size={18} weight="bold" />
                 View my orders

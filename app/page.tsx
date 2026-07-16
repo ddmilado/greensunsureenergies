@@ -49,7 +49,7 @@ export default function Home() {
       <ScrollChoreography />
 
       {/* Hero section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--ink-950)] px-4 pt-20 text-white md:px-8 md:pt-24">
+      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-20 text-white md:px-8 md:pt-24">
         <HeroVideo />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl py-14 md:py-16">
@@ -146,7 +146,7 @@ export default function Home() {
                 <div className="relative aspect-video w-full overflow-hidden rounded-[2.1rem] bg-[var(--mist)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={pkg.image} alt={pkg.name} className="h-full w-full object-cover" />
-                  <div className="absolute left-4 top-4 rounded-full bg-[var(--ink-950)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+                  <div className="absolute left-4 top-4 rounded-full bg-[var(--surface)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                     {pkg.slug === 'lite' ? 'Basic Power' : 'Full Backup'}
                   </div>
                 </div>
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Why choose us */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-40">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-40">
         <SectionHeading eyebrow="Why choose us" title="Power you can trust, comfort you can feel.">
           <p className="text-white/70 font-medium">We do not just install solar systems. We deliver long-lasting energy freedom for homes and businesses.</p>
         </SectionHeading>
@@ -297,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* Certification & accreditation */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Certifications" title="Trusted, accredited, and certified.">
           <p className="text-white/70">Green Sunsure Energy meets national and international standards for solar installation and renewable energy consulting.</p>
         </SectionHeading>
@@ -411,7 +411,7 @@ export default function Home() {
                 href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--ink-950)] px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue-dark)] hover:text-white"
+                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--surface)] px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue-dark)] hover:text-white"
               >
                 Visit Facebook Page
               </a>
@@ -484,7 +484,7 @@ export default function Home() {
       </section>
 
       {/* Incorporation Certificate */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Certificate of Incorporation" title="Green Sunsure Energy Solution And Technology Ltd">
           <p className="text-white/70">Officially registered and incorporated in Nigeria. We operate with full legal compliance and regulatory approvals.</p>
         </SectionHeading>

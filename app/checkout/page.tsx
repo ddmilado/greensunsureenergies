@@ -38,7 +38,7 @@ export default async function CheckoutPage() {
             <CheckoutForm />
 
             {/* Summary */}
-            <aside className="h-fit overflow-hidden rounded-[2rem] bg-[var(--ink-950)] p-6 text-white lg:sticky lg:top-24">
+            <aside className="h-fit overflow-hidden rounded-[2rem] bg-[var(--surface)] p-6 text-white lg:sticky lg:top-24">
               <h2 className="text-lg font-semibold tracking-[-0.03em]">Order summary</h2>
               <ul className="mt-5 space-y-3 text-sm">
                 {items.map((it) => (

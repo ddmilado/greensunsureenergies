@@ -25,7 +25,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
 
           {/* Header */}
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center">
-            <div className="grid size-14 shrink-0 place-items-center rounded-full bg-[var(--ink-950)] text-white sm:size-16">
+            <div className="grid size-14 shrink-0 place-items-center rounded-full bg-[var(--surface)] text-white sm:size-16">
               <UserCircle size={28} weight="duotone" className="sm:size-8" />
             </div>
             <div className="text-center sm:text-left">
@@ -43,7 +43,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               href="/account/orders"
               className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
             >
-              <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+              <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
                 <Package size={28} weight="duotone" className="text-[var(--brand-blue)]" />
                 <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">My orders</h2>
                 <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">
@@ -62,7 +62,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
                 href="/admin"
                 className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
               >
-                <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+                <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
                   <GearSix size={28} weight="duotone" className="text-[var(--brand-blue)]" />
                   <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">Admin panel</h2>
                   <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">
@@ -77,7 +77,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             )}
 
             {/* Account info */}
-            <div className="rounded-[2rem] bg-[var(--ink-950)] p-6 text-white">
+            <div className="rounded-[2rem] bg-[var(--surface)] p-6 text-white">
               <h2 className="text-lg font-semibold tracking-[-0.03em]">Account details</h2>
               <dl className="mt-4 space-y-3 text-sm">
                 <div>

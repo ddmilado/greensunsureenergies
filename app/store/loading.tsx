@@ -1,6 +1,6 @@
 export default function StoreLoading() {
   return (
-    <div className="min-h-screen bg-[var(--ink-950)] px-4 pt-40 md:px-8 md:pt-48">
+    <div className="min-h-screen bg-[var(--surface)] px-4 pt-40 md:px-8 md:pt-48">
       <div className="mx-auto max-w-7xl">
         <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
         <div className="mt-4 h-12 w-96 animate-pulse rounded-2xl bg-white/10" />

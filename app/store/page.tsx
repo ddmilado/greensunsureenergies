@@ -51,7 +51,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
   return (
     <main id="main" className="overflow-x-hidden">
       {/* Hero section */}
-      <section className="bg-[var(--ink-950)] px-4 pb-16 pt-28 text-white md:px-8 md:pt-48">
+      <section className="bg-[var(--surface)] px-4 pb-16 pt-28 text-white md:px-8 md:pt-48">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)]">Store</p>
           <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.05em] md:text-6xl">
@@ -98,7 +98,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
                 href="/store"
                 className={`rounded-xl px-3 py-2 text-sm font-medium transition ${
                   !sp.category
-                    ? "bg-[var(--ink-950)] text-white"
+                    ? "bg-[var(--surface)] text-white"
                     : "text-[var(--ink-700)] hover:bg-[var(--shell)]"
                 }`}
               >
@@ -113,7 +113,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
                     href={`/store?category=${c.slug}`}
                     className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${
                       active
-                        ? "bg-[var(--ink-950)] text-white"
+                        ? "bg-[var(--surface)] text-white"
                         : "text-[var(--ink-700)] hover:bg-[var(--shell)]"
                     }`}
                   >
@@ -175,7 +175,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
                           )}
                           {outOfStock && (
                             <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-sm">
-                              <span className="rounded-full bg-[var(--ink-950)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+                              <span className="rounded-full bg-[var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                                 Out of stock
                               </span>
                             </div>

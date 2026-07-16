@@ -36,7 +36,7 @@ export default async function OrdersPage() {
               </p>
               <Link
                 href="/store"
-                className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--ink-950)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+                className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--surface)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
               >
                 Browse the store
               </Link>
@@ -50,7 +50,7 @@ export default async function OrdersPage() {
                     className="group flex items-center gap-4 rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
                   >
                     <div className="flex flex-1 items-center gap-4 rounded-[1.6rem] bg-white p-5">
-                      <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[var(--ink-950)] text-white">
+                      <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[var(--surface)] text-white">
                         <Package size={22} weight="duotone" />
                       </div>
                       <div className="flex-1">

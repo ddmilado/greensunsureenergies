@@ -14,7 +14,7 @@ export function ProjectShowcase({ full = false }: { full?: boolean }) {
           delay={index * 0.06}
         >
           <article data-float-card className="group h-full rounded-[2.5rem] bg-white/8 p-1.5 ring-1 ring-white/12">
-            <div className="relative flex h-full min-h-[430px] overflow-hidden rounded-[2.05rem] bg-[var(--ink-900)]">
+            <div className="relative flex h-full min-h-[430px] overflow-hidden rounded-[2.05rem] bg-[var(--surface)]">
               <Image
                 src={project.image}
                 alt={`${project.title} by Green Sunsure Energy`}

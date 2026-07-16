@@ -48,7 +48,7 @@ export default function ContactPage() {
             const Icon = item.icon;
             const content = (
               <article className="h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition duration-500 hover:-translate-y-1">
-                <div className="h-full rounded-[1.85rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+                <div className="h-full rounded-[1.85rem] bg-white p-6 dark:bg-[var(--shell)]">
                   <Icon size={28} weight="duotone" className="text-[var(--brand-blue)]" />
                   <h2 className="mt-7 text-xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">{item.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-[var(--ink-600)]">{item.text}</p>
@@ -70,7 +70,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section id="quote" className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section id="quote" className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <div className="sticky top-32">

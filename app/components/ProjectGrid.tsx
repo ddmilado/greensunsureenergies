@@ -21,7 +21,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
           }`}
         >
           <Link href={`/projects/${project.slug}`} className="block">
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--ink-900)]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--surface)]">
               {project.cover_image ? (
                 <Image
                   src={project.cover_image}

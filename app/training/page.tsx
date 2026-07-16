@@ -137,7 +137,7 @@ export default function TrainingPage() {
             return (
               <Reveal key={course.title} delay={index * 0.08}>
                 <article className="flex h-full flex-col rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
-                  <div className="flex flex-1 flex-col rounded-[2rem] bg-[var(--mist)] p-7 dark:bg-[var(--ink-950)]">
+                  <div className="flex flex-1 flex-col rounded-[2rem] bg-[var(--mist)] p-7 dark:bg-[var(--surface)]">
                     <span className="grid size-14 place-items-center rounded-2xl bg-white text-[var(--ink-950)] shadow-sm dark:bg-white/10" style={{ color: course.color }}>
                       <Icon size={28} weight="duotone" />
                     </span>
@@ -176,7 +176,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Training gallery */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Training gallery" title="See our workshops and sessions in action.">
           <p className="text-white/70">Real training moments — from panel installation practice to certificate ceremonies.</p>
         </SectionHeading>
@@ -259,7 +259,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Training videos */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Training videos" title="Watch our training sessions in action.">
           <p className="text-white/70">Real footage from real workshops — installation, troubleshooting, and sales techniques.</p>
         </SectionHeading>
@@ -271,7 +271,7 @@ export default function TrainingPage() {
           ].map((video, index) => (
             <Reveal key={video.src} delay={index * 0.08}>
               <article className="overflow-hidden rounded-[2.25rem] bg-white/8 p-2.5 ring-1 ring-white/12">
-                <div className="relative aspect-video w-full overflow-hidden rounded-[1.85rem] bg-[var(--ink-900)]">
+                <div className="relative aspect-video w-full overflow-hidden rounded-[1.85rem] bg-[var(--surface)]">
                   <video
                     src={video.src}
                     controls

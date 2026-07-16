@@ -42,7 +42,7 @@ export default function AboutPage() {
             return (
               <Reveal key={card.title} delay={index * 0.06}>
                 <article className="h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-                  <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--ink-900)]">
+                  <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--shell)]">
                     <Icon size={32} weight="duotone" className="text-[var(--brand-blue)]" />
                     <h2 className="mt-8 text-2xl font-semibold tracking-[-0.04em]">{card.title}</h2>
                     <p className="mt-4 text-base leading-7 text-[var(--ink-600)]">{card.text}</p>
@@ -54,7 +54,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
           {[
             ["Vision", aboutCopy.vision],

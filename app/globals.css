@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --surface: #03150d;
   --paper: #f1f8f3;
   --mist: #e6f6ec;
   --shell: #f4fbf6;
@@ -41,6 +42,7 @@
 }
 
 html.dark {
+  --surface: #03150d;
   --paper: #020c08;
   --mist: #071f14;
   --shell: #041510;

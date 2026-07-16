@@ -241,7 +241,7 @@ export function SolarLoadCalculator() {
           </div>
 
           {/* Savings comparison */}
-          <div className="rounded-[2rem] bg-[var(--ink-950)] p-6 text-white ring-1 ring-white/10 md:p-8">
+          <div className="rounded-[2rem] bg-[var(--surface)] p-6 text-white ring-1 ring-white/10 md:p-8">
             <h3 className="text-lg font-semibold">What You Save with Solar</h3>
             <p className="mt-1 text-sm text-white/60">Based on current electricity tariff estimates</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">

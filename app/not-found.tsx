@@ -5,7 +5,7 @@ import { CTASection } from "./components/CTASection";
 export default function NotFound() {
   return (
     <main id="main" className="overflow-x-hidden">
-      <section className="relative bg-[var(--ink-950)] px-4 pb-28 pt-40 text-white md:px-8 md:pt-48">
+      <section className="relative bg-[var(--surface)] px-4 pb-28 pt-40 text-white md:px-8 md:pt-48">
         <div className="energy-grid absolute inset-0 opacity-50" aria-hidden />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(47,224,255,0.18),transparent_35%),linear-gradient(180deg,rgba(3,17,31,0.1),rgba(3,17,31,0.92))]" aria-hidden />
         <div className="relative mx-auto max-w-3xl text-center">

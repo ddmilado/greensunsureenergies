@@ -20,7 +20,7 @@ export function CheckoutForm() {
     <form action={action} className="grid gap-6">
       {/* Contact */}
       <fieldset className="rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-        <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+        <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
           <h2 className="text-lg font-semibold tracking-[-0.03em] text-[var(--ink-950)]">Contact details</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <label className="grid gap-1.5">
@@ -44,7 +44,7 @@ export function CheckoutForm() {
 
       {/* Shipping */}
       <fieldset className="rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-        <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
+        <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
           <h2 className="text-lg font-semibold tracking-[-0.03em] text-[var(--ink-950)]">Shipping address</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <label className="grid gap-1.5 sm:col-span-2">

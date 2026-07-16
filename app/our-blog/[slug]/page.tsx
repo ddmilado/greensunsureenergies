@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       />
 
       <article>
-        <header className="bg-[var(--ink-950)] px-4 pb-20 pt-40 text-white md:px-8 md:pb-28 md:pt-48">
+        <header className="bg-[var(--surface)] px-4 pb-20 pt-40 text-white md:px-8 md:pb-28 md:pt-48">
           <div className="mx-auto max-w-3xl">
             <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--solar-lime)]">
               <span>{post.category ?? "Article"}</span>
@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         {post.cover_image && (
           <Reveal>
             <div className="mx-auto -mt-12 max-w-5xl px-4 md:px-8">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-[var(--ink-900)] shadow-[0_32px_120px_rgba(3,30,48,0.18)]">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-[var(--surface)] shadow-[0_32px_120px_rgba(3,30,48,0.18)]">
                 <Image
                   src={post.cover_image}
                   alt={post.title}
@@ -178,7 +178,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         </section>
 
         {related.length > 0 && (
-          <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-28">
+          <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-28">
             <div className="mx-auto max-w-6xl">
               <h2 className="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">Keep reading</h2>
               <ul className="mt-10 grid gap-5 md:grid-cols-2">

@@ -40,7 +40,7 @@ export default function ProjectsPage() {
       />
 
       {/* Featured installations */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-40">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-40">
         <SectionHeading eyebrow="Featured work" title="Roofs, facilities, hotels, and industrial sites.">
           <p className="text-white/70">
             Every project below is a real installation by Green Sunsure Energy. From 2.5kVA residential systems to 500kW industrial plants — we design, install, and maintain.
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <Reveal key={project.title} delay={index * 0.04}>
               <article className={`group relative overflow-hidden rounded-[2.5rem] bg-white/8 ring-1 ring-white/12 ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}>
-                <div className={`relative w-full overflow-hidden bg-[var(--ink-900)] ${index === 0 ? "aspect-[16/7]" : "aspect-[16/9]"}`}>
+                <div className={`relative w-full overflow-hidden bg-[var(--surface)] ${index === 0 ? "aspect-[16/7]" : "aspect-[16/9]"}`}>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -106,7 +106,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Video gallery */}
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Video proof" title="Watch our installations and training sessions in action.">
           <p className="text-white/70">Real footage from real solar projects — residential walk-throughs, commercial commissions, and hands-on training workshops.</p>
         </SectionHeading>
@@ -114,7 +114,7 @@ export default function ProjectsPage() {
           {projectVideos.map((video, index) => (
             <Reveal key={video.src} delay={index * 0.06}>
               <article className="overflow-hidden rounded-[2.25rem] bg-white/8 p-2.5 ring-1 ring-white/12">
-                <div className="relative aspect-video w-full overflow-hidden rounded-[1.85rem] bg-[var(--ink-900)]">
+                <div className="relative aspect-video w-full overflow-hidden rounded-[1.85rem] bg-[var(--surface)]">
                   <video
                     src={video.src}
                     controls

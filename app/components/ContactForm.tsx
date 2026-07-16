@@ -19,7 +19,7 @@ export function ContactForm({ quoteOnly = false }: { quoteOnly?: boolean }) {
       action={formAction}
       className="rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]"
     >
-      <div className="rounded-[1.85rem] bg-white p-6 dark:bg-[var(--ink-900)] md:p-8">
+      <div className="rounded-[1.85rem] bg-white p-6 dark:bg-[var(--shell)] md:p-8">
         <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">
           {quoteOnly ? "Request a quote call" : "Send us a message"}
         </h2>

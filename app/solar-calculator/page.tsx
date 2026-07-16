@@ -31,7 +31,7 @@ export default function SolarCalculatorPage() {
         <SolarLoadCalculator />
 
         {/* CTA block */}
-        <div className="mt-16 rounded-[2rem] bg-[var(--ink-950)] p-8 text-center text-white md:p-12">
+        <div className="mt-16 rounded-[2rem] bg-[var(--surface)] p-8 text-center text-white md:p-12">
           <Lightning size={32} className="mx-auto mb-4 text-[var(--solar-lime)]" />
           <h3 className="text-2xl font-semibold tracking-[-0.03em]">Stop wasting money on fuel and generators.</h3>
           <p className="mt-3 max-w-xl mx-auto text-base text-white/70">

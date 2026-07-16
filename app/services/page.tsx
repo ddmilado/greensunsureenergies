@@ -42,7 +42,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Support layer" title="The support around the system matters as much as the equipment.">
           <p className="text-white/70">Green Sunsure positions support, monitoring, and fast fault response as core parts of the solar experience.</p>
         </SectionHeading>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
           {whyChooseUs.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.05}>
               <article className="h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-                <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--ink-900)]">
+                <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--shell)]">
                   <h2 className="text-2xl font-semibold tracking-[-0.04em]">{item.title}</h2>
                   <p className="mt-4 text-base leading-7 text-[var(--ink-600)]">{item.text}</p>
                 </div>
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Popular pages" title="Deep-dive into the services you need most.">
           <p className="text-white/70">Each of these pages is built for a specific buying moment — sizing, ROI, or post-install care.</p>
         </SectionHeading>

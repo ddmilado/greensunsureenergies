@@ -35,7 +35,7 @@ export default async function CartPage() {
             </p>
             <Link
               href="/store"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--ink-950)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
             >
               Browse the store
               <ArrowRight size={16} weight="bold" />
@@ -106,7 +106,7 @@ export default async function CartPage() {
                         />
                         <button
                           type="submit"
-                          className="rounded-full bg-[var(--ink-950)] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+                          className="rounded-full bg-[var(--surface)] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue)]"
                         >
                           Save
                         </button>
@@ -135,7 +135,7 @@ export default async function CartPage() {
             </ul>
 
             {/* Summary */}
-            <aside className="h-fit rounded-[2rem] bg-[var(--ink-950)] p-6 text-white lg:sticky lg:top-24">
+            <aside className="h-fit rounded-[2rem] bg-[var(--surface)] p-6 text-white lg:sticky lg:top-24">
               <h2 className="text-lg font-semibold tracking-[-0.03em]">Summary</h2>
               <dl className="mt-5 space-y-3 text-sm">
                 <div className="flex justify-between">
