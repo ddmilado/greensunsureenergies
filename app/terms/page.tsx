@@ -5,9 +5,9 @@ import { JsonLd } from "../components/JsonLd";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Terms of service | Mainstream Green Energy Solutions",
+  title: "Terms of service | Green Sunsure Energy",
   description:
-    "The terms and conditions that govern your use of the Mainstream Green Energy Solutions website and services.",
+    "The terms and conditions that govern your use of the Green Sunsure Energy website and services.",
   alternates: { canonical: "/terms" },
 };
 
@@ -24,7 +24,7 @@ export default function TermsPage() {
           <p className="mt-4 text-sm text-[var(--ink-600)]">Last updated: January 2026</p>
           <div className="prose-damdavy mt-10">
             <p>
-              By using {site.url} or any service provided by {site.legalName} (&ldquo;Mainstream Green&rdquo;), you agree to the
+              By using {site.url} or any service provided by {site.legalName} (&ldquo;Green Sunsure&rdquo;), you agree to the
               following terms. Please read them carefully.
             </p>
 
@@ -71,13 +71,13 @@ export default function TermsPage() {
 
             <h2>7. Limitation of liability</h2>
             <p>
-              To the maximum extent permitted by law, Mainstream Green is not liable for any indirect, incidental, or
+              To the maximum extent permitted by law, Green Sunsure is not liable for any indirect, incidental, or
               consequential damages arising from the use of the site, products, or installed systems.
             </p>
 
             <h2>8. Intellectual property</h2>
             <p>
-              All content on this site (text, images, logos, design) is owned by Mainstream Green or our licensors and
+              All content on this site (text, images, logos, design) is owned by Green Sunsure or our licensors and
               may not be copied or republished without written permission.
             </p>
 

@@ -5,9 +5,9 @@ import { JsonLd } from "../components/JsonLd";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Privacy policy | Mainstream Green Energy Solutions",
+  title: "Privacy policy | Green Sunsure Energy",
   description:
-    "How Mainstream Green Energy Solutions collects, uses, and protects your personal information when you use our website, request a quote, or buy from our store.",
+    "How Green Sunsure Energy collects, uses, and protects your personal information when you use our website, request a quote, or buy from our store.",
   alternates: { canonical: "/privacy-policy" },
 };
 
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
           <p className="mt-4 text-sm text-[var(--ink-600)]">Last updated: January 2026</p>
           <div className="prose-damdavy mt-10">
             <p>
-              This privacy policy explains how {site.legalName} (&ldquo;Mainstream Green&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,
+              This privacy policy explains how {site.legalName} (&ldquo;Green Sunsure&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,
               uses, and protects your personal information when you visit our website at {site.url}, request a quote,
               or buy from our online store.
             </p>

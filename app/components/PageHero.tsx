@@ -29,7 +29,7 @@ export function PageHero({
         </div>
         <div className="relative z-10 rounded-[2.5rem] bg-white/8 p-1.5 ring-1 ring-white/14">
           <div className="relative min-h-[200px] overflow-hidden rounded-[2rem] md:min-h-[360px]">
-            <Image src={image} alt="Solar energy installation by Mainstream Green Energy Solutions" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            <Image src={image} alt="Solar energy installation by Green Sunsure Energy" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,13,24,0.45))]" />
           </div>
         </div>

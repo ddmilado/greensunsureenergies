@@ -2,7 +2,7 @@ import { formatNGN } from "@/app/lib/format";
 import { adminListProducts } from "@/app/lib/dal";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Admin · Products | Mainstream Green" };
+export const metadata = { title: "Admin · Products | Green Sunsure" };
 
 export default async function AdminProductsPage() {
   const products = await adminListProducts();

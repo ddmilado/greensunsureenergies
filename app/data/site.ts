@@ -11,86 +11,88 @@ import {
   SolarPanel,
   TrendUp,
   Wrench,
+  Camera,
+  GraduationCap,
 } from "@phosphor-icons/react/dist/ssr";
 
 export const site = {
-  name: "Mainstream Green Energy Solutions",
-  legalName: "Mainstream Green Energy Solutions",
-  tagline: "Clean energy that powers progress.",
-  headline: "Bright power, greener tomorrow.",
+  name: "Green Sunsure Energy",
+  legalName: "Green Sunsure Energy Solution And Technology Ltd",
+  tagline: "Empowering homes & businesses with clean, reliable energy.",
+  headline: "Solar Energy Solutions in Warri",
   description:
-    "Dependable green energy and solar systems that light up homes, strengthen businesses, and protect the planet.",
+    "Professional solar installation, maintenance & energy solutions in Warri, Delta State. Solar products, training & instant cost estimation. Serving Delta & beyond.",
   longDescription:
-    "Mainstream Green Energy Solutions is a Nigerian green energy company that designs, installs, and maintains solar power systems for homes and businesses. We help clients reduce fuel and generator costs, enjoy uninterrupted electricity, and get long-term support after installation. Services include solar panel sales and installation, commercial and residential solar systems, battery backup and inverters, energy audits, and performance monitoring.",
-  url: "https://mainstreamgreenenergy.com.ng",
-  phone: "0803 825 5246",
-  phoneHref: "tel:08038255246",
-  email: "mainstreamenergies@gmail.com",
-  emailHref: "mailto:mainstreamenergies@gmail.com",
+    "Green Sunsure Energy Solution And Technology Ltd is a professional solar installation and renewable energy company in Warri, Delta State. We provide high-quality solar panel sales and installations, battery backup systems, hybrid inverters, solar street lights, professional maintenance, and hands-on solar technical training programs. We serve residential, commercial, and industrial clients in Delta State and across Nigeria.",
+  url: "https://www.greensunsurenergy.com",
+  phone: "+234 903 826 0459",
+  phoneHref: "tel:+2349038260459",
+  email: "info@greensunsurenergy.com",
+  emailHref: "mailto:info@greensunsurenergy.com",
   address: {
-    street: "Ibadan",
-    locality: "Ibadan",
-    postalCode: "",
-    region: "Oyo State",
+    street: "53 Udu road, opposite Rainoil filling station, close to Udu bridge beside GKM",
+    locality: "Warri",
+    postalCode: "300011",
+    region: "Delta State",
     country: "NG",
-    full: "Ibadan, Oyo State, Nigeria",
+    full: "53 Udu Road, Warri, Delta State, Nigeria",
   },
   hours: "Mon-Sat: 8am-6pm · Sunday: Closed",
   openingHours: [
     "Mo-Sa 08:00-18:00",
   ],
-  geo: { latitude: 7.3775, longitude: 3.947 },
-  areasServed: ["Ibadan", "Oyo State", "Lagos", "Nigeria"],
+  geo: { latitude: 5.5167, longitude: 5.7500 },
+  areasServed: ["Warri", "Delta State", "Effurun", "Udu", "Benin", "Nigeria"],
   mapHref:
-    "https://www.google.com/maps/search/?api=1&query=Mainstream%20Green%20Energy%20Solutions%20Ibadan%20Oyo%20State",
+    "https://www.google.com/maps/search/?api=1&query=Green%20Sunsure%20Energy%20Warri%20Delta%20State",
   social: {
-    facebook: "https://web.facebook.com/Mainstream.renewableenergies",
-    instagram: "https://www.instagram.com/mainstreamgreenenergy",
-    twitter: "https://twitter.com/mainstreamgreen",
+    facebook: "https://facebook.com/greensunsure",
+    instagram: "https://instagram.com/greensunsure",
+    twitter: "",
   },
   keywords: [
-    "solar installation Nigeria",
-    "solar panel installation Ogun State",
-    "solar inverter installation Nigeria",
-    "commercial solar Nigeria",
-    "residential solar systems",
-    "battery backup and inverters",
-    "solar maintenance and monitoring",
-    "solar energy audit",
-    "Mainstream Green Energy Solutions",
+    "solar company warri",
+    "solar installation delta state",
+    "solar products nigeria",
+    "solar power solutions",
+    "solar training delta",
+    "solar cost estimator",
+    "renewable energy warri",
+    "solar maintenance",
+    "green energy delta",
   ],
 };
 
 export const faqPageItems = [
   {
-    question: "What solar services does Mainstream Green Energy Solutions offer?",
+    question: "What solar services does Green Sunsure Energy offer?",
     answer:
-      "Mainstream Green Energy Solutions offers solar panel sales and installation, commercial and residential solar systems, battery backup and inverter systems, energy audits and consultation, and ongoing maintenance with performance monitoring.",
+      "Green Sunsure Energy offers professional commercial and residential solar installation, high-quality solar product sales (panels, batteries, inverters, street lights), system maintenance and cleaning, CCTV security systems, and certified hands-on renewable energy training courses.",
   },
   {
-    question: "Where is Mainstream Green Energy Solutions located?",
+    question: "Where is Green Sunsure Energy located?",
     answer:
-      "Our head office is at 214 Ibadan road, beside Gatelink filling station, express, Imowo 120101, Ogun State, Nigeria. We serve clients across Ogun State, Lagos, Ibadan, and wider Nigeria.",
+      "Our main office is located at 53 Udu road, opposite Rainoil filling station, close to Udu bridge beside GKM, Warri, Delta State, Nigeria. We serve clients across Delta State and wider Nigeria.",
   },
   {
     question: "How do I know what solar system size I need?",
     answer:
-      "We start with an energy audit that reviews your appliances, operating hours, backup expectations, and budget before recommending panel, battery, and inverter sizes. The assessment can be done on-site or virtually.",
+      "You can use our online Solar Load Calculator to get an instant system size recommendation based on your appliances, or request a free site assessment and energy audit from our certified solar engineering team.",
   },
   {
-    question: "Does Mainstream Green install solar for businesses?",
+    question: "Does Green Sunsure install solar for businesses?",
     answer:
-      "Yes. We design commercial solar systems that reduce fuel costs and keep operations productive during grid outages, for offices, retail, facilities, and industrial sites.",
+      "Yes. We design and install high-performance commercial and industrial solar systems that help businesses eliminate diesel cost and maintain 24/7 uptime without grid dependence.",
   },
   {
-    question: "Do you support the system after installation?",
+    question: "Do you offer a warranty on installations?",
     answer:
-      "Yes. Support includes post-installation monitoring, quick fault resolution, maintenance, energy usage reports, and 24/7 customer support.",
+      "Yes! All of our professional solar installations come with a 5-year workmanship warranty, and all individual products (panels, batteries, inverters) come with 2-5 year manufacturer warranties.",
   },
   {
-    question: "How do I request a solar quote?",
+    question: "How do I register for the solar training program?",
     answer:
-      `Call ${site.phone} or request a quote on the contact page. We provide a breakdown of cost, equipment, installation steps, and long-term savings.`,
+      "You can contact us via WhatsApp or phone to register for our hands-on certified solar technician training course. We hold regular classes in Warri, Delta State.",
   },
 ];
 
@@ -100,224 +102,221 @@ export const navItems = [
   { label: "Services", href: "/services" },
   { label: "Store", href: "/store" },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/our-blog" },
+  { label: "Training", href: "/training" },
   { label: "Contact", href: "/contact-us" },
 ];
 
 export const stats = [
-  { value: "300+", label: "Happy clients" },
-  { value: "23+", label: "Engineers" },
-  { value: "540+", label: "Projects done" },
-  { value: "4.8", label: "Client rating" },
+  { value: "500+", label: "Happy clients" },
+  { value: "15+", label: "Engineers" },
+  { value: "650+", label: "Projects done" },
+  { value: "4.9", label: "Client rating" },
 ];
 
 export const valueCards = [
   {
     title: "Solar installation",
-    text: "Reliable solar systems built to deliver clean, uninterrupted power daily.",
+    text: "Reliable solar systems built to deliver clean, uninterrupted power daily for your home or business.",
     icon: SolarPanel,
   },
   {
     title: "Energy storage",
-    text: "Smart batteries provide backup power during outages and unstable grid supply.",
+    text: "Smart lithium and tubular batteries provide backup power during outages and unstable grid supply.",
     icon: BatteryCharging,
   },
   {
     title: "Maintenance support",
-    text: "Monitoring and support keep your solar system performing efficiently after installation.",
+    text: "Quarterly cleanings, performance audits, and emergency support keep your solar system operating at peak output.",
     icon: Wrench,
   },
 ];
 
 export const services = [
   {
-    title: "Solar panel sales & installation",
-    text: "High-quality solar panels installed professionally for reliable, long-lasting energy.",
+    title: "Commercial & Residential Installation",
+    text: "Professional solar setups tailored for houses, hotels, schools, offices, and manufacturing plants.",
     icon: SolarPanel,
   },
   {
-    title: "Commercial solar solutions",
-    text: "Custom solar systems designed to reduce fuel costs and improve business productivity.",
-    icon: ChartLineUp,
-  },
-  {
-    title: "Residential solar systems",
-    text: "Dependable home solar solutions that keep your electricity running with less interruption.",
-    icon: HouseLine,
-  },
-  {
-    title: "Battery backup & inverters",
-    text: "Energy storage and inverter systems that keep essential loads online when power drops.",
+    title: "Solar Product Sales",
+    text: "Buy top-tier solar panels, inverters, deep cycle batteries, charge controllers, and outdoor street lights.",
     icon: PlugCharging,
   },
   {
-    title: "Energy audits & consultation",
-    text: "Expert assessments to determine the most efficient and cost-saving solar setup.",
-    icon: Monitor,
+    title: "Solar System Maintenance",
+    text: "Keep your system running smoothly with panel cleaning, battery balancing, and diagnostic checkups.",
+    icon: Wrench,
   },
   {
-    title: "Maintenance & performance monitoring",
-    text: "Ongoing support to ensure your solar system operates at peak efficiency.",
-    icon: Wrench,
+    title: "Renewable Energy Training",
+    text: "Become a certified solar engineer through our hands-on technical academy in Delta State.",
+    icon: GraduationCap,
+  },
+  {
+    title: "CCTV & Security Systems",
+    text: "Solar-powered 4G wireless surveillance cameras and security lighting solutions for homes and sites.",
+    icon: Camera,
+  },
+  {
+    title: "Energy Audits & Consulting",
+    text: "Comprehensive load analysis to design the most cost-effective and optimal system size for your needs.",
+    icon: Monitor,
   },
 ];
 
 export const featureList = [
   { title: "24/7 customer support", icon: Headset },
-  { title: "Same-day installation", icon: Lightning },
-  { title: "Post-installation monitoring", icon: Monitor },
-  { title: "Installment payment plans", icon: TrendUp },
-  { title: "Free site assessment", icon: CheckCircle },
-  { title: "Reliable power backup", icon: BatteryCharging },
-  { title: "Quick fault resolution", icon: ShieldCheck },
-  { title: "Energy usage reports", icon: ChartLineUp },
+  { title: "NERC & ISO accredited", icon: ShieldCheck },
+  { title: "Hands-on solar training", icon: GraduationCap },
+  { title: "Flexible installment plans", icon: TrendUp },
+  { title: "Free site assessments", icon: CheckCircle },
+  { title: "Reliable battery backups", icon: BatteryCharging },
+  { title: "Quick fault troubleshooting", icon: Wrench },
+  { title: "CCTV integration", icon: Camera },
 ];
 
 export const whyChooseUs = [
   {
-    title: "Proven reliability",
-    text: "Systems are specified for day-and-night performance, using dependable components and installation practices that protect your energy supply.",
+    title: "Warri-Based Experts",
+    text: "Our team lives and works right here in Delta State. We understand your power challenges because we face them too.",
   },
   {
-    title: "Real fuel and cost savings",
-    text: "We help businesses reduce operating costs and help homeowners cut monthly energy expenses with efficient solar setups.",
+    title: "Proven fuel savings",
+    text: "We help hotels, factories, and homes reduce diesel and grid electricity bills by 70% to 100% with payback in 3-5 years.",
   },
   {
-    title: "Clear, transparent process",
-    text: "No hidden charges and no confusing technical talk. Every step is explained clearly before work begins.",
+    title: "Clean Energy Commitment",
+    text: "We stand for dependable, efficient, and transparent solar solutions designed to perform exactly as promised. No hidden fees.",
   },
   {
-    title: "Customer-first experience",
-    text: "From first audit to final launch, the goal is a smooth installation and support that keeps the system working.",
+    title: "NERC & ISO Certification",
+    text: "Our systems are designed and installed by certified engineers adhering strictly to national and international safety regulations.",
   },
 ];
 
 export const processSteps = [
   {
-    title: "Energy audit",
-    text: "We assess your power needs on-site or virtually to recommend the right solar solution.",
+    title: "Load assessment",
+    text: "We assess your power usage using our calculator or an on-site audit to recommend the right capacity.",
   },
   {
-    title: "System design & proposal",
-    text: "The team creates a tailored system layout with clear pricing, equipment, and savings expectations.",
+    title: "System engineering",
+    text: "We design a customized package, choosing optimal panels, batteries, inverters, and mounts.",
   },
   {
-    title: "Installation & setup",
-    text: "Certified technicians install your system with precision, safety, and minimal disruption.",
+    title: "Professional install",
+    text: "Certified engineers install your solar array safely and configure the backups with minimal downtime.",
   },
   {
-    title: "Final launch & handover",
-    text: "We power on the system, guide you through usage, and confirm that everything runs smoothly.",
+    title: "Support & maintenance",
+    text: "We guide you through operation, hand over warranties, and provide long-term maintenance visits.",
   },
 ];
 
 export const projects = [
   {
-    title: "Residential roof installation",
-    category: "Homes",
-    image: "/hero-1.jpg",
-    text: "Roof-mounted solar designed for dependable household backup and reduced generator dependence.",
-  },
-  {
-    title: "Commercial building solar",
-    category: "Business",
-    image: "/solar-install-1.jpg",
-    text: "Business power systems built to reduce diesel spend and keep operations productive during outages.",
-  },
-  {
-    title: "Industrial facility backup",
+    title: "500kW industrial solar installation",
     category: "Industrial",
-    image: "/solar-inspect.jpg",
-    text: "Higher-capacity solar and inverter planning for facilities that need stable energy and fast support.",
+    image: "/assets/solar6-Cyd0tW-v.jpg",
+    text: "Large-scale rooftop industrial solar plant installed with zero downtime to operations.",
   },
   {
-    title: "Open field solar array",
-    category: "Scale",
-    image: "/solar-install-2.jpg",
-    text: "Ground and open-area installations for larger loads, farms, facilities, and commercial sites.",
+    title: "Hotel installation at Porneco Hotel",
+    category: "Commercial",
+    image: "/assets/solar5-BNpRpaJY.jpg",
+    text: "Solar and battery system eliminating diesel costs and powering hotel rooms 24/7 in Okuokoko.",
+  },
+  {
+    title: "5kVA solar installation @Joemarine",
+    category: "Training Institute",
+    image: "/assets/solar1-Bl0Gsz9o.jpg",
+    text: "Rooftop solar install powering computers and labs at Joemarine Nautical Training Institute in Effurun.",
+  },
+  {
+    title: "Residential solar system in Udu",
+    category: "Residential",
+    image: "/assets/solar2-7GlQQyMk.jpg",
+    text: "2.5kVA home installation providing uninterrupted power for appliances, fans, and light bulbs.",
   },
 ];
 
 export const testimonials = [
   {
-    name: "Adereti Joshua",
-    quote: "Very interesting and beautiful seminar. I love it.",
+    name: "Chief Benson Efe",
+    quote: "Our hotel now runs 24/7 on solar power. Green Sunsure's commercial solution eliminated our diesel costs completely!",
   },
   {
-    name: "Adewale Ogunnugba",
-    quote:
-      "The practical aspects made me understand how solar works, including calculations for panels, battery size, and inverter size. I look forward to more Mainstream Green Energy Solutions training.",
+    name: "Joemarine Training Institute",
+    quote: "From unstable power grids to steady solar energy. Green Sunsure transformed our learning labs and computer systems in Effurun!",
   },
   {
-    name: "Temitope Racheal",
-    quote:
-      "A very professional company. Mainstream Green Energy Solutions installed a ground solar array on our property and everything worked perfectly. I highly recommend them.",
+    name: "Industrial Facility Manager",
+    quote: "A 500kW solar plant installed with zero production disruption. Expert team that understands Delta State's industrial needs.",
   },
   {
-    name: "Omoyemi Adeyinka",
-    quote: "Very good customer service, approachable, calm, and knowledgeable about the job.",
+    name: "Usiefrun Road Homeowner",
+    quote: "Very professional company. They installed our 2.5kVA residential system. Now my family enjoys 24/7 light without generator noise.",
   },
   {
-    name: "Jesubanwo Adejoke Oluwatoyin",
-    quote:
-      "Mainstream Green Energy Solutions is the best of its kind. Their service is on a higher level. I would definitely do more business with them.",
+    name: "Hotel Owner (Okuokoko)",
+    quote: "Their team was knowledgeable, approachable, and completed the work on schedule. Best solar company in Delta State.",
   },
   {
-    name: "Olayinka Olumide",
-    quote: "Reliable solar company.",
+    name: "B. Efe",
+    quote: "Excellent post-installation support. Highly recommend Green Sunsure Energy to any business looking to cut overhead costs.",
   },
 ];
 
 export const blogPosts = [
   {
-    title: "5 Non-Negotiable Questions to Ask Before You Pay",
-    slug: "5-non-negotiable-questions-to-ask-before-you-pay",
-    category: "Info",
-    date: "December 10, 2025",
+    title: "Solar vs Diesel Generator in Delta State: ROI Analysis",
+    slug: "solar-vs-diesel-generator-delta-state",
+    category: "Cost Savings",
+    date: "January 15, 2026",
     excerpt:
-      "Choosing the right solar installer starts with the questions you ask before paying. Here are the five non-negotiable questions you must ask any potential solar installer before signing a contract.",
-    href: "/our-blog/5-non-negotiable-questions-to-ask-before-you-pay",
+      "With rising diesel prices, solar has become the smartest financial decision for Nigerian businesses. We calculate the payback periods and ROI for commercial solar.",
+    href: "/our-blog/solar-vs-diesel-generator-delta-state",
   },
   {
-    title: "The ROI of Solar for Nigerian Businesses",
-    slug: "the-business-case-for-solar",
-    category: "Business",
-    date: "December 10, 2025",
+    title: "How to Size a Battery Bank for 24/7 Power",
+    slug: "how-to-size-battery-bank-solar",
+    category: "Technical Guide",
+    date: "January 8, 2026",
     excerpt:
-      "For Nigerian SMEs, energy costs affect margins daily. Solar can shift fuel spend into a predictable long-term asset. Learn how to calculate ROI, achieve cost savings, and boost operational efficiency.",
-    href: "/our-blog/the-business-case-for-solar",
+      "Learn how to choose between lithium and tubular batteries, size your battery bank, and avoid deep discharge to maximize your solar lifespan.",
+    href: "/our-blog/how-to-size-battery-bank-solar",
   },
 ];
 
 export const faqItems = [
   {
-    question: "How do I know what solar system size I need?",
+    question: "How long does a solar installation take?",
     answer:
-      "A load assessment is the safest starting point. We review your appliances, operating hours, backup expectations, and budget before recommending panels, batteries, and inverter size.",
+      "Most residential installations are completed within 1 to 2 days. Larger commercial installations depend on the system capacity and typically take 3 to 7 days.",
   },
   {
-    question: "Can I pay in installments?",
+    question: "What maintenance does my solar system require?",
     answer:
-      "The current site advertises installment payment plans. Final terms depend on your selected system and assessment, so the team confirms options during quotation.",
+      "Solar panels need minimal maintenance. We recommend checking and cleaning the panels quarterly to remove dust, and scheduling an annual inspection for electrical connections.",
   },
   {
-    question: "Do you support systems after installation?",
+    question: "Can I pay for my solar package in installments?",
     answer:
-      "Yes. Mainstream Green emphasizes post-installation monitoring, quick fault resolution, customer support, and maintenance.",
+      "Yes! We offer flexible payment terms with custom installment structures for verified residential and commercial clients in Warri and Delta State.",
   },
 ];
 
 export const aboutCopy = {
   intro:
-    "We exist to make energy simple, dependable, and truly yours. By helping businesses cut fuel costs and helping families enjoy steady electricity, we bring comfort, confidence, and a little more happiness into every day.",
+    "We exist to make clean energy simple, dependable, and accessible to everyone. By helping businesses eliminate fuel overhead and helping families enjoy steady electricity, we bring peace of mind and clean power to Delta State.",
   value:
-    "We stand for dependable, efficient, and transparent solar solutions designed to perform exactly as promised. Above all, we focus on customer happiness: saving you more, powering you better, and keeping you smiling.",
+    "We stand for absolute engineering precision, premium hardware components, and client trust. Our solar installations operate exactly as specified, with zero hidden costs.",
   vision:
-    "A future where every business and home enjoys affordable, dependable, and renewable solar energy, leading to higher productivity, reduced costs, and happier living.",
+    "To be the leading clean energy partner in South-South Nigeria, empowering every home, hotel, facility, and business with uninterrupted and affordable solar power.",
   mission:
-    "To deliver dependable, cost-saving solar systems that give businesses true fuel-free freedom and help homeowners enjoy uninterrupted electricity with ease and confidence.",
+    "To build top-tier, long-lasting solar infrastructure, provide hands-on technical training, and sell reliable energy products that accelerate Nigeria's green transition.",
   promise:
-    "Energy freedom that works day after day, bringing comfort, convenience, and peace of mind to every customer.",
+    "Clean, reliable energy with professional local support that is always close by when you need it.",
 };
 
 export const supportLinks = [

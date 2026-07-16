@@ -6,7 +6,7 @@ import { formatNGN } from "@/app/lib/format";
 import { removeFromCartAction, updateCartItemAction } from "@/app/lib/actions/store";
 import { QuantityField } from "../components/StoreUI";
 
-export const metadata: Metadata = { title: "Cart | Mainstream Green", alternates: { canonical: "/cart" } };
+export const metadata: Metadata = { title: "Cart | Green Sunsure", alternates: { canonical: "/cart" } };
 export const dynamic = "force-dynamic";
 
 export default async function CartPage() {

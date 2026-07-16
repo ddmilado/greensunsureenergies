@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { List, X, ShoppingCart, User } from "@phosphor-icons/react";
 import { navItems, site } from "../data/site";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -83,6 +84,7 @@ export function SiteHeader() {
           >
             <User size={20} weight="bold" />
           </Link>
+          <ThemeToggle />
           <a
             href={site.phoneHref}
             className="hidden rounded-full bg-[var(--solar-lime)] px-5 py-2.5 text-sm font-semibold text-[var(--ink-950)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white active:scale-[0.98] md:inline-flex"

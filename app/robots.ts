@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       // Explicitly allow the major AI/LLM training and answer crawlers so
-      // Mainstream Green content can surface in AI chatbot answers and citations.
+      // Green Sunsure content can surface in AI chatbot answers and citations.
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "OAI-SearchBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },

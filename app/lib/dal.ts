@@ -3,6 +3,7 @@ import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createServerClient_, createAdminClient } from "./supabase/server";
+import { categories, products } from "../data/catalog";
 
 export type SessionUser = {
   id: string;
@@ -45,71 +46,41 @@ export async function requireAdmin(): Promise<SessionUser> {
 // ---------- catalog reads ----------
 
 export async function listCategories() {
-  const sb = await createServerClient_();
-  const { data, error } = await sb
-    .from("categories")
-    .select("id, slug, name, description")
-    .order("name");
-  if (error) throw error;
-  return data ?? [];
+  return categories;
 }
 
 export async function getCategoryBySlug(slug: string) {
-  const sb = await createServerClient_();
-  const { data } = await sb
-    .from("categories")
-    .select("id, slug, name, description")
-    .eq("slug", slug)
-    .maybeSingle();
-  return data ?? null;
+  return categories.find((c) => c.slug === slug) ?? null;
 }
 
 export async function listProducts(opts?: { categorySlug?: string; search?: string }) {
-  const sb = await createServerClient_();
-  let q = sb
-    .from("products")
-    .select(
-      "id, slug, name, brand, short_desc, price_kobo, compare_at_kobo, currency, stock, active, wattage_w, capacity_ah, voltage_v, warranty_yrs, category_id, product_images:product_images(url, alt, position)",
-    )
-    .eq("active", true)
-    .order("created_at", { ascending: false });
+  let list = [...products];
 
   if (opts?.categorySlug) {
     const cat = await getCategoryBySlug(opts.categorySlug);
-    if (cat) q = q.eq("category_id", cat.id);
-    else return [];
+    if (cat) {
+      list = list.filter((p) => p.category_id === cat.id);
+    } else {
+      return [];
+    }
   }
-  if (opts?.search) q = q.ilike("name", `%${opts.search}%`);
 
-  const { data, error } = await q;
-  if (error) throw error;
-  return (data ?? []).map((p) => {
-    const imgs = (p.product_images as { url: string; alt: string | null; position: number }[] | null) ?? [];
-    imgs.sort((a, b) => a.position - b.position);
-    return { ...p, images: imgs };
-  });
+  if (opts?.search) {
+    const term = opts.search.toLowerCase();
+    list = list.filter((p) => p.name.toLowerCase().includes(term));
+  }
+
+  return list;
 }
 
 export async function getProductBySlug(slug: string) {
-  const sb = await createServerClient_();
-  const { data, error } = await sb
-    .from("products")
-    .select(
-      "*, product_images:product_images(id, url, alt, position), category:categories(id, slug, name)",
-    )
-    .eq("slug", slug)
-    .eq("active", true)
-    .maybeSingle();
-  if (error) throw error;
-  if (!data) return null;
-  const imgs = ((data as any).product_images ?? []) as {
-    id: string;
-    url: string;
-    alt: string | null;
-    position: number;
-  }[];
-  imgs.sort((a, b) => a.position - b.position);
-  return { ...(data as any), images: imgs } as import("./types").ProductWithImages;
+  const p = products.find((prod) => prod.slug === slug);
+  if (!p) return null;
+  const cat = categories.find((c) => c.id === p.category_id);
+  return {
+    ...p,
+    category: cat ? { id: cat.id, slug: cat.slug, name: cat.name } : undefined,
+  } as any;
 }
 
 // ---------- cart ----------

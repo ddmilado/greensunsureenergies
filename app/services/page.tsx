@@ -11,10 +11,10 @@ import { breadcrumbsJsonLd, serviceListJsonLd } from "../data/jsonLd";
 export const metadata: Metadata = {
   title: "Solar Services | Installation, Batteries & Maintenance",
   description:
-    "Solar panel installation, commercial and residential solar systems, battery backup, inverters, energy audits, and performance monitoring from Mainstream Green Energy Solutions in Nigeria.",
+    "Solar panel installation, commercial and residential solar systems, battery backup, inverters, energy audits, and performance monitoring from Green Sunsure Energy in Nigeria.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Solar Services | Mainstream Green Energy Solutions",
+    title: "Solar Services | Green Sunsure Energy",
     description:
       "Installation, batteries, inverters, energy audits, and monitoring for homes and businesses in Nigeria.",
     url: "/services",
@@ -44,7 +44,7 @@ export default function ServicesPage() {
 
       <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
         <SectionHeading eyebrow="Support layer" title="The support around the system matters as much as the equipment.">
-          <p className="text-white/70">Mainstream Green positions support, monitoring, and fast fault response as core parts of the solar experience.</p>
+          <p className="text-white/70">Green Sunsure positions support, monitoring, and fast fault response as core parts of the solar experience.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-3 md:grid-cols-4">
           {featureList.map((feature, index) => {
@@ -62,7 +62,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Why Mainstream Green" title="A clearer way to invest in solar.">
+        <SectionHeading eyebrow="Why Green Sunsure" title="A clearer way to invest in solar.">
           <p>Reliability, savings, transparency, and customer-first support shape the way each system is planned and handed over.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-5 lg:grid-cols-2">

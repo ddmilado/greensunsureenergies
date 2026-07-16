@@ -26,8 +26,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Mainstream Green Energy Solutions — Solar Installation in Ogun State, Nigeria",
-    template: "%s — Mainstream Green Energy Solutions",
+    default: "Green Sunsure Energy — Solar Installation in Warri, Delta State, Nigeria",
+    template: "%s — Green Sunsure Energy",
   },
   description: site.longDescription,
   applicationName: site.name,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { email: false, address: true, telephone: true },
   openGraph: {
-    title: "Mainstream Green Energy Solutions — Solar Energy Systems in Nigeria",
+    title: "Green Sunsure Energy — Solar Energy Systems in Nigeria",
     description:
       "Dependable solar systems that cut fuel costs, power homes and businesses, and keep support close after installation.",
     url: site.url,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
         url: "/hero-2.jpg",
         width: 1400,
         height: 969,
-        alt: "Solar panels installed by Mainstream Green Energy Solutions",
+        alt: "Solar panels installed by Green Sunsure Energy",
       },
       {
         url: "/favicon.svg",
         width: 100,
         height: 100,
-        alt: "Mainstream Green Energy Solutions logo",
+        alt: "Green Sunsure Energy logo",
       },
     ],
     locale: "en_NG",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mainstream Green Energy Solutions — Solar Energy Systems in Nigeria",
+    title: "Green Sunsure Energy — Solar Energy Systems in Nigeria",
     description:
       "Dependable solar systems for Nigerian homes and businesses. Installation, batteries, maintenance, and support.",
     images: ["/hero-2.jpg"],
@@ -110,6 +110,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-NG" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full bg-[var(--paper)] text-[var(--ink-950)]">
         <JsonLd data={[organizationJsonLd(), localBusinessJsonLd(), websiteJsonLd()]} />
         <SiteHeader />

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Battery Backup & Inverter Systems | Mainstream Green Energy Solutions",
+  title: "Battery Backup & Inverter Systems | Green Sunsure Energy",
   description:
     "Lithium and gel battery banks, hybrid and pure sine wave inverters for Nigerian homes and businesses. Instant switchover, long cycle life, and proper sizing.",
   alternates: { canonical: "/battery-backup" },
   openGraph: {
-    title: "Battery Backup & Inverter Systems | Mainstream Green Energy Solutions",
+    title: "Battery Backup & Inverter Systems | Green Sunsure Energy",
     description: "Lithium and gel batteries, hybrid and pure sine wave inverters.",
     url: "/battery-backup",
     type: "website",

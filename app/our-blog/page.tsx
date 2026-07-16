@@ -9,12 +9,12 @@ import { listPosts } from "../lib/dal";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Solar Tips & Insights | Mainstream Green Blog",
+  title: "Solar Tips & Insights | Green Sunsure Blog",
   description:
-    "Practical solar advice from Mainstream Green Energy Solutions: choosing a solar installer, calculating solar ROI, and reducing generator dependence in Nigeria.",
+    "Practical solar advice from Green Sunsure Energy: choosing a solar installer, calculating solar ROI, and reducing generator dependence in Nigeria.",
   alternates: { canonical: "/our-blog" },
   openGraph: {
-    title: "Solar Tips & Insights | Mainstream Green Blog",
+    title: "Solar Tips & Insights | Green Sunsure Blog",
     description: "Choosing an installer, calculating ROI, and reducing generator costs in Nigeria.",
     url: "/our-blog",
     type: "website",
@@ -51,7 +51,7 @@ export default async function BlogPage() {
       <section className="px-4 py-24 md:px-8 md:py-36">
         <SectionHeading eyebrow="Our blog and news" title="Practical reading for buyers, owners, and businesses.">
           <p>
-            Written by the Mainstream Green team. Each post is grounded in the same work we do on installations every week.
+            Written by the Green Sunsure team. Each post is grounded in the same work we do on installations every week.
           </p>
         </SectionHeading>
         {posts.length === 0 ? (

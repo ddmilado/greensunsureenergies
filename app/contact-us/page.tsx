@@ -9,13 +9,13 @@ import { site } from "../data/site";
 import { breadcrumbsJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact Mainstream Green Energy Solutions | Get a Solar Quote",
+  title: "Contact Green Sunsure Energy | Get a Solar Quote",
   description:
-    "Request a free solar quote or talk to the Mainstream Green Energy Solutions team about installation, batteries, and maintenance in Ogun State, Lagos, and Nigeria.",
+    "Request a free solar quote or talk to the Green Sunsure Energy team about installation, batteries, and maintenance in Warri, Delta State, and Nigeria.",
   alternates: { canonical: "/contact-us" },
   openGraph: {
-    title: "Contact Mainstream Green Energy Solutions | Get a Solar Quote",
-    description: "Request a free quote or call the Mainstream Green solar team in Ogun State, Nigeria.",
+    title: "Contact Green Sunsure Energy | Get a Solar Quote",
+    description: "Request a free quote or call the Green Sunsure solar team in Warri, Delta State, Nigeria.",
     url: "/contact-us",
     type: "website",
   },
@@ -40,7 +40,7 @@ export default function ContactPage() {
       />
 
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Reach Mainstream Green" title="A quote call, a site visit, or a direct message.">
+        <SectionHeading eyebrow="Reach Green Sunsure" title="A quote call, a site visit, or a direct message.">
           <p>Send the details of what you want powered, or call the team directly for the next step.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-5 lg:grid-cols-4">

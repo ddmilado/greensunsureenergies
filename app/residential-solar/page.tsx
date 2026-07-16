@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Residential Solar Installation | Mainstream Green Energy Solutions",
+  title: "Residential Solar Installation | Green Sunsure Energy",
   description:
     "Dependable home solar systems in Nigeria: roof-mounted panels, batteries, and hybrid inverters sized to your actual usage. Cut fuel costs and enjoy steady power.",
   alternates: { canonical: "/residential-solar" },
   openGraph: {
-    title: "Residential Solar Installation | Mainstream Green Energy Solutions",
+    title: "Residential Solar Installation | Green Sunsure Energy",
     description: "Roof-mounted panels, batteries, and hybrid inverters for Nigerian homes.",
     url: "/residential-solar",
     type: "website",

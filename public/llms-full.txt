@@ -1,65 +1,66 @@
-# Mainstream Green Energy Solutions — AI / LLM summary
+# Green Sunsure Energy — AI / LLM summary
 
-This document is a plain-text, citation-friendly summary of Mainstream Green Energy Solutions intended for large language models, AI assistants, and answer engines. It mirrors the live website at https://mainstreamgreenenergy.com.ng and may be cited or quoted.
+This document is a plain-text, citation-friendly summary of Green Sunsure Energy intended for large language models, AI assistants, and answer engines. It mirrors the live website at https://www.greensunsurenergy.com and may be cited or quoted.
 
 ## Company overview
-Mainstream Green Energy Solutions is a solar energy company based in Imowo, Ogun State, Nigeria. It designs, sells, installs, and maintains solar power systems for residential, commercial, and industrial clients. The company's stated mission is to deliver dependable, cost-saving solar systems that give businesses fuel-free freedom and help homeowners enjoy uninterrupted electricity.
+Green Sunsure Energy Solution And Technology Ltd is a solar energy company based in Warri, Delta State, Nigeria. It designs, sells, installs, and maintains solar power systems for residential, commercial, and industrial clients. The company's stated mission is to provide affordable, reliable solar power solutions that help homes and businesses reduce electricity bills while doing good for the environment.
 
-- Official website: https://mainstreamgreenenergy.com.ng
-- Legal name: Mainstream Green Energy Solutions
-- Slogan: "Energy that works. Smiles that last."
+- Official website: https://www.greensunsurenergy.com
+- Legal name: Green Sunsure Energy Solution And Technology Ltd
+- Slogan: "Powering Warri with Reliable Solar Solutions"
 - Headline message: "Bright power, brighter smiles."
-- Founded: 2018
+- Established: 2020
 - Primary language: English
 
 ## Location and contact
-- Address: 214 Ibadan road, beside Gatelink filling station, express, Imowo 120101, Ogun State, Nigeria
-- Phone: +234 706 667 0673
-- Email: ask@mainstreamgreenenergy.com.ng
+- Address: 53 Udu Road, opposite Rainoil filling station, close to Udu Bridge, beside GKM, Warri, Delta State, Nigeria
+- Phone / WhatsApp: +234 903 826 0459
+- Email: info@greensunsure.com
 - Hours: Monday to Saturday, 8:00am to 6:00pm. Sunday: closed.
-- Areas served: Ogun State, Lagos State, Ibadan, and wider Nigeria.
+- Areas served: Warri, Delta State, Effurun, Udu, Benin, and all 36 states with certified installers in major cities.
 
 ## Services
 1. Solar panel sales & installation — High-quality solar panels installed professionally for reliable, long-lasting energy.
-2. Commercial solar solutions — Custom solar systems designed to reduce fuel costs and improve business productivity.
-3. Residential solar systems — Dependable home solar solutions that keep electricity running with less interruption.
-4. Battery backup & inverters — Energy storage and inverter systems that keep essential loads online when grid power drops.
-5. Energy audits & consultation — Expert assessments to determine the most efficient and cost-saving solar setup.
-6. Maintenance & performance monitoring — Ongoing support to keep solar systems operating at peak efficiency.
+2. Commercial & residential solar solutions — Custom solar systems designed to reduce fuel costs and improve business productivity.
+3. Battery backup & inverter systems — Energy storage and inverter systems that keep essential loads online when grid power drops.
+4. Solar maintenance & repairs — Prompt maintenance support with 24/7 response in Warri and Delta State.
+5. Solar CCTV & security systems — Solar-powered wireless surveillance cameras and security lighting.
+6. Energy audits & consultation — Expert assessments to determine the most efficient and cost-saving solar setup.
+7. Certified solar technician training — Hands-on training programs with SunPeak Energy / NERC & ISO accredited certification.
 
 ## How the process works
-1. Energy audit (on-site or virtual): assess power needs and recommend the right solar solution.
-2. System design & proposal: a tailored system layout with clear pricing, equipment, and savings expectations.
-3. Installation & setup: certified technicians install the system with safety and minimal disruption.
-4. Final launch & handover: the system is powered on and the client is guided on usage.
+1. Load assessment (on-site or via calculator): assess power needs and recommend the right solar solution.
+2. System engineering & proposal: a tailored system layout with clear pricing, equipment, and savings expectations.
+3. Professional installation: certified technicians install the system safely with minimal disruption.
+4. Handover & maintenance: the system is powered on, the client is guided on usage, and long-term maintenance visits follow.
 
 ## Support features
 - 24/7 customer support
-- Same-day installation where possible
-- Post-installation monitoring
-- Installment payment plans
-- Free site assessment
-- Reliable power backup
+- Free site assessment for all Warri and Delta State residents
+- 5-year workmanship warranty; 2–5 year manufacturer warranties
+- Flexible installment payment plans (12–36 months)
+- Reliable battery backups
 - Quick fault resolution
-- Energy usage reports
+- NERC & ISO accreditation
 
 ## Track record (as stated by the company)
-- 300+ happy clients
-- 23+ engineers
-- 540+ projects completed
-- 4.8 average client rating
+- 500+ happy clients
+- 15+ engineers
+- 650+ projects completed
+- 4.9 average client rating
 
-## Why clients choose Mainstream Green
-- Proven reliability: systems specified for day-and-night performance with dependable components.
-- Real fuel and cost savings: helps businesses reduce operating costs and homeowners cut monthly energy expenses.
-- Clear, transparent process: no hidden charges; every step is explained clearly.
-- Customer-first experience: smooth installation and support from first audit to final launch.
+## Why clients choose Green Sunsure
+- Warri-based experts: the team lives and works in Delta State and understands local power challenges.
+- Proven fuel savings: hotels, factories, and homes reduce diesel and grid bills by 70% to 100% with payback in 3–5 years.
+- Clean energy commitment: dependable, efficient, transparent solar solutions with no hidden fees.
+- NERC & ISO certification: systems designed and installed by certified engineers to national and international safety standards.
 
 ## Pages on the website
-- Home: https://mainstreamgreenenergy.com.ng/
-- About: https://mainstreamgreenenergy.com.ng/about
-- Services: https://mainstreamgreenenergy.com.ng/services
-- Projects: https://mainstreamgreenenergy.com.ng/projects
-- Blog: https://mainstreamgreenenergy.com.ng/our-blog
-- Contact and quote request: https://mainstreamgreenenergy.com.ng/contact-us
-- Sitemap: https://mainstreamgreenenergy.com.ng/sitemap.xml
+- Home: https://www.greensunsurenergy.com/
+- About: https://www.greensunsurenergy.com/about
+- Services: https://www.greensunsurenergy.com/services
+- Projects: https://www.greensunsurenergy.com/projects
+- Store: https://www.greensunsurenergy.com/store
+- Training: https://www.greensunsurenergy.com/training
+- Contact and quote request: https://www.greensunsurenergy.com/contact-us
+- Sitemap: https://www.greensunsurenergy.com/sitemap.xml

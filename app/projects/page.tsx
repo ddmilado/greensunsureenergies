@@ -9,12 +9,12 @@ import { faqItems } from "../data/site";
 import { breadcrumbsJsonLd, faqJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Solar Projects & Installations | Mainstream Green Energy Solutions",
+  title: "Solar Projects & Installations | Green Sunsure Energy",
   description:
-    "See Mainstream Green Energy Solutions solar installations for residential roofs, commercial buildings, industrial backup, and open-field arrays across Nigeria.",
+    "See Green Sunsure Energy solar installations for residential roofs, commercial buildings, industrial backup, and open-field arrays across Nigeria.",
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: "Solar Projects & Installations | Mainstream Green Energy Solutions",
+    title: "Solar Projects & Installations | Green Sunsure Energy",
     description: "Residential, commercial, industrial, and open-field solar installations in Nigeria.",
     url: "/projects",
     type: "website",
@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
       <PageHero
         title="Solar projects built for daily reliability."
         kicker="Projects"
-        text="A visual look at residential, commercial, industrial, and larger solar installations delivered by Mainstream Green Energy Solutions."
+        text="A visual look at residential, commercial, industrial, and larger solar installations delivered by Green Sunsure Energy."
         image="/solar-inspect.jpg"
       />
 

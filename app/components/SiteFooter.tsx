@@ -60,7 +60,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/48 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} Mainstream Green Energy Solutions. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Green Sunsure Energy. All rights reserved.</p>
       </div>
     </footer>
   );

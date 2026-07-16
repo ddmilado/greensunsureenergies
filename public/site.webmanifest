@@ -1,11 +1,11 @@
 {
-  "name": "Damdavy Technologies",
-  "short_name": "Damdavy",
-  "description": "Dependable solar energy systems for Nigerian homes and businesses.",
+  "name": "Green Sunsure Energy",
+  "short_name": "Green Sunsure",
+  "description": "Professional solar installation, products, maintenance & energy solutions in Warri, Delta State, Nigeria.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#03111f",
-  "theme_color": "#03111f",
+  "background_color": "#03150d",
+  "theme_color": "#03150d",
   "lang": "en-NG",
   "categories": ["business", "energy"],
   "icons": [

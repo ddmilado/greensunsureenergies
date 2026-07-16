@@ -60,7 +60,7 @@ export function PostForm({
         </label>
         <label className="grid gap-1.5">
           <span className={label}>Author</span>
-          <input name="author_name" defaultValue={valueOf("author_name") || "Mainstream Green Team"} className={input} />
+          <input name="author_name" defaultValue={valueOf("author_name") || "Green Sunsure Team"} className={input} />
         </label>
         <label className="grid gap-1.5">
           <span className={label}>Reading time (min)</span>

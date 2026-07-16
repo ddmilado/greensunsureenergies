@@ -12,7 +12,7 @@ const MAX_HISTORY = 8;
 
 const PAGES = [
   { title: "Home", path: "/" },
-  { title: "About Mainstream Green", path: "/about" },
+  { title: "About Green Sunsure", path: "/about" },
   { title: "All Services", path: "/services" },
   { title: "Residential Solar", path: "/residential-solar" },
   { title: "Commercial Solar", path: "/commercial-solar" },
@@ -29,10 +29,10 @@ const PAGES = [
   { title: "Cookie Policy", path: "/cookie-policy" },
 ];
 
-const SYSTEM_PROMPT = `You are a friendly sales assistant for Mainstream Green Energy Solutions, a Nigerian solar company based in Ibadan.
+const SYSTEM_PROMPT = `You are a friendly sales assistant for Green Sunsure Energy, a Nigerian solar company based in Warri, Delta State.
 
 BUSINESS INFO:
-- Location: Ibadan, Oyo State, Nigeria
+- Location: Warri, Delta State, Nigeria
 - Phone: ${site.phone}
 - Email: ${site.email}
 - Hours: Mon-Sat 8am-6pm

@@ -1,7 +1,7 @@
 import { ProjectForm } from "../ProjectForm";
 import { createProjectAction } from "@/app/lib/actions/content";
 
-export const metadata = { title: "Admin · New project | Mainstream Green" };
+export const metadata = { title: "Admin · New project | Green Sunsure" };
 export const dynamic = "force-dynamic";
 
 export default function NewProjectPage() {

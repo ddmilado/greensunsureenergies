@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const project = await getProjectBySlug(slug);
   if (!project) return { title: "Project not found" };
   return {
-    title: `${project.title} | Mainstream Green Project`,
-    description: project.excerpt ?? `Mainstream Green ${project.category.toLowerCase()} solar installation case study.`,
+    title: `${project.title} | Green Sunsure Project`,
+    description: project.excerpt ?? `Green Sunsure ${project.category.toLowerCase()} solar installation case study.`,
     alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
       title: project.title,
@@ -222,7 +222,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
         {related.length > 0 && (
           <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-28">
             <div className="mx-auto max-w-6xl">
-              <h2 className="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">More Mainstream Green projects</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">More Green Sunsure projects</h2>
               <ul className="mt-10 grid gap-5 md:grid-cols-3">
                 {related.map((p) => (
                   <li key={p.id} className="rounded-[2rem] bg-white/8 p-1.5 ring-1 ring-white/12">

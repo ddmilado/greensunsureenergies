@@ -5,14 +5,14 @@ import { site } from "../../data/site";
 type Search = { kind?: string };
 
 export const metadata = {
-  title: "Thank you | Mainstream Green Energy Solutions",
+  title: "Thank you | Green Sunsure Energy",
   robots: { index: false, follow: false },
 };
 
 const messages: Record<string, { title: string; body: string }> = {
   quote: {
     title: "Your quote request is in.",
-    body: "A Mainstream Green team member will call you back within one business day to discuss your load, location, and the right system for your home or business.",
+    body: "A Green Sunsure team member will call you back within one business day to discuss your load, location, and the right system for your home or business.",
   },
   support: {
     title: "Your support request was sent.",

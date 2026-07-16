@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { ServiceLanding } from "../components/ServiceLanding";
 
 export const metadata: Metadata = {
-  title: "Solar Installation in Ogun State | Mainstream Green Energy Solutions",
+  title: "Solar Installation in Warri & Delta State | Green Sunsure Energy",
   description:
-    "Solar panel and battery installation across Ogun State, Lagos, and Ibadan. Local team, fast response, and a track record of residential and commercial installs.",
+    "Solar panel and battery installation across Warri, Effurun, Udu, and wider Delta State. Local team, fast response, and a track record of residential and commercial installs.",
   alternates: { canonical: "/solar-installation-ogun-state" },
   openGraph: {
-    title: "Solar Installation in Ogun State | Mainstream Green Energy Solutions",
-    description: "Local solar installers in Ogun State, Lagos, and Ibadan.",
+    title: "Solar Installation in Warri & Delta State | Green Sunsure Energy",
+    description: "Local solar installers in Warri, Effurun, Udu, and Delta State.",
     url: "/solar-installation-ogun-state",
     type: "website",
   },
@@ -19,14 +19,14 @@ export default function SolarOgunStatePage() {
     <ServiceLanding
       slug="solar-installation-ogun-state"
       path="/solar-installation-ogun-state"
-      title="Solar installation across Ogun State."
-      kicker="Ogun State solar"
-      description="From Sagamu to Ado-Odo, Ibafo to Imowo — we install residential and commercial solar systems across Ogun State, plus Lagos and Ibadan."
+      title="Solar installation across Delta State."
+      kicker="Warri solar"
+      description="From Effurun to Udu, Okuokoko to the industrial layouts — we install residential and commercial solar systems across Warri and Delta State, plus all 36 states with certified installers in major cities."
       heroImage="/hero-2.jpg"
       pillars={[
         {
           title: "Local team, fast response",
-          text: "Based in Imowo. We can typically be on-site within 1–3 days for quotes and same-week for installations.",
+          text: "Based in Warri. We can typically be on-site within 1–3 days for quotes and same-week for installations.",
         },
         {
           title: "Homes and businesses",
@@ -34,14 +34,14 @@ export default function SolarOgunStatePage() {
         },
         {
           title: "Support that stays local",
-          text: "When you need us after installation, we&rsquo;re a short drive away — not a call centre in another state.",
+          text: "When you need us after installation, we're right here in Delta State — not a call centre in another state.",
         },
       ]}
       benefits={[
-        "Free site assessment across Ogun State",
+        "Free site assessment across Warri and Delta State",
         "1–3 day installation on most residential jobs",
         "Local after-install support and maintenance",
-        "We also serve Lagos and Ibadan",
+        "We cover all 36 states with certified installers in major cities",
         "No high-pressure sales tactics",
         "Honest quotes, line-by-line, no hidden costs",
       ]}
@@ -55,9 +55,9 @@ export default function SolarOgunStatePage() {
       ]}
       faq={[
         {
-          question: "Which parts of Ogun State do you cover?",
+          question: "Which parts of Delta State do you cover?",
           answer:
-            "Sagamu, Ibafo, Mowe, Imowo, Ado-Odo, Otta, Abeokuta, Ijebu-Ode, and the surrounding areas. We also serve Lagos and Ibadan.",
+            "Warri, Effurun, Udu, Okuokoko, and the surrounding areas. We also serve all 36 states with certified installers in major cities.",
         },
         {
           question: "How quickly can you come for a site visit?",
@@ -66,12 +66,12 @@ export default function SolarOgunStatePage() {
         {
           question: "Do you work on estates with restrictions?",
           answer:
-            "Yes — we&rsquo;ve installed on multiple gated estates. We coordinate access with the estate management in advance.",
+            "Yes — we've installed on multiple gated estates. We coordinate access with the estate management in advance.",
         },
         {
           question: "Can I visit your office?",
           answer:
-            "Of course. Our office is at 214 Ibadan road, beside Gatelink filling station, Imowo, Ogun State. Call ahead so we can have someone ready for you.",
+            "Of course. Our office is at 53 Udu Road, opposite Rainoil filling station, close to Udu Bridge, beside GKM, Warri, Delta State. Call ahead so we can have someone ready for you.",
         },
         {
           question: "Do you offer same-day installation?",
