@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { CheckCircle, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+import { CheckCircle, YoutubeLogo, Certificate, Handshake, TrendUp, SealCheck } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "./components/ButtonLink";
 import { CTASection } from "./components/CTASection";
 import { JsonLd } from "./components/JsonLd";
 import { ProcessStack } from "./components/ProcessStack";
-import { ProjectGrid } from "./components/ProjectGrid";
 import { Reveal } from "./components/Reveal";
 import { ScrollChoreography } from "./components/ScrollChoreography";
 import { HeroVideo } from "./components/HeroVideo";
@@ -18,11 +18,12 @@ import {
   testimonials,
   valueCards,
   whyChooseUs,
+  projects,
+  teamMembers,
 } from "./data/site";
 import { packages } from "./data/catalog";
 import { AnimatedCounter } from "./components/AnimatedCounter";
 import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
-import { listProjects } from "./lib/dal";
 
 export const metadata: Metadata = {
   title: "Solar Solutions in Warri, Delta State | Green Sunsure Energy",
@@ -40,8 +41,7 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-export default async function Home() {
-  const projectsList = await listProjects({ limit: 4 });
+export default function Home() {
   return (
     <main id="main" className="w-full max-w-full overflow-x-hidden">
       <JsonLd data={[faqJsonLd(), ...serviceListJsonLd()]} />
@@ -228,12 +228,109 @@ export default async function Home() {
       </section>
 
       {/* Recent projects */}
-      <section className="bg-[var(--ink-950)] px-4 pb-24 text-white md:px-8 md:pb-40">
+      <section className="px-4 py-24 md:px-8 md:py-40 bg-[var(--shell)] border-y border-[var(--line)]">
         <SectionHeading eyebrow="Recent projects" title="Real solar work for roofs, facilities, and businesses.">
-          <p className="text-white/70">A project gallery built from the current Green Sunsure website assets, demonstrating high-quality installation proof.</p>
+          <p>See our latest installations across Warri, Delta State — from residential rooftops to commercial hotels and industrial plants.</p>
         </SectionHeading>
-        <div className="mt-14">
-          <ProjectGrid projects={projectsList} />
+        <div className="mx-auto mt-14 grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {projects.slice(0, 6).map((project, index) => (
+            <Reveal key={project.title} delay={index * 0.06}>
+              <article className={`group relative overflow-hidden rounded-[2.5rem] bg-white ring-1 ring-[var(--line)] dark:bg-[var(--shell)] ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}>
+                <div className={`relative w-full overflow-hidden bg-[var(--mist)] ${index === 0 ? "aspect-[16/7]" : "aspect-[16/9]"}`}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes={index === 0 ? "(min-width: 768px) 100vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
+                    className="object-cover transition duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute left-5 top-5 inline-flex rounded-full bg-white/15 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md">
+                    {project.category}
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+                    <h3 className="line-clamp-2 text-2xl font-semibold tracking-[-0.04em] text-white md:text-2xl">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/78">
+                      {project.text}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <ButtonLink href="/projects" variant="secondary">View All Projects</ButtonLink>
+        </div>
+      </section>
+
+      {/* Team section */}
+      <section className="px-4 py-24 md:px-8 md:py-36">
+        <SectionHeading eyebrow="Our team" title="Experienced professionals powering clean energy across Delta State.">
+          <p>Meet the certified engineers and technicians behind every successful Green Sunsure installation.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-3">
+          {teamMembers.map((member, index) => (
+            <Reveal key={member.name} delay={index * 0.1}>
+              <article className="group overflow-hidden rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-[var(--mist)]">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 sm:p-7">
+                  <h3 className="text-xl font-bold tracking-[-0.03em] text-[var(--ink-950)]">{member.name}</h3>
+                  <p className="mt-1 text-sm font-medium text-[var(--brand-green)]">{member.role}</p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--ink-600)]">{member.description}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Certification & accreditation */}
+      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+        <SectionHeading eyebrow="Certifications" title="Trusted, accredited, and certified.">
+          <p className="text-white/70">Green Sunsure Energy meets national and international standards for solar installation and renewable energy consulting.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-3">
+          <Reveal delay={0}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white/8 p-8 ring-1 ring-white/12">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--solar-lime)]/15">
+                <Certificate size={32} weight="duotone" className="text-[var(--solar-lime)]" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold">NERC Accredited</h3>
+              <p className="mt-3 text-sm leading-6 text-white/68">Licensed by the Nigerian Electricity Regulatory Commission for solar installation and energy consulting.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white/8 p-8 ring-1 ring-white/12">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--solar-lime)]/15">
+                <SealCheck size={32} weight="duotone" className="text-[var(--solar-lime)]" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold">ISO Certified</h3>
+              <p className="mt-3 text-sm leading-6 text-white/68">Compliant with international quality management standards for solar engineering and project delivery.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white/8 p-8 ring-1 ring-white/12">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--solar-lime)]/15">
+                <CheckCircle size={32} weight="duotone" className="text-[var(--solar-lime)]" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold">5-Year Warranty</h3>
+              <p className="mt-3 text-sm leading-6 text-white/68">Every installation comes with a 5-year workmanship warranty. Products carry 2-5 year manufacturer warranties.</p>
+            </div>
+          </Reveal>
+        </div>
+        <div className="mx-auto mt-12 max-w-3xl text-center">
+          <p className="text-sm text-white/50">All systems installed by certified engineers adhering strictly to national and international safety regulations.</p>
         </div>
       </section>
 
@@ -265,7 +362,7 @@ export default async function Home() {
                     </svg>
                   ))}
                 </div>
-                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">“{item.quote}”</blockquote>
+                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">"{item.quote}"</blockquote>
                 <figcaption className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4 text-sm font-semibold text-[var(--ink-950)]">
                   <span className="grid size-8 place-items-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: `var(--avatar-${(item.name.length * 7 + item.name.charCodeAt(0)) % 16})` }}>{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
                   {item.name}
@@ -310,7 +407,7 @@ export default async function Home() {
               <h4 className="mt-6 text-xl font-bold text-[var(--ink-950)]">More Proof of Work</h4>
               <p className="mt-3 text-sm text-[var(--ink-600)] leading-6 max-w-xs">We install and maintain clean energy systems with absolute transparency. Check our social media for constant updates.</p>
               <a
-                href="https://facebook.com/greensunsure"
+                href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--ink-950)] px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue-dark)] hover:text-white"
@@ -319,6 +416,47 @@ export default async function Home() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Referral / Affiliate program */}
+      <section className="px-4 py-24 md:px-8 md:py-36 bg-[var(--shell)] border-y border-[var(--line)]">
+        <SectionHeading eyebrow="Referral program" title="Earn rewards by referring friends and businesses.">
+          <p>Love our solar solutions? Share the benefits and earn commissions when your referrals go solar with Green Sunsure.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-3">
+          <Reveal delay={0}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white p-8 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-blue-dark)] dark:text-[var(--solar-lime)]">
+                <Handshake size={32} weight="duotone" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold text-[var(--ink-950)]">Refer a Client</h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--ink-600)]">Share our contact with anyone needing solar — residential or commercial. No limits on how many people you refer.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white p-8 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-blue-dark)] dark:text-[var(--solar-lime)]">
+                <CheckCircle size={32} weight="duotone" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold text-[var(--ink-950)]">They Go Solar</h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--ink-600)]">Once your referral completes a solar installation or product purchase, you become eligible for a referral reward.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="flex flex-col items-center text-center rounded-[2.25rem] bg-white p-8 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-blue-dark)] dark:text-[var(--solar-lime)]">
+                <TrendUp size={32} weight="duotone" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold text-[var(--ink-950)]">Earn Commission</h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--ink-600)]">Receive a commission for every successful referral. The more you refer, the more you earn. Simple as that.</p>
+            </div>
+          </Reveal>
+        </div>
+        <div className="mt-12 text-center">
+          <a href={`mailto:${site.referralEmail}?subject=Referral%20Program%20Inquiry`} className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--brand-green)] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-green-dark)] active:scale-[0.98]">
+            Start Referring via Email
+          </a>
         </div>
       </section>
 

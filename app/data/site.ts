@@ -27,8 +27,10 @@ export const site = {
   url: "https://www.greensunsurenergy.com",
   phone: "+234 903 826 0459",
   phoneHref: "tel:+2349038260459",
+  whatsapp: "https://wa.me/2349038260459",
   email: "info@greensunsurenergy.com",
   emailHref: "mailto:info@greensunsurenergy.com",
+  referralEmail: "referrals@GreenSunSure.ng",
   address: {
     street: "53 Udu road, opposite Rainoil filling station, close to Udu bridge beside GKM",
     locality: "Warri",
@@ -38,9 +40,7 @@ export const site = {
     full: "53 Udu Road, Warri, Delta State, Nigeria",
   },
   hours: "Mon-Sat: 8am-6pm · Sunday: Closed",
-  openingHours: [
-    "Mo-Sa 08:00-18:00",
-  ],
+  openingHours: ["Mo-Sa 08:00-18:00"],
   geo: { latitude: 5.5167, longitude: 5.7500 },
   areasServed: ["Warri", "Delta State", "Effurun", "Udu", "Benin", "Nigeria"],
   mapHref:
@@ -48,7 +48,8 @@ export const site = {
   social: {
     facebook: "https://facebook.com/greensunsure",
     instagram: "https://instagram.com/greensunsure",
-    twitter: "",
+    twitter: "https://twitter.com/greensunsure",
+    linkedin: "https://linkedin.com/company/greensunsure",
   },
   keywords: [
     "solar company warri",
@@ -62,6 +63,27 @@ export const site = {
     "green energy delta",
   ],
 };
+
+export const teamMembers = [
+  {
+    name: "CEO & Founder",
+    role: "Chief Executive Officer",
+    image: "/assets/ceo-Ce0o4y9y.jpg",
+    description: "Under his guidance, Green Sunsure delivers top-quality solar installations, customer-focused service, and innovative energy solutions for homes and businesses.",
+  },
+  {
+    name: "Engineering Team",
+    role: "Lead Engineers",
+    image: "/assets/team-DLc0vo_D.jpg",
+    description: "Our certified engineers bring years of hands-on experience in designing and installing solar systems across Delta State and Nigeria.",
+  },
+  {
+    name: "Installation Crew",
+    role: "Field Technicians",
+    image: "/assets/solarteam-D6fEeHlV.jpg",
+    description: "Professional solar technicians trained in the latest installation techniques, safety standards, and system commissioning.",
+  },
+];
 
 export const faqPageItems = [
   {
@@ -215,29 +237,142 @@ export const processSteps = [
 
 export const projects = [
   {
-    title: "500kW industrial solar installation",
-    category: "Industrial",
-    image: "/assets/solar6-Cyd0tW-v.jpg",
-    text: "Large-scale rooftop industrial solar plant installed with zero downtime to operations.",
+    title: "2.5kVA solar installation — Usiefrun Road",
+    category: "Residential",
+    image: "/assets/uu1-Dj_eAXZI.jpg",
+    text: "2.5Kva capacity of solar installation at Usiefrun Road, Warri.",
   },
   {
-    title: "Hotel installation at Porneco Hotel",
+    title: "5kVA solar installation — Joemarine Nautical Training Institute",
+    category: "Training Institute",
+    image: "/assets/uu2-BKQ-xD2h.jpg",
+    text: "5Kva capacity of solar installation at Joemarine Nautical Training Institute, Effurun.",
+  },
+  {
+    title: "5kVA solar installation — Joemarine",
+    category: "Training Institute",
+    image: "/assets/uu3-DLVhEw8J.jpg",
+    text: "5Kva capacity of solar installation at Joemarine.",
+  },
+  {
+    title: "Commercial installation — Udu Road",
+    category: "Commercial",
+    image: "/assets/uu4-v8BQLOOo.jpg",
+    text: "Commercial solar installation at Udu Road, Warri.",
+  },
+  {
+    title: "Residential installation — Effurun, Warri",
+    category: "Residential",
+    image: "/assets/uu5-BlTiL_t0.jpg",
+    text: "Residential solar installation in Effurun, Warri.",
+  },
+  {
+    title: "Hotel installation — Porneco Hotel, Okuokoko",
+    category: "Commercial",
+    image: "/assets/uu6-CBAZV5cA.jpg",
+    text: "Hotel solar installation at Porneco Hotel, Okuokoko, Delta State.",
+  },
+  {
+    title: "Industrial Layout, Warri",
+    category: "Industrial",
+    image: "/assets/uu7-CHbicjIh.jpg",
+    text: "Large-scale industrial solar installation in Warri.",
+  },
+  {
+    title: "500kW solar plant — industrial installation",
+    category: "Industrial",
+    image: "/assets/uu8-W1hKCy0x.jpg",
+    text: "500kW solar plant installed with zero production disruption.",
+  },
+  {
+    title: "Residential transformation — Warri",
+    category: "Residential",
+    image: "/assets/uu9-C39wcvJg.jpg",
+    text: "From 3 hours of power daily to uninterrupted solar energy.",
+  },
+  {
+    title: "Hotel 24/7 solar — commercial solution",
+    category: "Commercial",
+    image: "/assets/uu10-DQJLxWKT.jpg",
+    text: "Hotel now runs 24/7 on solar power. Eliminated diesel costs completely.",
+  },
+  {
+    title: "Solar installation at Warri residence",
+    category: "Residential",
+    image: "/assets/solar1-Bl0Gsz9o.jpg",
+    text: "Green Sunsure solar installation in Warri, Delta State Nigeria.",
+  },
+  {
+    title: "Professional solar technicians",
+    category: "Team",
+    image: "/assets/solar2-7GlQQyMk.jpg",
+    text: "Professional solar technicians from Green Sunsure Energy.",
+  },
+  {
+    title: "High-quality solar panels",
+    category: "Equipment",
+    image: "/assets/solar3--CipiYsv.jpg",
+    text: "High-quality solar panels available in Warri.",
+  },
+  {
+    title: "Solar training program",
+    category: "Training",
+    image: "/assets/solar4-C8Xf_6NB.jpg",
+    text: "Solar training program at Green Sunsure Energy.",
+  },
+  {
+    title: "Solar installation — commercial building",
     category: "Commercial",
     image: "/assets/solar5-BNpRpaJY.jpg",
-    text: "Solar and battery system eliminating diesel costs and powering hotel rooms 24/7 in Okuokoko.",
+    text: "Commercial solar installation for businesses in Warri.",
   },
   {
-    title: "5kVA solar installation @Joemarine",
-    category: "Training Institute",
-    image: "/assets/solar1-Bl0Gsz9o.jpg",
-    text: "Rooftop solar install powering computers and labs at Joemarine Nautical Training Institute in Effurun.",
+    title: "Large-scale solar array",
+    category: "Industrial",
+    image: "/assets/solar6-Cyd0tW-v.jpg",
+    text: "Large-scale solar installation with professional mounting.",
   },
   {
-    title: "Residential solar system in Udu",
+    title: "Residential rooftop solar",
     category: "Residential",
-    image: "/assets/solar2-7GlQQyMk.jpg",
-    text: "2.5kVA home installation providing uninterrupted power for appliances, fans, and light bulbs.",
+    image: "/assets/solar7-B9QILUpm.jpg",
+    text: "Rooftop solar installation for homes in Delta State.",
   },
+  {
+    title: "Solar panel close-up",
+    category: "Equipment",
+    image: "/assets/solar8-B6-vTvyA.jpg",
+    text: "High-efficiency monocrystalline solar panels.",
+  },
+];
+
+export const projectImages = [
+  { src: "/assets/pr1-B4mMQAR_.jpeg", alt: "Solar project — residential installation" },
+  { src: "/assets/pr2-CsMCBJj9.jpeg", alt: "Solar project — commercial rooftop" },
+  { src: "/assets/pr3-LsYv1xTE.jpeg", alt: "Solar project — industrial layout" },
+  { src: "/assets/pr4-CoLHELy2.jpeg", alt: "Solar project — hotel installation" },
+  { src: "/assets/pr5-BJs4taJV.jpeg", alt: "Solar project — training institute" },
+  { src: "/assets/pl1-DYScccW0.jpg", alt: "Project location — Warri" },
+  { src: "/assets/pl2-ByEsemoQ.jpg", alt: "Project location — Effurun" },
+  { src: "/assets/pl3-CqJZJmI9.jpg", alt: "Project location — Delta State" },
+  { src: "/assets/add1-bmPA8aqM.jpg", alt: "Installation detail — mounting" },
+  { src: "/assets/add2-BMtQbzQa.jpg", alt: "Installation detail — wiring" },
+  { src: "/assets/add3-CxmndQ6s.jpg", alt: "Installation detail — panels" },
+  { src: "/assets/add4-jxI71Uqs.jpg", alt: "Installation detail — completion" },
+];
+
+export const projectVideos = [
+  { src: "/assets/solarvid1-CGFNe1Mc.mp4", title: "Solar installation walkthrough — Warri residential" },
+  { src: "/assets/solarvid2-C3838NXt.mp4", title: "Commercial solar project — Warri" },
+  { src: "/assets/solarvid3-DHmeF2OZ.mp4", title: "Solar system commissioning — Delta State" },
+  { src: "/assets/trainingvid1-0ZstAWOS.mp4", title: "Solar training session — hands-on workshop" },
+  { src: "/assets/trainingvid2-68FJvpJv.mp4", title: "Panel installation training — Warri" },
+  { src: "/assets/trainingvid3-CGIpX5YO.mp4", title: "Inverter configuration training" },
+];
+
+export const youtubeVideos = [
+  { id: "j_ag7FBQFyY", title: "Solar system proof — Joemarine Nautical Training Institute" },
+  { id: "fWtgbOgQC3Y", title: "Residential backup system — client review" },
 ];
 
 export const testimonials = [
@@ -265,6 +400,22 @@ export const testimonials = [
     name: "B. Efe",
     quote: "Excellent post-installation support. Highly recommend Green Sunsure Energy to any business looking to cut overhead costs.",
   },
+  {
+    name: "Warri Homeowner",
+    quote: "Green Sunsure installed our 7.5kVA solar system and now we enjoy 24/7 light without generator noise. Our electricity bills reduced by 80%! Their team in Warri is professional and reliable.",
+  },
+  {
+    name: "Business Owner, Asaba",
+    quote: "Green Sunsure is hands down the best solar company in Delta State! They guided us through every step and our energy bills have drastically reduced. We now enjoy reliable, eco-friendly power. I highly recommend Green Sunsure!",
+  },
+  {
+    name: "Residential Client, Effurun",
+    quote: "From 3 hours of power daily to uninterrupted solar energy. Green Sunsure transformed our home in Warri!",
+  },
+  {
+    name: "Hotel Manager, Delta State",
+    quote: "Our hotel now runs 24/7 on solar power. Green Sunsure's commercial solution eliminated our diesel costs completely!",
+  },
 ];
 
 export const blogPosts = [
@@ -290,19 +441,54 @@ export const blogPosts = [
 
 export const faqItems = [
   {
+    question: "Can solar power my home 24/7?",
+    answer:
+      "Yes! With proper battery storage sizing and energy management, our systems provide uninterrupted power day and night.",
+  },
+  {
     question: "How long does a solar installation take?",
     answer:
       "Most residential installations are completed within 1 to 2 days. Larger commercial installations depend on the system capacity and typically take 3 to 7 days.",
   },
   {
+    question: "How much can I save with solar?",
+    answer:
+      "Savings depend on energy usage, but most customers reduce electricity bills by 70–100% with payback periods of 3–5 years.",
+  },
+  {
+    question: "Do you offer maintenance packages?",
+    answer:
+      "Yes, we offer comprehensive maintenance plans with 24/7 support, quarterly panel cleaning, and annual professional inspections.",
+  },
+  {
     question: "What maintenance does my solar system require?",
     answer:
-      "Solar panels need minimal maintenance. We recommend checking and cleaning the panels quarterly to remove dust, and scheduling an annual inspection for electrical connections.",
+      "Solar systems need minimal maintenance. We recommend quarterly panel cleaning and annual professional inspections for optimal performance.",
+  },
+  {
+    question: "Can I finance my solar system?",
+    answer:
+      "Yes! We provide flexible payment plans including 12–36 month installment options and partnership with green energy financiers.",
+  },
+  {
+    question: "What areas in Nigeria do you serve?",
+    answer:
+      "We cover all 36 states with certified installers in major cities. Our main office is in Warri, Delta State.",
   },
   {
     question: "Can I pay for my solar package in installments?",
     answer:
       "Yes! We offer flexible payment terms with custom installment structures for verified residential and commercial clients in Warri and Delta State.",
+  },
+  {
+    question: "Do I get a warranty?",
+    answer:
+      "Yes! All systems come with 2–5 year warranties and free support. Installations carry a 5-year workmanship warranty.",
+  },
+  {
+    question: "How quickly can I get a solar installation quote?",
+    answer:
+      "We provide preliminary quotes within 24 hours of receiving your information. Use our Solar Cost Estimator for an instant estimate.",
   },
 ];
 
