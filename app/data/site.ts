@@ -66,7 +66,7 @@ export const site = {
 
 export const teamMembers = [
   {
-    name: "Mr Abraham",
+    name: "Mr Emmanuel Akpomujare",
     role: "CEO & Founder",
     image: "/assets/ceop-DME2QEmv.jpg",
     description: "Renewable energy expert with 15+ years in solar solutions. Founded Green Sunsure Energy to empower Nigerian communities through sustainable energy. NERC-certified energy consultant.",
@@ -125,6 +125,7 @@ export const navItems = [
   { label: "Store", href: "/store" },
   { label: "Projects", href: "/projects" },
   { label: "Training", href: "/training" },
+  { label: "Solar Calculator", href: "/solar-calculator" },
   { label: "Contact", href: "/contact-us" },
 ];
 
