@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
               dangerouslySetInnerHTML={{ __html: html || "<p>This case study is being written. Check back soon.</p>" }}
             />
             <aside className="h-fit rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-              <div className="rounded-[1.6rem] bg-white p-6">
+              <div className="rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
                   Project specs
                 </h2>

@@ -67,7 +67,7 @@ export function ChatBot() {
   return (
     <>
       {open && (
-        <div className="fixed bottom-28 right-6 z-50 flex w-[400px] max-w-[calc(100vw-48px)] flex-col rounded-[1.75rem] bg-white shadow-[0_24px_80px_rgba(3,17,31,0.18)] ring-1 ring-[var(--line)]">
+        <div className="fixed bottom-28 right-6 z-50 flex w-[400px] max-w-[calc(100vw-48px)] flex-col rounded-[1.75rem] bg-white shadow-[0_24px_80px_rgba(3,17,31,0.18)] ring-1 ring-[var(--line)] dark:bg-[var(--ink-900)]">
           <div className="flex items-center justify-between rounded-t-[1.75rem] bg-[var(--ink-950)] px-5 py-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--solar-lime)]">
@@ -127,7 +127,7 @@ export function ChatBot() {
                   className={`mb-3 max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     m.role === "user"
                       ? "ml-auto rounded-br-md bg-[var(--solar-lime)] text-[var(--ink-950)] shadow-[0_2px_8px_rgba(146,210,67,0.2)]"
-                      : "mr-auto rounded-bl-md bg-white text-[var(--ink-950)] ring-1 ring-[var(--line)]"
+                      : "mr-auto rounded-bl-md bg-white text-[var(--ink-950)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]"
                   }`}
                 >
                   {renderLinks(txt, origin).map((part, j) =>
@@ -170,7 +170,7 @@ export function ChatBot() {
             <div ref={bottomRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="flex items-end gap-2 border-t border-[var(--line)] bg-white px-4 py-3">
+          <form onSubmit={handleSubmit} className="flex items-end gap-2 border-t border-[var(--line)] bg-white px-4 py-3 dark:bg-[var(--ink-900)]">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}

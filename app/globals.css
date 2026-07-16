@@ -42,20 +42,20 @@
 
 html.dark {
   --paper: #020c08;
-  --mist: #051a10;
-  --shell: #03100a;
+  --mist: #071f14;
+  --shell: #041510;
   --brand-green: #00e676;
   --brand-green-dark: #00c853;
-  --brand-blue: #e6f6ec;
-  --brand-blue-dark: #f4fbf6;
+  --brand-blue: #d4f0e0;
+  --brand-blue-dark: #eaf8f0;
   --energy-cyan: #19e08a;
   --solar-lime: #00e676;
-  --ink-950: #f4fbf6;
-  --ink-900: #e6f6ec;
-  --ink-700: #b0cfbe;
-  --ink-600: #8fb3a1;
-  --ink-300: #1b3d2b;
-  --line: rgba(230, 246, 236, 0.15);
+  --ink-950: #f0f9f4;
+  --ink-900: #dceee4;
+  --ink-700: #b8d9c8;
+  --ink-600: #94bea8;
+  --ink-300: #3a6b52;
+  --line: rgba(230, 246, 236, 0.18);
   --ring: rgba(0, 230, 118, 0.42);
   --background: var(--paper);
   --foreground: var(--ink-950);
@@ -139,8 +139,8 @@ a {
 }
 
 .form-field:focus {
-  border-color: var(--brand-blue);
-  background: white;
+  border-color: var(--brand-green);
+  background: var(--shell);
   box-shadow: 0 0 0 4px var(--ring);
 }
 

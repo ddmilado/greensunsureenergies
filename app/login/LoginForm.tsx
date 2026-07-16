@@ -9,7 +9,7 @@ export function LoginForm() {
   return (
     <form action={action} className="grid gap-5">
       <div>
-        <label htmlFor="email" className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+        <label htmlFor="email" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-600)]">
           Email
         </label>
         <input
@@ -18,12 +18,13 @@ export function LoginForm() {
           type="email"
           required
           autoComplete="email"
-          className="mt-1.5 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm focus:border-neutral-900 focus:outline-none"
+          className="form-field mt-1.5"
+          placeholder="you@example.com"
         />
-        {state?.errors?.email && <p className="mt-1 text-xs text-red-600">{state.errors.email[0]}</p>}
+        {state?.errors?.email && <p className="mt-1 text-xs text-red-500">{state.errors.email[0]}</p>}
       </div>
       <div>
-        <label htmlFor="password" className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+        <label htmlFor="password" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-600)]">
           Password
         </label>
         <input
@@ -32,21 +33,22 @@ export function LoginForm() {
           type="password"
           required
           autoComplete="current-password"
-          className="mt-1.5 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm focus:border-neutral-900 focus:outline-none"
+          className="form-field mt-1.5"
+          placeholder="Enter your password"
         />
-        {state?.errors?.password && <p className="mt-1 text-xs text-red-600">{state.errors.password[0]}</p>}
+        {state?.errors?.password && <p className="mt-1 text-xs text-red-500">{state.errors.password[0]}</p>}
       </div>
-      {state?.message && <p className="text-sm text-red-600">{state.message}</p>}
+      {state?.message && <p className="text-sm text-red-500">{state.message}</p>}
       <button
         disabled={pending}
         type="submit"
-        className="mt-1 inline-flex h-11 w-full items-center justify-center rounded-lg bg-[var(--ink-950)] px-4 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)] disabled:opacity-60"
+        className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--solar-lime)] px-4 text-sm font-semibold text-[var(--ink-950)] transition hover:bg-[var(--brand-green-dark)] hover:text-white disabled:opacity-60"
       >
-        {pending ? "Signing in…" : "Sign in"}
+        {pending ? "Signing in..." : "Sign in"}
       </button>
-      <p className="text-center text-sm text-neutral-500">
+      <p className="text-center text-sm text-[var(--ink-600)]">
         New here?{" "}
-        <Link href="/signup" className="font-semibold text-[var(--ink-950)] underline underline-offset-2 hover:text-[var(--brand-blue)]">
+        <Link href="/signup" className="font-semibold text-[var(--brand-green)] underline underline-offset-2 hover:text-[var(--brand-green-dark)]">
           Create an account
         </Link>
       </p>

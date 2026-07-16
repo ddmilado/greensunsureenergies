@@ -10,7 +10,7 @@ export function ServiceBento() {
         return (
           <Reveal key={service.title} delay={index * 0.05} className={`group ${span}`}>
             <article className="h-full overflow-hidden rounded-[2.25rem] bg-[var(--shell)] p-1.5 shadow-[0_24px_90px_rgba(0,39,61,0.08)] ring-1 ring-[var(--line)] transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-2 hover:shadow-[0_34px_110px_rgba(0,83,122,0.16)]">
-              <div className="flex h-full flex-col justify-between rounded-[1.85rem] bg-white p-7 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]">
+              <div className="flex h-full flex-col justify-between rounded-[1.85rem] bg-white p-7 dark:bg-[var(--ink-900)]">
                 <div className="flex items-start justify-between gap-6">
                   <span className="grid size-13 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-blue)] transition duration-700 group-hover:rotate-3 group-hover:scale-105">
                     <Icon size={27} weight="duotone" />

@@ -14,7 +14,7 @@ export function SectionHeading({
   return (
     <div className={`mx-auto max-w-7xl ${align === "center" ? "text-center" : ""}`}>
       {eyebrow ? (
-        <p className="mb-5 inline-flex rounded-full border border-[var(--line)] bg-white/80 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--brand-blue)] shadow-[0_14px_40px_rgba(3,30,48,0.06)]">
+        <p className="mb-5 inline-flex rounded-full border border-[var(--line)] bg-white/80 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--brand-blue)] shadow-[0_14px_40px_rgba(3,30,48,0.06)] dark:bg-white/10 dark:text-[var(--solar-lime)]">
           {eyebrow}
         </p>
       ) : null}

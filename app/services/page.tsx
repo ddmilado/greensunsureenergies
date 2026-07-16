@@ -69,7 +69,7 @@ export default function ServicesPage() {
           {whyChooseUs.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.05}>
               <article className="h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
-                <div className="h-full rounded-[1.85rem] bg-white p-7">
+                <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--ink-900)]">
                   <h2 className="text-2xl font-semibold tracking-[-0.04em]">{item.title}</h2>
                   <p className="mt-4 text-base leading-7 text-[var(--ink-600)]">{item.text}</p>
                 </div>

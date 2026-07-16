@@ -43,7 +43,7 @@ export function QuantityField({
   max?: number;
 }) {
   return (
-    <div className="flex h-10 items-center overflow-hidden rounded-full border border-[var(--line)] bg-white">
+    <div className="flex h-10 items-center overflow-hidden rounded-full border border-[var(--line)] bg-white dark:bg-[var(--ink-900)]">
       <button
         type="button"
         className="grid h-10 w-10 place-items-center text-[var(--ink-600)] transition hover:bg-[var(--mist)]"

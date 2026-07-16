@@ -49,10 +49,10 @@ export default function Home() {
       <ScrollChoreography />
 
       {/* Hero section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--ink-950)] px-4 pt-24 text-white md:px-8 md:pt-28">
+      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--ink-950)] px-4 pt-20 text-white md:px-8 md:pt-24">
         <HeroVideo />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl py-20">
+        <div className="relative z-10 mx-auto w-full max-w-7xl py-14 md:py-16">
           <Reveal>
             <p className="mb-6 inline-flex rounded-full border border-white/14 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)] backdrop-blur-md">
               Green Sunsure Energy Solutions

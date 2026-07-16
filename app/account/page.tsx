@@ -43,7 +43,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               href="/account/orders"
               className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
             >
-              <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6">
+              <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
                 <Package size={28} weight="duotone" className="text-[var(--brand-blue)]" />
                 <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">My orders</h2>
                 <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">
@@ -62,7 +62,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
                 href="/admin"
                 className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
               >
-                <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6">
+                <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--ink-900)]">
                   <GearSix size={28} weight="duotone" className="text-[var(--brand-blue)]" />
                   <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">Admin panel</h2>
                   <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">

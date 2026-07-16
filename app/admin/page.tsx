@@ -39,7 +39,7 @@ export default async function AdminOverviewPage() {
         ))}
       </div>
 
-      <div className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
+      <div className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6 dark:border-[var(--line)] dark:bg-[var(--ink-900)]">
         <h2 className="text-lg font-semibold tracking-tight">Latest leads</h2>
         <p className="mt-1 text-sm text-neutral-500">Last 5 messages received.</p>
         <ul className="mt-4 divide-y divide-neutral-100 text-sm">

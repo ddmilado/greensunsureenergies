@@ -11,7 +11,7 @@ export function ProcessStack() {
             className="min-h-[340px] overflow-hidden rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]"
             style={{ transform: `rotate(${(index - 1.5) * 0.8}deg)` }}
           >
-            <div className="flex h-full flex-col justify-between rounded-[1.85rem] bg-white p-7">
+            <div className="flex h-full flex-col justify-between rounded-[1.85rem] bg-white p-7 dark:bg-[var(--ink-900)]">
               <span className="text-5xl font-semibold tracking-[-0.07em] text-[var(--brand-blue)] tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </span>
