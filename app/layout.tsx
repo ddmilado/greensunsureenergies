@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     description:
       "Dependable solar systems for Nigerian homes and businesses. Installation, batteries, maintenance, and support.",
     images: ["/hero-2.jpg"],
-    creator: "@mainstreamgreen",
+    creator: "@greensunsure",
   },
   robots: {
     index: true,
@@ -109,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-NG" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}>
+    <html lang="en-NG" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
