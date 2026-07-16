@@ -20,6 +20,7 @@ import {
   whyChooseUs,
   projects,
   teamMembers,
+  faqItems,
 } from "./data/site";
 import { packages } from "./data/catalog";
 import { AnimatedCounter } from "./components/AnimatedCounter";
@@ -457,6 +458,50 @@ export default function Home() {
           <a href={`mailto:${site.referralEmail}?subject=Referral%20Program%20Inquiry`} className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--brand-green)] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-green-dark)] active:scale-[0.98]">
             Start Referring via Email
           </a>
+        </div>
+      </section>
+
+      {/* Solar Energy FAQs */}
+      <section className="px-4 py-24 md:px-8 md:py-36">
+        <SectionHeading eyebrow="FAQs" title="Solar Energy FAQs — Answers to common questions about going solar.">
+          <p>Get clarity on solar installation, costs, warranties, and more before you decide.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 grid max-w-7xl gap-5 md:grid-cols-2">
+          {faqItems.map((item, index) => (
+            <Reveal key={item.question} delay={index * 0.04}>
+              <article className="h-full rounded-[2.25rem] bg-white p-1.5 ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+                <div className="h-full rounded-[1.85rem] bg-white p-7 dark:bg-[var(--shell)]">
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--ink-950)]">{item.question}</h3>
+                  <p className="mt-4 text-base leading-7 text-[var(--ink-600)]">{item.answer}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <ButtonLink href="/contact-us" variant="secondary">Still have questions? Contact us</ButtonLink>
+        </div>
+      </section>
+
+      {/* Incorporation Certificate */}
+      <section className="bg-[var(--ink-950)] px-4 py-24 text-white md:px-8 md:py-36">
+        <SectionHeading eyebrow="Certificate of Incorporation" title="Green Sunsure Energy Solution And Technology Ltd">
+          <p className="text-white/70">Officially registered and incorporated in Nigeria. We operate with full legal compliance and regulatory approvals.</p>
+        </SectionHeading>
+        <div className="mx-auto mt-14 max-w-3xl">
+          <Reveal>
+            <div className="overflow-hidden rounded-[2.5rem] bg-white p-3 shadow-[0_34px_100px_rgba(0,0,0,0.3)]">
+              <Image
+                src="/assets/cert-BNadzdnc.png"
+                alt="Certificate of Incorporation — Green Sunsure Energy Solution And Technology Ltd"
+                width={800}
+                height={600}
+                className="h-auto w-full rounded-[2rem] object-contain"
+                priority
+              />
+            </div>
+            <p className="mt-6 text-center text-sm text-white/50">Green Sunsure Energy Solution And Technology Ltd — Certificate of Incorporation, Corporate Affairs Commission (CAC), Nigeria.</p>
+          </Reveal>
         </div>
       </section>
 

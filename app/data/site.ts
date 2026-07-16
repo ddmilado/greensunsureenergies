@@ -66,10 +66,10 @@ export const site = {
 
 export const teamMembers = [
   {
-    name: "CEO & Founder",
-    role: "Chief Executive Officer",
-    image: "/assets/ceo-Ce0o4y9y.jpg",
-    description: "Under his guidance, Green Sunsure delivers top-quality solar installations, customer-focused service, and innovative energy solutions for homes and businesses.",
+    name: "Mr Abraham",
+    role: "CEO & Founder",
+    image: "/assets/ceop-DME2QEmv.jpg",
+    description: "Renewable energy expert with 15+ years in solar solutions. Founded Green Sunsure Energy to empower Nigerian communities through sustainable energy. NERC-certified energy consultant.",
   },
   {
     name: "Engineering Team",

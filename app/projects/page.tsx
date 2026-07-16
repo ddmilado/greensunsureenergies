@@ -113,12 +113,14 @@ export default function ProjectsPage() {
         <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projectVideos.map((video, index) => (
             <Reveal key={video.src} delay={index * 0.06}>
-              <div className="overflow-hidden rounded-[2.25rem] bg-white/8 p-2.5 ring-1 ring-white/12">
+              <article className="overflow-hidden rounded-[2.25rem] bg-white/8 p-2.5 ring-1 ring-white/12">
                 <div className="relative aspect-video w-full overflow-hidden rounded-[1.85rem] bg-[var(--ink-900)]">
                   <video
                     src={video.src}
                     controls
                     preload="metadata"
+                    width={640}
+                    height={360}
                     className="h-full w-full object-cover"
                     poster="/assets/solar1-Bl0Gsz9o.jpg"
                   />
@@ -126,7 +128,7 @@ export default function ProjectsPage() {
                 <p className="mt-4 px-1 pb-2 text-center text-xs font-semibold text-white/72">
                   {video.title}
                 </p>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
