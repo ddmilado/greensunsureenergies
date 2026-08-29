@@ -82,7 +82,7 @@ export async function POST(req: Request) {
         writer.write({
           type: "text-delta",
           id: "0",
-          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model deepseek-ai/deepseek-v4-pro-0813, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/nemotron-3.5-lightning-30b-a3b, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
         });
         writer.write({ type: "text-end", id: "0" });
       },
@@ -92,7 +92,7 @@ export async function POST(req: Request) {
 
   try {
     const result = streamText({
-      model: nvidia.chat("deepseek-ai/deepseek-v4-pro-0813"),
+      model: nvidia.chat("nvidia/nemotron-3.5-lightning-30b-a3b"),
       system: SYSTEM_PROMPT,
       messages: converted,
     });
