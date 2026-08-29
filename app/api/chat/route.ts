@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         writer.write({
           type: "text-delta",
           id: "0",
-          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/nemotron-3.5-lightning-30b-a3b, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/llama-3.1-nemotron-70b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
         });
         writer.write({ type: "text-end", id: "0" });
       },
@@ -94,25 +94,15 @@ export async function POST(req: Request) {
 
   try {
     const result = streamText({
-      model: nvidia.chat("nvidia/nemotron-3.5-lightning-30b-a3b"),
+      model: nvidia.chat("nvidia/llama-3.1-nemotron-70b-instruct"),
       system: SYSTEM_PROMPT,
       messages: converted,
-      temperature: 0.3,
-      maxOutputTokens: 120,
+      temperature: 0.4,
+      maxOutputTokens: 220,
       topP: 0.9,
-      // Disable Nemotron thinking - we want direct answers, not Draft/Check words
-      providerOptions: {
-        openai: {
-          // @ts-ignore - extra_body for Nvidia OpenAI-compatible endpoint
-          chat_template_kwargs: { enable_thinking: false },
-        } as any,
-        nvidia: {
-          chat_template_kwargs: { enable_thinking: false },
-        } as any,
-      } as any,
     });
 
-    // Light filter only for <think> tags - thinking is disabled so no Draft/Check words should appear
+    // Defensive filter for any stray <think> tags or Draft/Check-words artefacts
     const filtered = result.stream.pipeThrough(
       new TransformStream({
         transform(chunk: any, controller) {

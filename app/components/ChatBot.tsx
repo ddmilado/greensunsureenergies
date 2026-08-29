@@ -69,6 +69,11 @@ function messageText(m: any): string {
 }
 
 const CACHED_ANSWERS: Record<string, string> = {
+  hi: "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).",
+  hello: "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).",
+  "ok thanks": "You're welcome! Happy to help. Call +234 903 826 0459 or [Contact Us](/contact-us) anytime.",
+  thanks: "You're welcome! Happy to help. Call +234 903 826 0459 or [Contact Us](/contact-us) anytime.",
+  ok: "Got it! Let us know if you need anything else. [Contact Us](/contact-us).",
   "How much for a 3-bedroom?":
     "A 3-bedroom home is typically ₦2.4m–₦2.8m (5kVA hybrid + 10kWh battery + 6×450W panels). [Get a quote](/contact-us#quote) or use [Solar Calculator](/solar-calculator).",
   "What areas do you cover?":
@@ -97,7 +102,7 @@ export function ChatBot() {
     e.preventDefault();
     const trimmed = input.trim();
     if (!trimmed || isLoading) return;
-    const cached = CACHED_ANSWERS[trimmed];
+    const cached = CACHED_ANSWERS[trimmed] ?? CACHED_ANSWERS[trimmed.toLowerCase()];
     if (cached && setMessages) {
       // instant local answer — no network wait
       const userMsg: any = { id: `user-${Date.now()}`, role: "user", parts: [{ type: "text", text: trimmed }] };
@@ -115,7 +120,7 @@ export function ChatBot() {
   }
 
   function handleQuick(q: string) {
-    const cached = CACHED_ANSWERS[q];
+    const cached = CACHED_ANSWERS[q] ?? CACHED_ANSWERS[q.toLowerCase()];
     if (cached && setMessages) {
       const userMsg: any = { id: `user-${Date.now()}`, role: "user", parts: [{ type: "text", text: q }] };
       const asstMsg: any = { id: `asst-${Date.now() + 1}`, role: "assistant", parts: [{ type: "text", text: cached }] };
