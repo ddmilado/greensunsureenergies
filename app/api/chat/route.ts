@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         writer.write({
           type: "text-delta",
           id: "0",
-          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/nemotron-mini-4b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model deepseek-ai/deepseek-v4-flash-0731, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
         });
         writer.write({ type: "text-end", id: "0" });
       },
@@ -94,12 +94,19 @@ export async function POST(req: Request) {
 
   try {
     const result = streamText({
-      model: nvidia.chat("nvidia/nemotron-mini-4b-instruct"),
+      model: nvidia.chat("deepseek-ai/deepseek-v4-flash-0731"),
       system: SYSTEM_PROMPT,
       messages: converted,
-      temperature: 0.4,
-      maxOutputTokens: 220,
-      topP: 0.9,
+      temperature: 1,
+      maxOutputTokens: 2048,
+      topP: 0.95,
+      // Deepseek v4 reasoning: thinking is returned in reasoning_content (separate
+      // reasoning parts), so only the final answer reaches the visible bubble.
+      providerOptions: {
+        openai: {
+          chat_template_kwargs: { thinking: true, reasoning_effort: "high" },
+        } as any,
+      } as any,
       onError: (err) => {
         console.error("[chat] NVIDIA stream error:", err);
       },
