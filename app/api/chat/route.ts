@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         writer.write({
           type: "text-delta",
           id: "0",
-          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model meta/llama-3.1-8b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/nemotron-mini-4b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
         });
         writer.write({ type: "text-end", id: "0" });
       },
@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 
   try {
     const result = streamText({
-      model: nvidia.chat("meta/llama-3.1-8b-instruct"),
+      model: nvidia.chat("nvidia/nemotron-mini-4b-instruct"),
       system: SYSTEM_PROMPT,
       messages: converted,
       temperature: 0.4,
@@ -126,7 +126,11 @@ export async function POST(req: Request) {
         },
       }),
     );
-    const uiStream = toUIMessageStream({ stream: filtered as any });
+    const uiStream = toUIMessageStream({
+      stream: filtered as any,
+      onError: (error) =>
+        error instanceof Error ? error.message : String(error),
+    });
     return createUIMessageStreamResponse({ stream: uiStream });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Chat error";
