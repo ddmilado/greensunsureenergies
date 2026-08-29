@@ -67,7 +67,7 @@ export async function POST(req: Request) {
   }));
 
   const result = streamText({
-    model: nvidia.chat("z-ai/glm-5.2"),
+    model: nvidia.chat("deepseek-ai/deepseek-v4-pro-0813"),
     system: SYSTEM_PROMPT,
     messages: converted,
   });
