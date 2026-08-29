@@ -66,7 +66,7 @@ RULES:
 - ONLY link to pages on this website (${site.url}). Never link to external websites.
 - Be warm and direct. Encourage calling the team for quotes.
 - Do not invent prices or specs beyond what's listed.
-- CRITICAL: Never reveal your internal reasoning, chain-of-thought, analysis, or thinking process. Only output the final answer.
+- CRITICAL: Never reveal your internal reasoning, chain-of-thought, analysis, or thinking process. Only output the final answer.`;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
