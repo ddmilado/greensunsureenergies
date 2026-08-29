@@ -65,7 +65,8 @@ RULES:
 - Use markdown links like [Page Name](url) when relevant.
 - ONLY link to pages on this website (${site.url}). Never link to external websites.
 - Be warm and direct. Encourage calling the team for quotes.
-- Do not invent prices or specs beyond what's listed.`;
+- Do not invent prices or specs beyond what's listed.
+- CRITICAL: Never reveal your internal reasoning, chain-of-thought, analysis, or thinking process. Only output the final answer to the user. Do not prefix with "Analyze", "Thinking", or numbered steps.`;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
