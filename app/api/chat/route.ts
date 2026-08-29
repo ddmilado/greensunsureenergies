@@ -100,9 +100,40 @@ export async function POST(req: Request) {
       temperature: 0.3,
       maxOutputTokens: 120,
       topP: 0.9,
+      // disable reasoning/thinking for Nemotron — prevents "Here's a thinking process" leak and saves tokens for the actual answer
+      providerOptions: {
+        // @ts-ignore - Nvidia OpenAI-compatible extra body
+        openai: { reasoning_effort: "disable", include_reasoning: false } as any,
+        nvidia: { reasoning: false, include_reasoning: false } as any,
+      },
     });
 
-    const uiStream = toUIMessageStream({ stream: result.stream });
+    // Hard filter: strip any leaked <think> or "Analyze User Input" deltas before they reach the client
+    const filtered = result.stream.pipeThrough(
+      new TransformStream({
+        transform(chunk: any, controller) {
+          if (chunk?.type === "text-delta" && typeof chunk.textDelta === "string") {
+            let t: string = chunk.textDelta;
+            // drop Nemotron reasoning markers
+            if (
+              /Analyze User Input|Identify (Context|Role)|Check Rules|Determine Response|thinking process/i.test(
+                t,
+              )
+            )
+              return;
+            // strip <think> blocks if they arrive incrementally
+            t = t.replace(/<think>[\s\S]*?<\/think>/gi, "");
+            t = t.replace(/^Here's a thinking process:[\s\S]*/i, "");
+            if (!t) return;
+            controller.enqueue({ ...chunk, textDelta: t });
+          } else {
+            controller.enqueue(chunk);
+          }
+        },
+      }),
+    );
+
+    const uiStream = toUIMessageStream({ stream: filtered as any });
     return createUIMessageStreamResponse({ stream: uiStream });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Chat error";
