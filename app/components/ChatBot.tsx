@@ -31,16 +31,38 @@ function renderLinks(text: string, siteOrigin: string) {
   return parts;
 }
 
+function stripThinking(text: string): string {
+  let t = text.replace(/<think>[\s\S]*?<\/think>/gi, "");
+  // If the model leaked its chain-of-thought, it always contains these markers
+  if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(t)) {
+    // Try to extract the real answer after the last thinking block (usually after a blank line)
+    const parts = t.split(/\n\s*\n/);
+    const last = parts[parts.length - 1] ?? "";
+    if (last && !/Analyze|Identify|Formulate|thinking process/i.test(last)) {
+      t = last;
+    } else {
+      // Fallback: strip the leading "Here's a thinking process: ..." block
+      t = t.replace(/^Here's a thinking process:[\s\S]*?(\n\n|$)/i, "");
+      // If still looks like thinking, return a safe greeting
+      if (/Analyze User Input|Identify Role|Formulate Response/i.test(t)) {
+        return "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).";
+      }
+    }
+  }
+  return t.trim();
+}
+
 function messageText(m: any): string {
+  let raw = "";
   if (m.parts && Array.isArray(m.parts)) {
     const texts = m.parts
       .filter((p: any) => p?.type === "text")
       .map((p: any) => p?.text ?? "");
-    if (texts.length > 0) return texts.join("");
-  }
-  if (m.content) return m.content;
-  if (m.text) return m.text;
-  return "";
+    if (texts.length > 0) raw = texts.join("");
+    else raw = "";
+  } else if (m.content) raw = m.content;
+  else if (m.text) raw = m.text;
+  return stripThinking(raw);
 }
 
 const CACHED_ANSWERS: Record<string, string> = {
