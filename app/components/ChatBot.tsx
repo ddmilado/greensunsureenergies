@@ -67,7 +67,7 @@ export function ChatBot() {
   return (
     <>
       {open && (
-        <div className="fixed bottom-28 right-6 z-50 flex w-[200px] max-w-[calc(100vw-48px)] flex-col rounded-[1.75rem] bg-white shadow-[0_24px_80px_rgba(3,17,31,0.18)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+        <div className="fixed bottom-24 right-6 z-50 flex w-[400px] max-w-[calc(100vw-48px)] flex-col rounded-[1.75rem] bg-white shadow-[0_24px_80px_rgba(3,17,31,0.18)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
           <div className="flex items-center justify-between rounded-t-[1.75rem] bg-[var(--surface)] px-5 py-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--solar-lime)]">
@@ -83,14 +83,14 @@ export function ChatBot() {
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="flex h-7 w-7 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+              className="flex h-6 w-6 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
               aria-label="Close chat"
             >
-              <X size={16} />
+              <X size={14} />
             </button>
           </div>
 
-          <div className="flex h-[220px] flex-col overflow-y-auto bg-[var(--shell)] px-4 py-4">
+          <div className="flex h-[440px] flex-col overflow-y-auto bg-[var(--shell)] px-4 py-4">
             {messages.length === 0 && (
               <div className="flex flex-1 flex-col items-center justify-center text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--solar-lime)]/10">
@@ -194,7 +194,7 @@ export function ChatBot() {
         className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--solar-lime)] text-[var(--ink-950)] shadow-[0_8px_32px_rgba(146,210,67,0.45)] transition-all hover:scale-110 hover:shadow-[0_12px_40px_rgba(146,210,67,0.6)] active:scale-95"
         aria-label={open ? "Close chat" : "Open chat"}
       >
-        {open ? <X size={26} weight="bold" /> : <ChatCircleDots size={30} weight="fill" />}
+        {open ? <X size={20} weight="bold" /> : <ChatCircleDots size={30} weight="fill" />}
       </button>
     </>
   );
