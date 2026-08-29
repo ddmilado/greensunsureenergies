@@ -32,24 +32,20 @@ function renderLinks(text: string, siteOrigin: string) {
 }
 
 function stripThinking(text: string): string {
-  let t = text.replace(/<think>[\s\S]*?<\/think>/gi, "");
-  // If the model leaked its chain-of-thought, it always contains these markers
-  if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(t)) {
-    // Try to extract the real answer after the last thinking block (usually after a blank line)
-    const parts = t.split(/\n\s*\n/);
-    const last = parts[parts.length - 1] ?? "";
-    if (last && !/Analyze|Identify|Formulate|thinking process/i.test(last)) {
-      t = last;
-    } else {
-      // Fallback: strip the leading "Here's a thinking process: ..." block
-      t = t.replace(/^Here's a thinking process:[\s\S]*?(\n\n|$)/i, "");
-      // If still looks like thinking, return a safe greeting
-      if (/Analyze User Input|Identify Role|Formulate Response/i.test(t)) {
-        return "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).";
+  let t = text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+  // If the whole block is just leaked chain-of-thought, return a safe greeting instead of empty
+  if (/^\s*Here's a thinking process:/i.test(t) || /Analyze User Input|Identify Role|Formulate Response/i.test(t)) {
+    // Try to find a real answer after the thinking (after a blank line)
+    const parts = t.split(/\n\s*\n/).filter(Boolean);
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const p = parts[i].trim();
+      if (p && !/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(p)) {
+        return p;
       }
     }
+    return "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).";
   }
-  return t.trim();
+  return t;
 }
 
 function messageText(m: any): string {

@@ -97,50 +97,28 @@ export async function POST(req: Request) {
       model: nvidia.chat("nvidia/nemotron-3.5-lightning-30b-a3b"),
       system: SYSTEM_PROMPT,
       messages: converted,
-      temperature: 0.3,
-      maxOutputTokens: 120,
-      topP: 0.9,
-      // Nvidia Nemotron is a reasoning model — must explicitly disable thinking via chat_template_kwargs
-      // per Nvidia docs: extra_body={"chat_template_kwargs":{"enable_thinking":False}} prevents reasoning_content
+      temperature: 1,
+      topP: 0.95,
+      maxOutputTokens: 500,
+      // Per Nvidia docs your Python snippet uses enable_thinking:True and handles
+      // reasoning_content vs content separately. We keep thinking enabled and let
+      // the AI SDK route reasoning to a separate part (not displayed by ChatBot).
       providerOptions: {
         openai: {
-          // @ts-ignore - passed as extra_body to Nvidia's OpenAI-compatible endpoint
-          chat_template_kwargs: { enable_thinking: false },
-          reasoning_budget: 0,
+          // @ts-ignore - extra_body for Nvidia OpenAI-compatible endpoint
+          chat_template_kwargs: { enable_thinking: true },
+          reasoning_budget: 16384,
         } as any,
         nvidia: {
-          chat_template_kwargs: { enable_thinking: false },
-          reasoning_budget: 0,
+          chat_template_kwargs: { enable_thinking: true },
+          reasoning_budget: 16384,
         } as any,
       } as any,
     });
 
-    // Hard filter: drop reasoning and any leaked chain-of-thought before it reaches the client
-    const filtered = result.stream.pipeThrough(
-      new TransformStream({
-        transform(chunk: any, controller) {
-          const type = String(chunk?.type ?? "");
-          // Nemotron may emit reasoning as a separate part type
-          if (type.toLowerCase().includes("reasoning")) return;
-          const raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
-          if (typeof raw === "string" && raw) {
-            // drop any delta that looks like internal analysis
-            if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(raw)) return;
-            let t = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
-            // also handle non-tagged thinking that starts with "Here's a thinking process:"
-            if (/^\s*Here's a thinking process:/i.test(t)) return;
-            if (!t) return;
-            if (t !== raw) {
-              controller.enqueue({ ...chunk, textDelta: t, delta: t, text: t } as any);
-              return;
-            }
-          }
-          controller.enqueue(chunk);
-        },
-      }),
-    );
-
-    const uiStream = toUIMessageStream({ stream: filtered as any });
+    // Let the SDK handle reasoning vs text — reasoning parts become `reasoning` UI parts
+    // which ChatBot ignores (it only renders `text` parts), so no hard filtering needed.
+    const uiStream = toUIMessageStream({ stream: result.stream });
     return createUIMessageStreamResponse({ stream: uiStream });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Chat error";
