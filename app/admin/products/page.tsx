@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { formatNGN } from "@/app/lib/format";
 import { adminListProducts } from "@/app/lib/dal";
+import { deleteProductAction } from "@/app/lib/actions/products";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin · Products | Green Sunsure" };
@@ -13,6 +15,12 @@ export default async function AdminProductsPage() {
           <h1 className="text-3xl font-semibold tracking-tight">Products</h1>
           <p className="mt-1 text-sm text-neutral-500">Catalog items, prices, and stock.</p>
         </div>
+        <Link
+          href="/admin/products/new"
+          className="rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white hover:bg-neutral-800"
+        >
+          + New product
+        </Link>
       </div>
 
       <div className="mt-6 overflow-hidden rounded-2xl border border-neutral-200 bg-white">
@@ -25,14 +33,19 @@ export default async function AdminProductsPage() {
               <th className="px-4 py-3 text-right">Price</th>
               <th className="px-4 py-3 text-right">Stock</th>
               <th className="px-4 py-3 text-right">Status</th>
+              <th className="px-4 py-3 text-right">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100">
-            {products.map((p) => {
-              const catName = (Array.isArray(p.category) ? p.category[0]?.name : p.category) ?? "—";
+            {products.map((p: any) => {
+              const catName = (Array.isArray(p.category) ? p.category[0]?.name : p.category?.name) ?? "—";
               return (
                 <tr key={p.id} className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium text-neutral-900">{p.name}</td>
+                  <td className="px-4 py-3 font-medium text-neutral-900">
+                    <Link href={`/admin/products/${p.slug}`} className="hover:underline">
+                      {p.name}
+                    </Link>
+                  </td>
                   <td className="px-4 py-3 text-neutral-600">{p.brand ?? "—"}</td>
                   <td className="px-4 py-3 text-neutral-600">{catName}</td>
                   <td className="px-4 py-3 text-right font-medium">{formatNGN(p.price_kobo)}</td>
@@ -46,22 +59,37 @@ export default async function AdminProductsPage() {
                       {p.active ? "Active" : "Hidden"}
                     </span>
                   </td>
+                  <td className="px-4 py-3 text-right">
+                    <form action={deleteProductAction} className="inline">
+                      <input type="hidden" name="id" value={p.id} />
+                      <button
+                        type="submit"
+                        className="text-xs text-red-600 hover:underline"
+                        onClick={(e) => {
+                          if (!confirm(`Delete "${p.name}"? This cannot be undone.`)) e.preventDefault();
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </td>
                 </tr>
               );
             })}
             {products.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-8 text-center text-neutral-500">
-                  No products yet. Add some in your Supabase dashboard.
+                <td colSpan={7} className="px-4 py-8 text-center text-neutral-500">
+                  No products yet.{" "}
+                  <Link href="/admin/products/new" className="font-medium text-neutral-900 underline">
+                    Add your first product
+                  </Link>
+                  .
                 </td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-xs text-neutral-500">
-        Product create / edit forms can be built on top of the products table when you&rsquo;re ready.
-      </p>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-// All cart and checkout routes require an authenticated user.
+// Auth guard: checkout/account/admin require login; cart is guest-friendly (cookie cart).
 import { NextResponse, type NextRequest } from "next/server";
 
-const PROTECTED = ["/cart", "/checkout", "/account", "/admin"];
+const PROTECTED = ["/checkout", "/account", "/admin"];
 
 export function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
@@ -23,5 +23,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/cart/:path*", "/checkout/:path*", "/account/:path*", "/admin/:path*"],
+  matcher: ["/checkout/:path*", "/account/:path*", "/admin/:path*"],
 };

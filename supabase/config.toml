@@ -1,0 +1,17 @@
+# Supabase CLI project config for Green Sunsure Energy.
+# Usage (after `npm i -g supabase` and `supabase login`):
+#   supabase link --project-ref <YOUR_PROJECT_REF>
+#   supabase db push        # applies supabase/migrations/* to your project
+#   supabase storage buckets # the product-images bucket is created by migration 0006
+
+project_id = "greensunsure-energy"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322

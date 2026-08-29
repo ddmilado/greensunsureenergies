@@ -75,13 +75,19 @@ export async function paystackVerify(reference: string): Promise<PaystackVerifyR
   return (await res.json()) as PaystackVerifyResponse;
 }
 
+import crypto from "node:crypto";
+
 export function verifyPaystackSignature(rawBody: string, signature: string | null): boolean {
   if (!signature) return false;
   const secret = process.env.PAYSTACK_WEBHOOK_SECRET;
   if (!secret) return false;
-  // Node-only crypto to keep this server-only.
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const crypto = require("crypto") as typeof import("crypto");
   const hash = crypto.createHmac("sha512", secret).update(rawBody).digest("hex");
-  return hash === signature;
+  try {
+    const a = Buffer.from(hash, "utf8");
+    const b = Buffer.from(signature, "utf8");
+    if (a.length !== b.length) return false;
+    return crypto.timingSafeEqual(a, b);
+  } catch {
+    return false;
+  }
 }

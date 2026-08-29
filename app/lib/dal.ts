@@ -44,36 +44,92 @@ export async function requireAdmin(): Promise<SessionUser> {
 }
 
 // ---------- catalog reads ----------
+// These read from Supabase when available and gracefully fall back to the
+// static `data/catalog` so the store still renders before migrations run.
+
+const PRODUCT_SELECT =
+  "*, category:categories(slug, name), images:product_images(id, url, alt, position)";
+
+function normalizeProduct(row: any) {
+  const images = (row.images ?? [])
+    .slice()
+    .sort((a: any, b: any) => (a.position ?? 0) - (b.position ?? 0));
+  return {
+    ...row,
+    images,
+    category: row.category ? { slug: row.category.slug, name: row.category.name } : null,
+  };
+}
 
 export async function listCategories() {
-  return categories;
+  try {
+    const sb = await createServerClient_();
+    const { data, error } = await sb.from("categories").select("*").order("name");
+    if (error) throw error;
+    if (data && data.length) return data as any[];
+    return categories;
+  } catch (e) {
+    if (!isMissingTableError(e)) console.error("listCategories", e);
+    return categories;
+  }
 }
 
 export async function getCategoryBySlug(slug: string) {
-  return categories.find((c) => c.slug === slug) ?? null;
+  const all = await listCategories();
+  return (all as any[]).find((c) => c.slug === slug) ?? null;
 }
 
 export async function listProducts(opts?: { categorySlug?: string; search?: string }) {
-  let list = [...products];
-
-  if (opts?.categorySlug) {
-    const cat = await getCategoryBySlug(opts.categorySlug);
-    if (cat) {
-      list = list.filter((p) => p.category_id === cat.id);
-    } else {
-      return [];
-    }
+  try {
+    const sb = await createServerClient_();
+    // Use inner join when filtering by category so PostgREST correctly filters
+    const select = opts?.categorySlug
+      ? "*, category:categories!inner(slug, name), images:product_images(id, url, alt, position)"
+      : PRODUCT_SELECT;
+    let q = sb.from("products").select(select);
+    if (opts?.categorySlug) q = q.eq("category.slug", opts.categorySlug);
+    if (opts?.search) q = q.ilike("name", `%${opts.search}%`);
+    q = q.order("created_at", { ascending: false });
+    const { data, error } = await q;
+    if (error) throw error;
+    const list = (data ?? []).map(normalizeProduct);
+    if (list.length) return list;
+    // If DB returned empty for a filtered query, don't fall back to static — that's a real empty result
+    if (opts?.categorySlug || opts?.search) return list;
+    return fallbackListProducts(opts);
+  } catch (e) {
+    if (!isMissingTableError(e)) console.error("listProducts", e);
+    return fallbackListProducts(opts);
   }
+}
 
+function fallbackListProducts(opts?: { categorySlug?: string; search?: string }) {
+  let list = [...products];
+  if (opts?.categorySlug) {
+    const cat = categories.find((c) => c.slug === opts.categorySlug);
+    if (cat) list = list.filter((p) => p.category_id === cat.id);
+    else return [];
+  }
   if (opts?.search) {
     const term = opts.search.toLowerCase();
     list = list.filter((p) => p.name.toLowerCase().includes(term));
   }
-
   return list;
 }
 
 export async function getProductBySlug(slug: string) {
+  try {
+    const sb = await createServerClient_();
+    const { data, error } = await sb
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .eq("slug", slug)
+      .maybeSingle();
+    if (error) throw error;
+    if (data) return normalizeProduct(data) as any;
+  } catch (e) {
+    if (!isMissingTableError(e)) console.error("getProductBySlug", e);
+  }
   const p = products.find((prod) => prod.slug === slug);
   if (!p) return null;
   const cat = categories.find((c) => c.id === p.category_id);
@@ -155,6 +211,45 @@ export async function adminListProducts() {
     .order("created_at", { ascending: false });
   if (error) throw error;
   return data ?? [];
+}
+
+export async function adminGetProduct(slug: string) {
+  await requireAdmin();
+  const admin = createAdminClient();
+  const { data, error } = await admin
+    .from("products")
+    .select("*, category:categories(id, slug, name), images:product_images(id, url, alt, position)")
+    .eq("slug", slug)
+    .maybeSingle();
+  if (error) throw error;
+  return data ? normalizeProduct(data) : null;
+}
+
+// ---------- orders (admin) ----------
+
+export async function adminListOrders(opts?: { status?: string }) {
+  await requireAdmin();
+  const admin = createAdminClient();
+  let q = admin
+    .from("orders")
+    .select("id, email, status, total_kobo, currency, created_at, ship_full_name, paystack_reference")
+    .order("created_at", { ascending: false });
+  if (opts?.status) q = q.eq("status", opts.status);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function adminGetOrder(id: string) {
+  await requireAdmin();
+  const admin = createAdminClient();
+  const { data, error } = await admin
+    .from("orders")
+    .select("*, items:order_items(*)")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
 }
 
 // ---------- projects ----------
