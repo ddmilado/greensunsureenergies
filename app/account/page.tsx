@@ -41,13 +41,15 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             {/* Orders */}
             <Link
               href="/account/orders"
-              className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
+              className="group rounded-[1.75rem] bg-white p-1.5 ring-1 ring-[var(--line)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_32px_rgba(3,21,13,0.08)]"
             >
-              <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
-                <Package size={28} weight="duotone" className="text-[var(--brand-blue)]" />
+              <div className="flex h-full flex-col rounded-[1.4rem] bg-[var(--shell)] p-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--surface)] text-white">
+                  <Package size={20} weight="duotone" />
+                </div>
                 <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">My orders</h2>
                 <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">
-                  Track your purchases, view receipts, and check delivery status.
+                  Track purchases, view receipts, and check delivery status.
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-blue)]">
                   View orders
@@ -60,15 +62,17 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             {user.isAdmin && (
               <Link
                 href="/admin"
-                className="group rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)] transition hover:ring-[var(--brand-blue)]/30"
+                className="group rounded-[1.75rem] bg-[var(--surface)] p-1.5 ring-1 ring-[var(--line)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_32px_rgba(3,21,13,0.12)]"
               >
-                <div className="flex h-full flex-col rounded-[1.6rem] bg-white p-6 dark:bg-[var(--shell)]">
-                  <GearSix size={28} weight="duotone" className="text-[var(--brand-blue)]" />
-                  <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-[var(--ink-950)]">Admin panel</h2>
-                  <p className="mt-1 flex-1 text-sm leading-6 text-[var(--ink-600)]">
+                <div className="flex h-full flex-col rounded-[1.4rem] bg-white/5 p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--solar-lime)] text-[var(--ink-950)]">
+                    <GearSix size={20} weight="duotone" />
+                  </div>
+                  <h2 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-white">Admin panel</h2>
+                  <p className="mt-1 flex-1 text-sm leading-6 text-white/70">
                     Manage products, projects, blog posts, and view incoming leads.
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-blue)]">
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--solar-lime)]">
                     Open admin
                     <ArrowRight size={16} className="transition group-hover:translate-x-1" />
                   </span>
@@ -77,22 +81,31 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             )}
 
             {/* Account info */}
-            <div className="rounded-[2rem] bg-[var(--surface)] p-6 text-white">
-              <h2 className="text-lg font-semibold tracking-[-0.03em]">Account details</h2>
+            <div className="rounded-[1.75rem] bg-white p-6 ring-1 ring-[var(--line)]">
+              <h2 className="text-lg font-semibold tracking-[-0.03em] text-[var(--ink-950)]">Account details</h2>
               <dl className="mt-4 space-y-3 text-sm">
-                <div>
-                  <dt className="text-white/40">Name</dt>
-                  <dd className="mt-0.5 font-medium">{user.fullName}</dd>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-[var(--ink-600)]">Name</dt>
+                  <dd className="font-medium text-[var(--ink-950)]">{user.fullName}</dd>
                 </div>
-                <div>
-                  <dt className="text-white/40">Email</dt>
-                  <dd className="mt-0.5 font-medium">{user.email}</dd>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-[var(--ink-600)]">Email</dt>
+                  <dd className="font-medium text-[var(--ink-950)]">{user.email}</dd>
                 </div>
-                <div>
-                  <dt className="text-white/40">Role</dt>
-                  <dd className="mt-0.5 font-medium">{user.isAdmin ? "Administrator" : "Customer"}</dd>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-[var(--ink-600)]">Role</dt>
+                  <dd>
+                    <span
+                      className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                        user.isAdmin ? "bg-[var(--solar-lime)] text-[var(--ink-950)]" : "bg-[var(--mist)] text-[var(--ink-700)]"
+                      }`}
+                    >
+                      {user.isAdmin ? "Administrator" : "Customer"}
+                    </span>
+                  </dd>
                 </div>
               </dl>
+              <p className="mt-4 text-xs leading-5 text-[var(--ink-600)]">This is your Green Sunsure account. Orders and support messages are tied to this email.</p>
             </div>
           </div>
 

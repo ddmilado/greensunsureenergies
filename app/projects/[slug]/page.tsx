@@ -174,7 +174,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
         <section className="px-4 py-20 md:px-8 md:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_320px]">
             <div
-              className="prose-damdavy text-[var(--ink-700)]"
+              className="prose-sunsure text-[var(--ink-700)]"
               dangerouslySetInnerHTML={{ __html: html || "<p>This case study is being written. Check back soon.</p>" }}
             />
             <aside className="h-fit rounded-[2rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">

@@ -22,7 +22,7 @@ export default function TermsPage() {
             Terms of service
           </h1>
           <p className="mt-4 text-sm text-[var(--ink-600)]">Last updated: January 2026</p>
-          <div className="prose-damdavy mt-10">
+          <div className="prose-sunsure mt-10">
             <p>
               By using {site.url} or any service provided by {site.legalName} (&ldquo;Green Sunsure&rdquo;), you agree to the
               following terms. Please read them carefully.

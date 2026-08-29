@@ -108,11 +108,11 @@ async function submitLead(
   }
   revalidatePath("/admin/leads");
   if (kind === "quote") {
-    redirect("/contact-us/thank-you?kind=quote");
+    return { ok: true, message: "Thanks! We'll call you within one business day." };
   } else if (kind === "support") {
-    redirect("/contact-us/thank-you?kind=support");
+    return { ok: true, message: "Support request received. We'll get back to you shortly." };
   } else {
-    redirect("/contact-us/thank-you?kind=contact");
+    return { ok: true, message: "Message sent! We'll be in touch soon." };
   }
 }
 

@@ -130,10 +130,10 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: "500+", label: "Happy clients" },
-  { value: "15+", label: "Engineers" },
-  { value: "650+", label: "Projects done" },
-  { value: "4.9", label: "Client rating" },
+  { value: "150+", label: "Happy clients" },
+  { value: "12+", label: "Engineers" },
+  { value: "180+", label: "Projects done" },
+  { value: "4.8", label: "Client rating" },
 ];
 
 export const valueCards = [

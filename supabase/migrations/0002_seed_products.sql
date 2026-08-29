@@ -32,7 +32,7 @@ begin
   -- 2. Gel battery
   insert into public.products (slug, name, brand, short_desc, description, category_id,
     price_kobo, currency, stock, active, capacity_ah, voltage_v, warranty_yrs)
-  values ('solar-200ah-gel-battery', 'Solar 200Ah Gel Battery', 'Damdavy',
+  values ('solar-200ah-gel-battery', 'Solar 200Ah Gel Battery', 'Green Sunsure',
     'Maintenance-free deep-cycle gel battery, 12V, 200Ah.',
     'Reliable 200Ah gel battery suitable for inverters and solar systems. Maintenance-free, low self-discharge, long service life.',
     cat_batteries, 380000, 'NGN', 32, true, 200, 12, 3)
@@ -43,7 +43,7 @@ begin
   -- 3. Hybrid inverter
   insert into public.products (slug, name, brand, short_desc, description, category_id,
     price_kobo, compare_at_kobo, currency, stock, active, wattage_w, voltage_v, warranty_yrs)
-  values ('hybrid-5kva-inverter', 'Damdavy 5KVA Hybrid Inverter', 'Damdavy',
+  values ('hybrid-5kva-inverter', 'Green Sunsure 5KVA Hybrid Inverter', 'Green Sunsure',
     '5KVA pure sine wave hybrid solar inverter, 48V.',
     '5KVA/5KW hybrid inverter with MPPT solar charger, supports parallel operation, WiFi monitoring, configurable charge priority.',
     cat_inverters, 950000, 1100000, 'NGN', 14, true, 5000, 48, 3)
@@ -54,7 +54,7 @@ begin
   -- 4. Pure sine wave inverter
   insert into public.products (slug, name, brand, short_desc, description, category_id,
     price_kobo, currency, stock, active, wattage_w, voltage_v, warranty_yrs)
-  values ('puresine-2kva-inverter', 'PureSine 2KVA Inverter', 'Damdavy',
+  values ('puresine-2kva-inverter', 'PureSine 2KVA Inverter', 'Green Sunsure',
     '2KVA pure sine wave inverter, 24V, low idle draw.',
     'Compact 2KVA pure sine wave inverter for home and office loads. Built-in charger, smart fan, surge protection.',
     cat_inverters, 320000, 'NGN', 22, true, 2000, 24, 2)
@@ -87,7 +87,7 @@ begin
   -- 7. MPPT controller
   insert into public.products (slug, name, brand, short_desc, description, category_id,
     price_kobo, currency, stock, active, wattage_w, voltage_v, warranty_yrs)
-  values ('mppt-60a-controller', 'Damdavy 60A MPPT Charge Controller', 'Damdavy',
+  values ('mppt-60a-controller', 'Green Sunsure 60A MPPT Charge Controller', 'Green Sunsure',
     '60A MPPT solar charge controller, 12/24/48V auto.',
     'High-efficiency 60A MPPT charge controller with LCD, multi-stage charging, temperature compensation.',
     cat_controllers, 220000, 'NGN', 25, true, null, 48, 2)
@@ -98,7 +98,7 @@ begin
   -- 8. DC breaker
   insert into public.products (slug, name, brand, short_desc, description, category_id,
     price_kobo, currency, stock, active, voltage_v)
-  values ('dc-breaker-63a', 'DC Circuit Breaker 63A', 'Damdavy',
+  values ('dc-breaker-63a', 'DC Circuit Breaker 63A', 'Green Sunsure',
     '63A DC circuit breaker for solar PV string protection.',
     '63A double-pole DC breaker, 500V, lockable handle, DIN-rail mount.',
     cat_accessories, 35000, 'NGN', 100, true, 500)

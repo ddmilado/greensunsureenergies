@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
         <section className="px-4 py-24 md:px-8 md:py-28">
           <div
-            className="prose-damdavy mx-auto max-w-3xl text-[var(--ink-700)]"
+            className="prose-sunsure mx-auto max-w-3xl text-[var(--ink-700)]"
             dangerouslySetInnerHTML={{ __html: html || "<p>This article is being written. Check back soon.</p>" }}
           />
         </section>

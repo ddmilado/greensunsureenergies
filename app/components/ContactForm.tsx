@@ -34,33 +34,30 @@ export function ContactForm({ quoteOnly = false }: { quoteOnly?: boolean }) {
           ) : (
             <input type="hidden" name="source" value="contact-form" />
           )}
-          {!quoteOnly ? (
-            <>
-              <label className="grid gap-2 text-sm font-medium text-[var(--ink-700)]">
-                Name
-                <input
-                  className="form-field"
-                  name="name"
-                  autoComplete="name"
-                  placeholder="Your name"
-                  required
-                />
-                {state?.errors?.name && <span className="text-xs text-red-600">{state.errors.name[0]}</span>}
-              </label>
-              <label className="grid gap-2 text-sm font-medium text-[var(--ink-700)]">
-                Email
-                <input
-                  className="form-field"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  required
-                />
-                {state?.errors?.email && <span className="text-xs text-red-600">{state.errors.email[0]}</span>}
-              </label>
-            </>
-          ) : null}
+          <label className="grid gap-2 text-sm font-medium text-[var(--ink-700)]">
+            Name
+            <input
+              className="form-field"
+              name="name"
+              autoComplete="name"
+              placeholder="Your name"
+              required
+            />
+            {state?.errors?.name && <span className="text-xs text-red-600">{state.errors.name[0]}</span>}
+          </label>
+          {!quoteOnly && (
+            <label className="grid gap-2 text-sm font-medium text-[var(--ink-700)]">
+              Email
+              <input
+                className="form-field"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="you@example.com"
+              />
+              {state?.errors?.email && <span className="text-xs text-red-600">{state.errors.email[0]}</span>}
+            </label>
+          )}
           <label className="grid gap-2 text-sm font-medium text-[var(--ink-700)]">
             Phone
             <input
@@ -124,7 +121,11 @@ export function ContactForm({ quoteOnly = false }: { quoteOnly?: boolean }) {
             </label>
           )}
 
-          {state?.message && <p className="text-sm text-red-600">{state.message}</p>}
+          {state?.message && (
+            <p className={`rounded-xl px-4 py-3 text-sm ${state.ok ? "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200" : "bg-red-50 text-red-700 ring-1 ring-red-200"}`}>
+              {state.message}
+            </p>
+          )}
 
           <SubmitButton
             label={quoteOnly ? "Request a call back" : "Send message"}

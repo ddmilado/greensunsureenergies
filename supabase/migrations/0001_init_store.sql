@@ -1,5 +1,5 @@
 -- ============================================================
--- damdavy store schema
+-- Green Sunsure store schema
 -- profiles (1:1 with auth.users), products, categories,
 -- product_images, inventory, cart, orders, order_items,
 -- payment_events, admin role

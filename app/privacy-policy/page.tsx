@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
             Privacy policy
           </h1>
           <p className="mt-4 text-sm text-[var(--ink-600)]">Last updated: January 2026</p>
-          <div className="prose-damdavy mt-10">
+          <div className="prose-sunsure mt-10">
             <p>
               This privacy policy explains how {site.legalName} (&ldquo;Green Sunsure&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,
               uses, and protects your personal information when you visit our website at {site.url}, request a quote,

@@ -96,7 +96,7 @@ Daytime generator use is essentially zero, and the business has not had a refrig
 A cold-storage facility could not afford a single hour of downtime. The existing backup strategy was a diesel generator with several minutes of transfer time, which is risky for compressors.
 
 ## What we installed
-A 30kVA hybrid system with a 60kWh LiFePO4 battery bank for instant switchover, paired with a 18kW rooftop PV array. The system is monitored remotely so the Damdavy team can flag issues before they become downtime.
+A 30kVA hybrid system with a 60kWh LiFePO4 battery bank for instant switchover, paired with a 18kW rooftop PV array. The system is monitored remotely so the Green Sunsure team can flag issues before they become downtime.
 
 ## The result
 During a recent multi-day outage, the facility ran entirely on the hybrid system with no product loss and no manual intervention. The client now treats solar as their primary daytime source.',
@@ -169,7 +169,7 @@ Ask for proof of relevant electrical certifications and installation insurance. 
 ## 5. What does post-installation support look like?
 The system should come with monitoring access, a clear fault-reporting path, and a maintenance schedule. A solar system is a 20-year asset — the support model matters as much as the equipment.',
   '/solar-inspect.jpg',
-  'Damdavy Team',
+  'Green Sunsure Team',
   5,
   true,
   '2025-12-10T00:00:00Z'
@@ -195,7 +195,7 @@ If you currently spend ₦600,000/month on fuel, and a properly sized system eli
 ## What to ask
 A useful quote should model your actual usage, not just square-meterage of roof. We always start with a load assessment before sizing a system.',
   '/solar-install-2.jpg',
-  'Damdavy Team',
+  'Green Sunsure Team',
   6,
   true,
   '2025-12-10T00:00:00Z'
@@ -225,7 +225,7 @@ A typical 3-bedroom home with fridge, 4 fans, 10 LED bulbs, 1 TV, 1 decoder, and
 ## Before you pay
 Always request a written load assessment, not a guess. The biggest mistake we see is buying a system based on neighbour comparison instead of actual usage.',
   '/hero-1.jpg',
-  'Damdavy Team',
+  'Green Sunsure Team',
   4,
   true,
   '2025-12-15T00:00:00Z'
@@ -255,7 +255,7 @@ Solar pays for itself in roughly 2–3 years for this profile. After that, every
 ## The non-financial win
 Generators are loud, vibrate the house, and produce fumes. Solar is silent, has no moving parts in the daily use cycle, and is monitored from your phone.',
   '/hero-2.jpg',
-  'Damdavy Team',
+  'Green Sunsure Team',
   5,
   true,
   '2025-12-20T00:00:00Z'

@@ -74,7 +74,7 @@ Past performance is the best predictor of future reliability. Don't rely solely 
 
 Choosing the cheapest quote is often the most expensive mistake in the long run. By asking these five non-negotiable questions, you separate the reliable, professional solar companies from the risky, fly-by-night operators.
 
-At Damdavy technologies, we pride ourselves on providing transparent answers to all these questions, backing our work with certified engineers, Tier-1 components, and industry-leading warranties. We are committed to powering Nigeria reliably and professionally.
+At Green Sunsure Energy, we pride ourselves on providing transparent answers to all these questions, backing our work with certified engineers, Tier-1 components, and industry-leading warranties. We are committed to powering Nigeria reliably and professionally.
 
 Ready to work with Nigeria's most trusted solar experts? [Request your professional, no-obligation quote today](/contact-us).$$
 where slug = '5-non-negotiable-questions-to-ask-before-you-pay';
@@ -163,5 +163,5 @@ Every business is unique. We begin the process with a Comprehensive Energy Audit
 
 Stop pouring profits into your generator tank. Now is the time to turn your greatest operational challenge — energy — into a reliable, cost-saving asset.
 
-At Damdavy technologies, we provide bankable, industrial-grade solar solutions designed to deliver guaranteed ROI for Nigerian businesses. [Contact us](/contact-us) today to schedule your commercial energy audit and receive a customized ROI projection for your business.$$
+At Green Sunsure Energy, we provide bankable, industrial-grade solar solutions designed to deliver guaranteed ROI for Nigerian businesses. [Contact us](/contact-us) today to schedule your commercial energy audit and receive a customized ROI projection for your business.$$
 where slug = 'the-business-case-for-solar';

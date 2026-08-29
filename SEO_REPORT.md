@@ -1,6 +1,6 @@
-# Damdavy Technologies — SEO Audit Report
+# Green Sunsure Energy — SEO Audit Report
 
-Prepared from the Screaming Frog SEO Spider crawl export (24 CSV files in `/Users/ram/Documents/SEO DAMDAVY`) of `https://damdavytechnologies.com.ng`, combined with how the rebuilt Next.js site should resolve each finding.
+Prepared from the Screaming Frog SEO Spider crawl export (24 CSV files in `/Users/ram/Documents/SEO DAMDAVY`) of `https://www.greensunsurenergy.com`, combined with how the rebuilt Next.js site should resolve each finding.
 
 ---
 
@@ -34,7 +34,7 @@ Prepared from the Screaming Frog SEO Spider crawl export (24 CSV files in `/User
 
 From `page_titles_all.csv`:
 ```
-https://damdavytechnologies.com.ng/   Title: ""   Length: 0
+https://www.greensunsurenergy.com/   Title: ""   Length: 0
 ```
 The single most important page on the site has no title at all. Google will invent one (often a bad one), and social sharing has nothing to work with.
 
@@ -46,8 +46,8 @@ From `canonicals_all.csv` and `directives_all.csv`, these pages are canonicalise
 
 | Page | Canonical points to |
 |---|---|
-| `/quote` | `http://damdavytechnologies.com.ng/quote/` |
-| `/quote/` | `http://damdavytechnologies.com.ng/quote/` |
+| `/quote` | `https://www.greensunsurenergy.com/quote/` |
+| `/quote/` | `https://www.greensunsurenergy.com/quote/` |
 | `/5-non-negotiable-questions-to-ask-before-you-pay/` | `http://...5-non-negotiable-questions-to-ask-before-you-pay/` |
 | `/the-business-case-for-solar/` | `http://...the-business-case-for-solar/` |
 
@@ -130,18 +130,18 @@ The rebuild already resolves several of these by construction. Here is the item-
 
 ### 5.1 Titles & meta descriptions — already fixed, with room to expand
 
-The new `app/layout.tsx` sets a real title template and default description, and each page exports its own `metadata` (e.g., `app/about/page.tsx` has `title: "About"` which renders as `"About — Damdavy Technologies"`).
+The new `app/layout.tsx` sets a real title template and default description, and each page exports its own `metadata` (e.g., `app/about/page.tsx` has `title: "About"` which renders as `"About — Green Sunsure Energy"`).
 
 **Next step to fully close the audit:** expand each page's title and description to target keywords and fill the 30–60 char / 920px window the old site left empty. Recommended values:
 
 | Page | New `<title>` | Meta description |
 |---|---|---|
-| Home | `Solar Installation in Ogun State | Damdavy Technologies` | `Dependable solar systems for Nigerian homes and businesses. Cut fuel costs, enjoy uninterrupted power, and get expert installation and support.` |
-| About | `About Damdavy Technologies | Solar Energy Experts` | `Damdavy Technologies helps homes and businesses reduce fuel costs and enjoy steady electricity with dependable, cost-saving solar systems.` |
-| Services | `Solar Services | Installation, Batteries & Maintenance` | `Solar panel installation, commercial and residential systems, battery backup, inverters, energy audits, and maintenance from Damdavy Technologies.` |
-| Projects | `Solar Projects & Installations | Damdavy Technologies` | `See Damdavy solar installations for homes, commercial buildings, industrial backup, and open-field arrays across Nigeria.` |
-| Blog | `Solar Tips & Insights | Damdavy Blog` | `Practical solar advice: choosing an installer, calculating ROI, and reducing generator dependence in Nigeria.` |
-| Contact | `Contact Damdavy Technologies | Get a Solar Quote` | `Request a free solar quote or talk to the Damdavy team about installation, batteries, and maintenance in Ogun State.` |
+| Home | `Solar Installation in Ogun State | Green Sunsure Energy` | `Dependable solar systems for Nigerian homes and businesses. Cut fuel costs, enjoy uninterrupted power, and get expert installation and support.` |
+| About | `About Green Sunsure Energy | Solar Energy Experts` | `Green Sunsure Energy helps homes and businesses reduce fuel costs and enjoy steady electricity with dependable, cost-saving solar systems.` |
+| Services | `Solar Services | Installation, Batteries & Maintenance` | `Solar panel installation, commercial and residential systems, battery backup, inverters, energy audits, and maintenance from Green Sunsure Energy.` |
+| Projects | `Solar Projects & Installations | Green Sunsure Energy` | `See Green Sunsure solar installations for homes, commercial buildings, industrial backup, and open-field arrays across Nigeria.` |
+| Blog | `Solar Tips & Insights | Green Sunsure Blog` | `Practical solar advice: choosing an installer, calculating ROI, and reducing generator dependence in Nigeria.` |
+| Contact | `Contact Green Sunsure Energy | Get a Solar Quote` | `Request a free solar quote or talk to the Green Sunsure team about installation, batteries, and maintenance in Ogun State.` |
 
 ### 5.2 Canonicals — fix the HTTP/non-indexable problem structurally
 
@@ -178,7 +178,7 @@ The new site already uses **exactly one `<h1>` per page** (inside `PageHero`/her
 
 Old site: 100% of internal outlinks had no anchor text.
 
-The new site uses descriptive anchors throughout (`Request quote`, `Call Damdavy`, `Explore services`, nav labels). No bare image links without context.
+The new site uses descriptive anchors throughout (`Request quote`, `Call Green Sunsure`, `Explore services`, nav labels). No bare image links without context.
 
 **Action:** keep this discipline — never ship a link labeled "click here" or an icon-only link without an `aria-label` or visible text.
 

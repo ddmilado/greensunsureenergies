@@ -21,7 +21,7 @@ export default function CookiePolicyPage() {
             Cookie policy
           </h1>
           <p className="mt-4 text-sm text-[var(--ink-600)]">Last updated: January 2026</p>
-          <div className="prose-damdavy mt-10">
+          <div className="prose-sunsure mt-10">
             <p>
               This page explains what cookies are, which ones {site.legalName} uses, and how you can control them.
             </p>

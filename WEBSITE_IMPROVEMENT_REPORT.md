@@ -1,6 +1,6 @@
-# Damdavy Technologies website improvement report
+# Green Sunsure Energy website improvement report
 
-Prepared from the current site crawl of `https://damdavytechnologies.com.ng` and the rebuilt Next.js implementation.
+Prepared from the current site crawl of `https://www.greensunsurenergy.com` and the rebuilt Next.js implementation.
 
 ## Current-site findings
 
