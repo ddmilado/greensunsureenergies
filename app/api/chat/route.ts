@@ -1,6 +1,14 @@
 import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, toUIMessageStream, createUIMessageStreamResponse } from "ai";
+import {
+  streamText,
+  toUIMessageStream,
+  createUIMessageStream,
+  createUIMessageStreamResponse,
+} from "ai";
 import { site, services, featureList, whyChooseUs, aboutCopy, stats } from "../../data/site";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const nvidia = createOpenAI({
   baseURL: process.env.NVIDIA_BASE_URL ?? "https://integrate.api.nvidia.com/v1",
@@ -66,12 +74,40 @@ export async function POST(req: Request) {
     content: m.parts?.[0]?.text ?? m.content ?? "",
   }));
 
-  const result = streamText({
-    model: nvidia.chat("deepseek-ai/deepseek-v4-pro-0813"),
-    system: SYSTEM_PROMPT,
-    messages: converted,
-  });
+  // Graceful fallback when NVIDIA key is missing — prevents infinite loading
+  if (!process.env.NVIDIA_API_KEY) {
+    const stream = createUIMessageStream({
+      execute({ writer }) {
+        writer.write({ type: "text-start", id: "0" });
+        writer.write({
+          type: "text-delta",
+          id: "0",
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model deepseek-ai/deepseek-v4-pro-0813, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+        });
+        writer.write({ type: "text-end", id: "0" });
+      },
+    });
+    return createUIMessageStreamResponse({ stream });
+  }
 
-  const uiStream = toUIMessageStream({ stream: result.stream });
-  return createUIMessageStreamResponse({ stream: uiStream });
+  try {
+    const result = streamText({
+      model: nvidia.chat("deepseek-ai/deepseek-v4-pro-0813"),
+      system: SYSTEM_PROMPT,
+      messages: converted,
+    });
+
+    const uiStream = toUIMessageStream({ stream: result.stream });
+    return createUIMessageStreamResponse({ stream: uiStream });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Chat error";
+    const stream = createUIMessageStream({
+      execute({ writer }) {
+        writer.write({ type: "text-start", id: "0" });
+        writer.write({ type: "text-delta", id: "0", delta: `Chat error: ${msg}. Please try again or call ${site.phone}.` });
+        writer.write({ type: "text-end", id: "0" });
+      },
+    });
+    return createUIMessageStreamResponse({ stream });
+  }
 }
