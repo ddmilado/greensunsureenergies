@@ -33,26 +33,25 @@ function renderLinks(text: string, siteOrigin: string) {
 
 function stripThinking(text: string): string {
   let t = text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
-  // If the whole block is leaked chain-of-thought / draft counting, return a safe greeting
+  if (!t || /^[,.\s]+$/.test(t)) {
+    return "Hello! Green Sunsure Energy brings clean power to Warri & beyond. Residential, commercial, maintenance & training. Call +234 903 826 0459 for a free quote.";
+  }
+  // If leaked chain-of-thought / draft counting, extract the real answer
   if (
     /^\s*(Here's a thinking process:|Draft:)/i.test(t) ||
     /Analyze User Input|Identify Role|Formulate Response|Check words|thinking process/i.test(t)
   ) {
-    // Try to find a real answer after the thinking (after a blank line)
+    const m = t.match(/Draft:\s*"([^"]+)"/i);
+    if (m && m[1]) return m[1].replace(/\s*\(\d+\)/g, "").trim();
     const parts = t.split(/\n\s*\n/).filter(Boolean);
     for (let i = parts.length - 1; i >= 0; i--) {
       const p = parts[i].trim();
       if (p && !/Analyze|Identify|Formulate|thinking process|Check Rules|Determine|Draft:|Check words/i.test(p)) {
-        // strip any remaining "Count:" or "(1)" artefacts from the extracted answer
         return p.replace(/\s*\(\d+\)/g, "").replace(/^Count:\s*/i, "").trim();
       }
     }
-    // Fallback: extract the first quoted answer after Draft: "..."
-    const m = t.match(/Draft:\s*"([^"]+)"/i);
-    if (m) return m[1].replace(/\s*\(\d+\)/g, "").trim();
-    return "Hello! Green Sunsure Energy brings clean power to Warri & beyond. Residential, commercial, maintenance & training. Call +234 903 826 0459 for a free quote.";
+    return "Hello! How can Green Sunsure Energy help you today? Ask about pricing, services, or [Contact Us](/contact-us).";
   }
-  // Also clean stray word-count artefacts like "Hello!(1) Green2" if they slipped through
   return t.replace(/\s*\(\d+\)/g, "").replace(/^Count:\s*/i, "").trim();
 }
 

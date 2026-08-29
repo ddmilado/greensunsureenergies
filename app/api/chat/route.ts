@@ -97,64 +97,36 @@ export async function POST(req: Request) {
       model: nvidia.chat("nvidia/nemotron-3.5-lightning-30b-a3b"),
       system: SYSTEM_PROMPT,
       messages: converted,
-      temperature: 1,
-      topP: 0.95,
-      maxOutputTokens: 500,
-      // Per Nvidia docs your Python snippet uses enable_thinking:True and handles
-      // reasoning_content vs content separately. We keep thinking enabled and let
-      // the AI SDK route reasoning to a separate part (not displayed by ChatBot).
+      temperature: 0.3,
+      maxOutputTokens: 120,
+      topP: 0.9,
+      // Disable Nemotron thinking - we want direct answers, not Draft/Check words
       providerOptions: {
         openai: {
           // @ts-ignore - extra_body for Nvidia OpenAI-compatible endpoint
-          chat_template_kwargs: { enable_thinking: true },
-          reasoning_budget: 16384,
+          chat_template_kwargs: { enable_thinking: false },
         } as any,
         nvidia: {
-          chat_template_kwargs: { enable_thinking: true },
-          reasoning_budget: 16384,
+          chat_template_kwargs: { enable_thinking: false },
         } as any,
       } as any,
     });
 
-    // Filter leaked reasoning/draft — but extract the quoted answer inside Draft:"..." instead of dropping
+    // Light filter only for <think> tags - thinking is disabled so no Draft/Check words should appear
     const filtered = result.stream.pipeThrough(
       new TransformStream({
         transform(chunk: any, controller) {
           const type = String(chunk?.type ?? "");
           if (type.toLowerCase().includes("reasoning")) return;
-          let raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
+          const raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
           if (typeof raw !== "string" || !raw) {
             controller.enqueue(chunk);
             return;
           }
-          // If this delta is the Draft block, extract the quoted answer
-          if (/Draft:\s*"/i.test(raw)) {
-            const m = raw.match(/Draft:\s*"([^"]+)"/i);
-            if (m && m[1]) {
-              const clean = m[1].replace(/\s*\(\d+\)/g, "").trim();
-              if (clean) {
-                controller.enqueue({ ...chunk, textDelta: clean, delta: clean, text: clean } as any);
-                return;
-              }
-            }
-            // If we couldn't extract, drop the Draft prefix and keep any trailing real text
-            const after = raw.split(/Check words:/i)[0];
-            const quoted = after.match(/"([^"]+)"/);
-            if (quoted && quoted[1]) {
-              controller.enqueue({ ...chunk, textDelta: quoted[1], delta: quoted[1], text: quoted[1] } as any);
-              return;
-            }
-            return; // drop pure Draft:/Check words deltas
-          }
-          if (/Check words/i.test(raw)) return;
-          if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(raw)) return;
           let t = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
-          if (/^\s*Here's a thinking process:/i.test(t)) return;
-          if (!t) return;
-          // strip stray (1) counts that sometimes leak even in clean answers
-          const cleaned = t.replace(/\s*\(\d+\)/g, "");
-          if (cleaned !== raw) {
-            controller.enqueue({ ...chunk, textDelta: cleaned, delta: cleaned, text: cleaned } as any);
+          if (!t.trim()) return;
+          if (t !== raw) {
+            controller.enqueue({ ...chunk, textDelta: t, delta: t, text: t } as any);
             return;
           }
           controller.enqueue(chunk);
