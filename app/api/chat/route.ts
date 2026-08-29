@@ -116,22 +116,46 @@ export async function POST(req: Request) {
       } as any,
     });
 
-    // Filter out leaked reasoning/draft even though reasoning should be a separate part
+    // Filter leaked reasoning/draft — but extract the quoted answer inside Draft:"..." instead of dropping
     const filtered = result.stream.pipeThrough(
       new TransformStream({
         transform(chunk: any, controller) {
           const type = String(chunk?.type ?? "");
           if (type.toLowerCase().includes("reasoning")) return;
-          const raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
-          if (typeof raw === "string" && raw) {
-            if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine|Draft:|Check words/i.test(raw)) return;
-            let t = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
-            if (/^\s*(Here's a thinking process:|Draft:)/i.test(t)) return;
-            if (!t) return;
-            if (t !== raw) {
-              controller.enqueue({ ...chunk, textDelta: t, delta: t, text: t } as any);
+          let raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
+          if (typeof raw !== "string" || !raw) {
+            controller.enqueue(chunk);
+            return;
+          }
+          // If this delta is the Draft block, extract the quoted answer
+          if (/Draft:\s*"/i.test(raw)) {
+            const m = raw.match(/Draft:\s*"([^"]+)"/i);
+            if (m && m[1]) {
+              const clean = m[1].replace(/\s*\(\d+\)/g, "").trim();
+              if (clean) {
+                controller.enqueue({ ...chunk, textDelta: clean, delta: clean, text: clean } as any);
+                return;
+              }
+            }
+            // If we couldn't extract, drop the Draft prefix and keep any trailing real text
+            const after = raw.split(/Check words:/i)[0];
+            const quoted = after.match(/"([^"]+)"/);
+            if (quoted && quoted[1]) {
+              controller.enqueue({ ...chunk, textDelta: quoted[1], delta: quoted[1], text: quoted[1] } as any);
               return;
             }
+            return; // drop pure Draft:/Check words deltas
+          }
+          if (/Check words/i.test(raw)) return;
+          if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine/i.test(raw)) return;
+          let t = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
+          if (/^\s*Here's a thinking process:/i.test(t)) return;
+          if (!t) return;
+          // strip stray (1) counts that sometimes leak even in clean answers
+          const cleaned = t.replace(/\s*\(\d+\)/g, "");
+          if (cleaned !== raw) {
+            controller.enqueue({ ...chunk, textDelta: cleaned, delta: cleaned, text: cleaned } as any);
+            return;
           }
           controller.enqueue(chunk);
         },
