@@ -56,8 +56,6 @@ export function ChatBot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const { messages, sendMessage, status, error, setMessages } = useChat({
-    // ensure transport hits /api/chat with no extra delay
-    // @ts-expect-error - api prop exists in older SDK, harmless if ignored
     api: "/api/chat",
   } as any) as any;
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -157,7 +155,7 @@ export function ChatBot() {
               </div>
             )}
 
-            {messages.map((m, i) => {
+            {messages.map((m: any, i: number) => {
               const txt = messageText(m);
               return (
                 <div
