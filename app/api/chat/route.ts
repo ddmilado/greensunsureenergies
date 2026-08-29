@@ -61,7 +61,7 @@ WEBSITE PAGES (link to these using markdown like [Page Name](${site.url}/path)):
 ${PAGES.map((p) => `- [${p.title}](${p.path})`).join("\n")}
 
 RULES:
-- Keep responses brief and natural — 1 to 2 sentences, under 25 words. Do NOT show word counts, numbers in parentheses, or "Count:" prefixes. Just write the natural answer.
+- Keep responses concise, warm, and natural — 1 to 2 short sentences. Do not add word counts, "Count:", "Draft:", "Check words:", numbers in parentheses, or any meta-commentary about length. Just give the final answer.
 - Use markdown links like [Page Name](url) when relevant.
 - ONLY link to pages on this website (${site.url}). Never link to external websites.
 - Be warm and direct. Encourage calling the team for quotes.
@@ -116,9 +116,28 @@ export async function POST(req: Request) {
       } as any,
     });
 
-    // Let the SDK handle reasoning vs text — reasoning parts become `reasoning` UI parts
-    // which ChatBot ignores (it only renders `text` parts), so no hard filtering needed.
-    const uiStream = toUIMessageStream({ stream: result.stream });
+    // Filter out leaked reasoning/draft even though reasoning should be a separate part
+    const filtered = result.stream.pipeThrough(
+      new TransformStream({
+        transform(chunk: any, controller) {
+          const type = String(chunk?.type ?? "");
+          if (type.toLowerCase().includes("reasoning")) return;
+          const raw: string = chunk.textDelta ?? chunk.delta ?? chunk.text ?? "";
+          if (typeof raw === "string" && raw) {
+            if (/Analyze|Identify|Formulate|thinking process|Check Rules|Determine|Draft:|Check words/i.test(raw)) return;
+            let t = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
+            if (/^\s*(Here's a thinking process:|Draft:)/i.test(t)) return;
+            if (!t) return;
+            if (t !== raw) {
+              controller.enqueue({ ...chunk, textDelta: t, delta: t, text: t } as any);
+              return;
+            }
+          }
+          controller.enqueue(chunk);
+        },
+      }),
+    );
+    const uiStream = toUIMessageStream({ stream: filtered as any });
     return createUIMessageStreamResponse({ stream: uiStream });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Chat error";
