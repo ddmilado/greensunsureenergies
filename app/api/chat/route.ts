@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         writer.write({
           type: "text-delta",
           id: "0",
-          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model nvidia/llama-3.1-nemotron-70b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
+          delta: `Chat is not configured yet. Please add NVIDIA_API_KEY to .env.local (and Vercel env) for model meta/llama-3.1-8b-instruct, then restart. For now, call ${site.phone} or visit [Contact Us](${site.url}/contact-us).`,
         });
         writer.write({ type: "text-end", id: "0" });
       },
@@ -94,12 +94,15 @@ export async function POST(req: Request) {
 
   try {
     const result = streamText({
-      model: nvidia.chat("nvidia/llama-3.1-nemotron-70b-instruct"),
+      model: nvidia.chat("meta/llama-3.1-8b-instruct"),
       system: SYSTEM_PROMPT,
       messages: converted,
       temperature: 0.4,
       maxOutputTokens: 220,
       topP: 0.9,
+      onError: (err) => {
+        console.error("[chat] NVIDIA stream error:", err);
+      },
     });
 
     // Defensive filter for any stray <think> tags or Draft/Check-words artefacts

@@ -229,7 +229,9 @@ export function ChatBot() {
 
             {isError && (
               <div className="mr-auto rounded-2xl rounded-bl-md bg-red-50 px-4 py-3 text-xs text-red-600 ring-1 ring-red-200">
-                Connection issue. Please try again or call {site.phone}.
+                {error?.message
+                  ? `Chat error: ${error.message}`
+                  : `Connection issue. Please try again or call ${site.phone}.`}
               </div>
             )}
 
