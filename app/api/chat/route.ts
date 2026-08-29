@@ -9,6 +9,7 @@ import { site, services, featureList, whyChooseUs, aboutCopy, stats } from "../.
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 15;
 
 const nvidia = createOpenAI({
   baseURL: "https://integrate.api.nvidia.com/v1",
@@ -95,6 +96,9 @@ export async function POST(req: Request) {
       model: nvidia.chat("nvidia/nemotron-3.5-lightning-30b-a3b"),
       system: SYSTEM_PROMPT,
       messages: converted,
+      temperature: 0.3,
+      maxOutputTokens: 120,
+      topP: 0.9,
     });
 
     const uiStream = toUIMessageStream({ stream: result.stream });

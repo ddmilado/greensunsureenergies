@@ -43,10 +43,23 @@ function messageText(m: any): string {
   return "";
 }
 
+const CACHED_ANSWERS: Record<string, string> = {
+  "How much for a 3-bedroom?":
+    "A 3-bedroom home is typically ₦2.4m–₦2.8m (5kVA hybrid + 10kWh battery + 6×450W panels). [Get a quote](/contact-us#quote) or use [Solar Calculator](/solar-calculator).",
+  "What areas do you cover?":
+    "We cover Warri, Delta State, Effurun, Udu, Benin and all of Nigeria from our Warri base. [Contact us](/contact-us).",
+  "Do you offer payment plans?":
+    "Yes — flexible 12–36 month installments and green finance partners. [Request a quote](/contact-us#quote).",
+};
+
 export function ChatBot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status, error } = useChat();
+  const { messages, sendMessage, status, error, setMessages } = useChat({
+    // ensure transport hits /api/chat with no extra delay
+    // @ts-expect-error - api prop exists in older SDK, harmless if ignored
+    api: "/api/chat",
+  } as any) as any;
   const bottomRef = useRef<HTMLDivElement>(null);
   const origin = typeof window !== "undefined" ? window.location.origin : "";
 
@@ -59,9 +72,34 @@ export function ChatBot() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
-    sendMessage({ text: input });
+    const trimmed = input.trim();
+    if (!trimmed || isLoading) return;
+    const cached = CACHED_ANSWERS[trimmed];
+    if (cached && setMessages) {
+      // instant local answer — no network wait
+      const userMsg: any = { id: `user-${Date.now()}`, role: "user", parts: [{ type: "text", text: trimmed }] };
+      const asstMsg: any = {
+        id: `asst-${Date.now() + 1}`,
+        role: "assistant",
+        parts: [{ type: "text", text: cached }],
+      };
+      (setMessages as any)((prev: any[]) => [...prev, userMsg, asstMsg]);
+      setInput("");
+      return;
+    }
+    sendMessage({ text: trimmed });
     setInput("");
+  }
+
+  function handleQuick(q: string) {
+    const cached = CACHED_ANSWERS[q];
+    if (cached && setMessages) {
+      const userMsg: any = { id: `user-${Date.now()}`, role: "user", parts: [{ type: "text", text: q }] };
+      const asstMsg: any = { id: `asst-${Date.now() + 1}`, role: "assistant", parts: [{ type: "text", text: cached }] };
+      (setMessages as any)((prev: any[]) => [...prev, userMsg, asstMsg]);
+      return;
+    }
+    sendMessage({ text: q });
   }
 
   return (
@@ -108,7 +146,7 @@ export function ChatBot() {
                       <button
                         key={q}
                         type="button"
-                        onClick={() => sendMessage({ text: q })}
+                        onClick={() => handleQuick(q)}
                         className="rounded-full border border-[var(--line)] px-3.5 py-2 text-xs font-medium text-[var(--ink-700)] transition-colors hover:border-[var(--solar-lime)] hover:bg-[var(--solar-lime)] hover:text-[var(--ink-950)]"
                       >
                         {q}
