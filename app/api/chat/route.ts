@@ -61,12 +61,12 @@ WEBSITE PAGES (link to these using markdown like [Page Name](${site.url}/path)):
 ${PAGES.map((p) => `- [${p.title}](${p.path})`).join("\n")}
 
 RULES:
-- Max 20 words per response.
+- Keep responses brief and natural — 1 to 2 sentences, under 25 words. Do NOT show word counts, numbers in parentheses, or "Count:" prefixes. Just write the natural answer.
 - Use markdown links like [Page Name](url) when relevant.
 - ONLY link to pages on this website (${site.url}). Never link to external websites.
 - Be warm and direct. Encourage calling the team for quotes.
 - Do not invent prices or specs beyond what's listed.
-- CRITICAL: Never reveal your internal reasoning, chain-of-thought, analysis, or thinking process. Only output the final answer to the user. Do not prefix with "Analyze", "Thinking", or numbered steps.`;
+- CRITICAL: Never reveal your internal reasoning, chain-of-thought, analysis, or thinking process. Only output the final answer.
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
