@@ -100,12 +100,19 @@ export async function POST(req: Request) {
       temperature: 0.3,
       maxOutputTokens: 120,
       topP: 0.9,
-      // disable reasoning/thinking for Nemotron — prevents "Here's a thinking process" leak and saves tokens for the actual answer
+      // Nvidia Nemotron is a reasoning model — must explicitly disable thinking via chat_template_kwargs
+      // per Nvidia docs: extra_body={"chat_template_kwargs":{"enable_thinking":False}} prevents reasoning_content
       providerOptions: {
-        // @ts-ignore - Nvidia OpenAI-compatible extra body
-        openai: { reasoning_effort: "disable", include_reasoning: false } as any,
-        nvidia: { reasoning: false, include_reasoning: false } as any,
-      },
+        openai: {
+          // @ts-ignore - passed as extra_body to Nvidia's OpenAI-compatible endpoint
+          chat_template_kwargs: { enable_thinking: false },
+          reasoning_budget: 0,
+        } as any,
+        nvidia: {
+          chat_template_kwargs: { enable_thinking: false },
+          reasoning_budget: 0,
+        } as any,
+      } as any,
     });
 
     // Hard filter: drop reasoning and any leaked chain-of-thought before it reaches the client
