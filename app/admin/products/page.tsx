@@ -61,15 +61,20 @@ export default async function AdminProductsPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <form action={deleteProductAction} className="inline">
-                      <input type="hidden" name="id" value={p.id} />
-                      <ConfirmDeleteButton
-                        message={`Delete "${p.name}"? This cannot be undone.`}
-                        className="text-xs text-red-600 hover:underline"
-                      >
-                        Delete
-                      </ConfirmDeleteButton>
-                    </form>
+                    <div className="flex justify-end gap-3">
+                      <Link href={`/admin/products/${p.slug}`} className="text-xs font-medium text-[var(--brand-blue)] hover:underline">
+                        Edit
+                      </Link>
+                      <form action={deleteProductAction} className="inline">
+                        <input type="hidden" name="id" value={p.id} />
+                        <ConfirmDeleteButton
+                          message={`Delete "${p.name}"? This cannot be undone.`}
+                          className="text-xs text-red-600 hover:underline"
+                        >
+                          Delete
+                        </ConfirmDeleteButton>
+                      </form>
+                    </div>
                   </td>
                 </tr>
               );
