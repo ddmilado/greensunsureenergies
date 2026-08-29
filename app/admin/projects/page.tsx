@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { listProjects } from "@/app/lib/dal";
 import { deleteProjectAction } from "@/app/lib/actions/content";
+import { ConfirmDeleteButton } from "@/app/_components/ConfirmDeleteButton";
 
 export const metadata = { title: "Admin · Projects | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -65,16 +66,12 @@ export default async function AdminProjectsListPage() {
                   </Link>
                   <form action={deleteProjectAction} className="ml-3 inline">
                     <input type="hidden" name="id" value={p.id} />
-                    <button
-                      type="submit"
+                    <ConfirmDeleteButton
+                      message={`Delete project "${p.title}"? This cannot be undone.`}
                       className="text-red-600 hover:underline"
-                      formNoValidate
-                      onClick={(e) => {
-                        if (!confirm(`Delete project "${p.title}"? This cannot be undone.`)) e.preventDefault();
-                      }}
                     >
                       Delete
-                    </button>
+                    </ConfirmDeleteButton>
                   </form>
                 </td>
               </tr>

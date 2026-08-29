@@ -2,6 +2,7 @@ import Link from "next/link";
 import { formatNGN } from "@/app/lib/format";
 import { adminListProducts } from "@/app/lib/dal";
 import { deleteProductAction } from "@/app/lib/actions/products";
+import { ConfirmDeleteButton } from "@/app/_components/ConfirmDeleteButton";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin · Products | Green Sunsure" };
@@ -62,15 +63,12 @@ export default async function AdminProductsPage() {
                   <td className="px-4 py-3 text-right">
                     <form action={deleteProductAction} className="inline">
                       <input type="hidden" name="id" value={p.id} />
-                      <button
-                        type="submit"
+                      <ConfirmDeleteButton
+                        message={`Delete "${p.name}"? This cannot be undone.`}
                         className="text-xs text-red-600 hover:underline"
-                        onClick={(e) => {
-                          if (!confirm(`Delete "${p.name}"? This cannot be undone.`)) e.preventDefault();
-                        }}
                       >
                         Delete
-                      </button>
+                      </ConfirmDeleteButton>
                     </form>
                   </td>
                 </tr>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { listPosts } from "@/app/lib/dal";
 import { deletePostAction } from "@/app/lib/actions/content";
+import { ConfirmDeleteButton } from "@/app/_components/ConfirmDeleteButton";
 
 export const metadata = { title: "Admin · Posts | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -60,16 +61,12 @@ export default async function AdminPostsListPage() {
                   </Link>
                   <form action={deletePostAction} className="ml-3 inline">
                     <input type="hidden" name="id" value={p.id} />
-                    <button
-                      type="submit"
+                    <ConfirmDeleteButton
+                      message={`Delete post "${p.title}"? This cannot be undone.`}
                       className="text-red-600 hover:underline"
-                      formNoValidate
-                      onClick={(e) => {
-                        if (!confirm(`Delete post "${p.title}"? This cannot be undone.`)) e.preventDefault();
-                      }}
                     >
                       Delete
-                    </button>
+                    </ConfirmDeleteButton>
                   </form>
                 </td>
               </tr>

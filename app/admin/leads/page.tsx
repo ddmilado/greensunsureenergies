@@ -1,6 +1,7 @@
 import { listLeads } from "@/app/lib/dal";
 import { deleteLeadAction, updateLeadStatusAction } from "@/app/lib/actions/content";
 import type { LeadStatus } from "@/app/lib/types";
+import { ConfirmDeleteButton } from "@/app/_components/ConfirmDeleteButton";
 
 export const metadata = { title: "Admin · Leads | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -86,16 +87,9 @@ export default async function AdminLeadsPage() {
                   </form>
                   <form action={deleteLeadAction}>
                     <input type="hidden" name="id" value={lead.id} />
-                    <button
-                      type="submit"
-                      className="text-xs text-red-600 hover:underline"
-                      formNoValidate
-                      onClick={(e) => {
-                        if (!confirm("Delete this lead? This cannot be undone.")) e.preventDefault();
-                      }}
-                    >
+                    <ConfirmDeleteButton message="Delete this lead? This cannot be undone." className="text-xs text-red-600 hover:underline">
                       Delete
-                    </button>
+                    </ConfirmDeleteButton>
                   </form>
                 </div>
               </header>
