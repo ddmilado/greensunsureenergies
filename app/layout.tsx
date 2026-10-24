@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { JsonLd } from "./components/JsonLd";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { MobileQuickBar } from "./components/MobileQuickBar";
 import { AnalyticsScripts } from "./components/AnalyticsScripts";
 import { ChatBot } from "./components/ChatBot";
 import { site } from "./data/site";
@@ -130,6 +131,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <MobileQuickBar />
         <AnalyticsScripts />
         <ChatBot />
         <Analytics />

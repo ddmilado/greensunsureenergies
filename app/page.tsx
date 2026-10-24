@@ -49,44 +49,86 @@ export default function Home() {
       <ScrollChoreography />
 
       {/* Hero section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-20 text-white md:px-8 md:pt-24">
+      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-24 text-white md:px-8 md:pt-28">
         <HeroVideo />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl py-14 md:py-16">
+        <div className="relative z-10 mx-auto w-full max-w-7xl py-14 md:py-20">
           <Reveal>
-            <p className="mb-6 inline-flex rounded-full border border-white/14 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--solar-lime)] backdrop-blur-md">
-              Green Sunsure Energy Solutions
-            </p>
-            <h1 className="max-w-5xl text-balance text-[clamp(3.6rem,8vw,8.4rem)] font-semibold leading-[1.08] tracking-[-0.065em] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)]">
-              Bright power,<br />brighter smiles.
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="hud-pill border-emerald-400/30 text-emerald-300">
+                <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                NERC-LICENSED RENEWABLE ENGINEERING
+              </span>
+              <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-white/70 backdrop-blur-md">
+                Warri · Delta State · Nationwide
+              </span>
+            </div>
+
+            <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,7vw,7.2rem)] font-bold leading-[1.04] tracking-[-0.055em] [text-shadow:0_4px_32px_rgba(0,0,0,0.65)]">
+              Industrial-grade solar.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-[var(--solar-lime)] to-teal-200">
+                Zero generator dependence.
+              </span>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/90 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
-              Professional solar installation, maintenance & energy solutions in Warri, Delta State. Solar products, training & instant cost estimation. Empowering homes & businesses with clean, reliable energy.
+
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/85 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
+              Engineered for Nigerian voltage fluctuations, grid instability, and escalating fuel costs. 24/7 uninterrupted power for residential estates, corporate facilities, and critical infrastructure.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/solar-calculator">Get instant solar estimate</ButtonLink>
-              <ButtonLink href={site.phoneHref} variant="secondary">
-                Call Green Sunsure
+
+            <div className="mt-10 flex flex-col gap-3.5 sm:flex-row items-stretch sm:items-center">
+              <ButtonLink href="/solar-calculator" variant="primary">
+                Instant System & Fuel Calculator
               </ButtonLink>
+              <ButtonLink href={site.phoneHref} variant="secondary">
+                Speak with Lead Engineer
+              </ButtonLink>
+            </div>
+
+            {/* High-Tech Hero Telemetry HUD Bar */}
+            <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 pt-10 border-t border-white/12">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Systems Built</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">540+</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Residential & Commercial</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Fuel Displaced</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">₦180M+</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Diesel & Petrol Saved</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Inverter Uptime</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">99.9%</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Pure Sine Wave Quality</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Warranty</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">5 Years</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Full Workmanship Protection</p>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* Statistics */}
-      <section className="px-4 py-24 md:px-8 md:py-36">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-4">
+      <section className="px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.05}>
-              <div className="rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
-                <p className="text-5xl font-semibold tracking-[-0.07em] text-[var(--brand-green-dark)] tabular-nums">
+              <div className="machined-card rounded-[2.25rem] p-7 md:p-8">
+                <p className="font-mono text-4xl md:text-5xl font-bold tracking-tight text-[var(--brand-green-dark)] tabular-nums">
                   {stat.value.endsWith("+") ? (
                     <AnimatedCounter value={Number.parseInt(stat.value)} suffix="+" />
                   ) : (
                     <AnimatedCounter value={Number.parseFloat(stat.value)} decimals={1} />
                   )}
                 </p>
-                <p className="mt-3 text-sm font-medium text-[var(--ink-600)]">{stat.label}</p>
+                <p className="mt-3 text-sm font-semibold text-[var(--ink-700)] dark:text-white/80">{stat.label}</p>
+                <div className="mt-4 h-1 w-12 rounded-full bg-[var(--brand-green)]/30" />
               </div>
             </Reveal>
           ))}
@@ -483,24 +525,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Incorporation Certificate */}
-      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36">
-        <SectionHeading eyebrow="Certificate of Incorporation" title="Green Sunsure Energy Solution And Technology Ltd">
-          <p className="text-white/70">Officially registered and incorporated in Nigeria. We operate with full legal compliance and regulatory approvals.</p>
+      {/* Incorporation Certificate & Compliance Verification */}
+      <section className="bg-[var(--surface)] px-4 py-24 text-white md:px-8 md:py-36 border-t border-white/10">
+        <SectionHeading eyebrow="Corporate Verification" title="Registered, Licensed, and Incorporated in Nigeria">
+          <p className="text-white/70">Green Sunsure Energy Solution And Technology Ltd operates with full legal incorporation, CAC accreditation, and NERC engineering safety standards.</p>
         </SectionHeading>
-        <div className="mx-auto mt-14 max-w-3xl">
+        <div className="mx-auto mt-14 max-w-4xl">
           <Reveal>
-            <div className="overflow-hidden rounded-[2.5rem] bg-white p-3 shadow-[0_34px_100px_rgba(0,0,0,0.3)]">
-              <Image
-                src="/assets/cert-BNadzdnc.png"
-                alt="Certificate of Incorporation — Green Sunsure Energy Solution And Technology Ltd"
-                width={800}
-                height={600}
-                className="h-auto w-full rounded-[2rem] object-contain"
-                priority
-              />
+            <div className="doppelrand bg-white/5 border border-white/15">
+              <div className="doppelrand-inner bg-[var(--surface)] p-6 md:p-10 border border-white/10">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/12 pb-6">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-10 place-items-center rounded-xl bg-emerald-500/20 text-emerald-400">
+                      <Certificate size={22} weight="duotone" />
+                    </span>
+                    <div>
+                      <h4 className="text-base font-bold text-white">Federal Republic of Nigeria</h4>
+                      <p className="text-xs text-white/60 font-mono">Corporate Affairs Commission (CAC)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="hud-pill border-emerald-400/40 text-emerald-300">
+                      <SealCheck size={14} weight="fill" className="text-emerald-400" />
+                      VERIFIED LEGAL ENTITY
+                    </span>
+                  </div>
+                </div>
+
+                <div className="mt-8 overflow-hidden rounded-[2rem] bg-white/95 p-3 shadow-2xl">
+                  <Image
+                    src="/assets/cert-BNadzdnc.png"
+                    alt="Certificate of Incorporation — Green Sunsure Energy Solution And Technology Ltd"
+                    width={800}
+                    height={600}
+                    className="h-auto w-full rounded-[1.5rem] object-contain"
+                  />
+                </div>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-3 pt-6 border-t border-white/10 text-center">
+                  <div className="p-3">
+                    <p className="font-mono text-xs text-white/50 uppercase tracking-wider">Entity Status</p>
+                    <p className="mt-1 text-sm font-bold text-white">Limited Liability Company (Ltd)</p>
+                  </div>
+                  <div className="p-3">
+                    <p className="font-mono text-xs text-white/50 uppercase tracking-wider">Jurisdiction</p>
+                    <p className="mt-1 text-sm font-bold text-white">CAC · Federal Republic of Nigeria</p>
+                  </div>
+                  <div className="p-3">
+                    <p className="font-mono text-xs text-white/50 uppercase tracking-wider">Primary Operations</p>
+                    <p className="mt-1 text-sm font-bold text-white">Solar Power & Energy Technology</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="mt-6 text-center text-sm text-white/50">Green Sunsure Energy Solution And Technology Ltd — Certificate of Incorporation, Corporate Affairs Commission (CAC), Nigeria.</p>
           </Reveal>
         </div>
       </section>
