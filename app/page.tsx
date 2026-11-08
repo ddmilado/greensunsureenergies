@@ -49,65 +49,65 @@ export default function Home() {
       <ScrollChoreography />
 
       {/* Hero section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-24 text-white md:px-8 md:pt-28">
+      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-20 text-white md:px-8 md:pt-24">
         <HeroVideo />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl py-14 md:py-20">
+        <div className="relative z-10 mx-auto w-full max-w-6xl py-8 md:py-12">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-2 mb-6">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
               <span className="hud-pill border-emerald-400/30 text-emerald-300">
                 <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                GREEN SUNSURE ENERGY SOLUTIONS
+                GREEN SUNSURE ENERGY
               </span>
-              <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-white/70 backdrop-blur-md">
+              <span className="inline-flex rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-white/70 backdrop-blur-md">
                 Warri · Delta State · Nationwide
               </span>
             </div>
 
-            <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,7vw,7.2rem)] font-bold leading-[1.04] tracking-[-0.055em] [text-shadow:0_4px_32px_rgba(0,0,0,0.65)]">
-              Clean, dependable solar.<br />
+            <h1 className="max-w-4xl text-balance text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-[-0.04em] [text-shadow:0_3px_24px_rgba(0,0,0,0.7)]">
+              Reliable Solar Power.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-[var(--solar-lime)] to-teal-200">
-                24/7 power for home and business.
+                Zero Generator Stress.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/85 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
-              Say goodbye to blackouts and soaring generator fuel bills. Green Sunsure Energy delivers premium solar installations, battery backups, and expert local maintenance across Warri, Delta State, and nationwide.
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg [text-shadow:0_1px_16px_rgba(0,0,0,0.6)]">
+              Professional solar installations, battery backups, and 24/7 maintenance for homes and businesses in Warri and across Nigeria.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3.5 sm:flex-row items-stretch sm:items-center">
-              <ButtonLink href="/solar-calculator" variant="primary">
-                Instant System & Fuel Calculator
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <ButtonLink href="/solar-calculator" variant="primary" className="shadow-[0_8px_32px_rgba(0,230,118,0.35)]">
+                Instant Solar Calculator
               </ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
-                Call Green Sunsure
+                Call {site.phone}
               </ButtonLink>
             </div>
 
-            {/* High-Tech Hero Telemetry HUD Bar */}
-            <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 pt-10 border-t border-white/12">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Installations</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">540+</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Homes & Businesses</p>
+            {/* Quick trust metrics bar - compact and accessible */}
+            <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3 max-w-4xl pt-6 border-t border-white/10">
+              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Installations</p>
+                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">540+</p>
+                <p className="text-[10px] text-white/50">Homes & Businesses</p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Fuel Savings</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">Up to 80%</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Lower Monthly Fuel Costs</p>
+              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Fuel Savings</p>
+                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">Up to 80%</p>
+                <p className="text-[10px] text-white/50">Monthly Fuel Cut</p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Power Uptime</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">24/7</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Seamless Pure Sine Wave</p>
+              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Power Uptime</p>
+                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">24/7</p>
+                <p className="text-[10px] text-white/50">Pure Sine Wave</p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Warranty</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">5 Years</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Full Workmanship Protection</p>
+              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Warranty</p>
+                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">5 Years</p>
+                <p className="text-[10px] text-white/50">Local Support</p>
               </div>
             </div>
           </Reveal>
