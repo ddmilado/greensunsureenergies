@@ -27,7 +27,7 @@ import { AnimatedCounter } from "./components/AnimatedCounter";
 import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Solar Solutions in Warri, Delta State | Green Sunsure Energy",
+  title: "Green Sunsure Energy",
   description:
     "Professional solar installation, products, maintenance & energy solutions in Warri, Delta State. Get certified training and instant load estimation. Serving Delta State & beyond.",
   alternates: { canonical: "/" },
@@ -57,7 +57,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <span className="hud-pill border-emerald-400/30 text-emerald-300">
                 <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                NERC-LICENSED RENEWABLE ENGINEERING
+                GREEN SUNSURE ENERGY SOLUTIONS
               </span>
               <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-white/70 backdrop-blur-md">
                 Warri · Delta State · Nationwide
@@ -65,14 +65,14 @@ export default function Home() {
             </div>
 
             <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,7vw,7.2rem)] font-bold leading-[1.04] tracking-[-0.055em] [text-shadow:0_4px_32px_rgba(0,0,0,0.65)]">
-              Industrial-grade solar.<br />
+              Clean, dependable solar.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-[var(--solar-lime)] to-teal-200">
-                Zero generator dependence.
+                24/7 power for home and business.
               </span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/85 md:text-xl [text-shadow:0_1px_18px_rgba(0,0,0,0.5)]">
-              Engineered for Nigerian voltage fluctuations, grid instability, and escalating fuel costs. 24/7 uninterrupted power for residential estates, corporate facilities, and critical infrastructure.
+              Say goodbye to blackouts and soaring generator fuel bills. Green Sunsure Energy delivers premium solar installations, battery backups, and expert local maintenance across Warri, Delta State, and nationwide.
             </p>
 
             <div className="mt-10 flex flex-col gap-3.5 sm:flex-row items-stretch sm:items-center">
@@ -80,28 +80,28 @@ export default function Home() {
                 Instant System & Fuel Calculator
               </ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
-                Speak with Lead Engineer
+                Call Green Sunsure
               </ButtonLink>
             </div>
 
             {/* High-Tech Hero Telemetry HUD Bar */}
             <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 pt-10 border-t border-white/12">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Systems Built</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Installations</p>
                 <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">540+</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Residential & Commercial</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Homes & Businesses</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Fuel Displaced</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">₦180M+</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Diesel & Petrol Saved</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Fuel Savings</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">Up to 80%</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Lower Monthly Fuel Costs</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Inverter Uptime</p>
-                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">99.9%</p>
-                <p className="mt-0.5 text-[11px] text-white/50">Pure Sine Wave Quality</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">Power Uptime</p>
+                <p className="mt-1 font-mono text-2xl font-bold tracking-tight text-white">24/7</p>
+                <p className="mt-0.5 text-[11px] text-white/50">Seamless Pure Sine Wave</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">

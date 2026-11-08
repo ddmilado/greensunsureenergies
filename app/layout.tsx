@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Green Sunsure Energy — Solar Installation in Warri, Delta State, Nigeria",
+    default: "Green Sunsure Energy",
     template: "%s — Green Sunsure Energy",
   },
   description: site.longDescription,
@@ -90,11 +90,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon.png?v=2", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
-    apple: { url: "/favicon.png", sizes: "48x48" },
+    shortcut: "/favicon.ico?v=2",
+    apple: { url: "/favicon.png?v=2", sizes: "180x180" },
   },
   manifest: "/site.webmanifest",
   verification: {
