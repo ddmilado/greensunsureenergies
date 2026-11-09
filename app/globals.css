@@ -167,9 +167,12 @@ a {
 
 .doppelrand-inner {
   border-radius: calc(var(--radius-2xl) - 0.375rem);
-  background: var(--shell);
   overflow: hidden;
   height: 100%;
+}
+
+.doppelrand-inner:not([class*="bg-"]) {
+  background: var(--shell);
 }
 
 .dark .doppelrand {
