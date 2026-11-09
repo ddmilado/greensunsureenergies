@@ -5,7 +5,7 @@ import { JsonLd } from "../components/JsonLd";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SectionHeading } from "../components/SectionHeading";
-import { projects, projectImages, projectVideos, youtubeVideos, faqPageItems } from "../data/site";
+import { projects, projectImages, projectVideos, youtubeVideos, faqPageItems, site } from "../data/site";
 import { breadcrumbsJsonLd, faqJsonLd } from "../data/jsonLd";
 
 export const metadata: Metadata = {
@@ -134,9 +134,9 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* YouTube embeds */}
-      <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Video reviews" title="Client reviews and project proof on YouTube.">
+      {/* Video reviews and project proof */}
+      <section id="video-reviews" className="scroll-mt-28 px-4 py-24 md:px-8 md:py-36">
+        <SectionHeading eyebrow="Video reviews" title="Video reviews and project proof.">
           <p>Watch real client feedback and project proof videos from our solar installations in Warri and Delta State.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
@@ -145,6 +145,7 @@ export default function ProjectsPage() {
               <div className="overflow-hidden rounded-[2.5rem] bg-white p-2.5 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
                 <div className="relative aspect-video w-full overflow-hidden rounded-[2rem]">
                   <iframe
+                    loading="lazy"
                     src={`https://www.youtube.com/embed/${video.id}`}
                     title={video.title}
                     className="absolute inset-0 h-full w-full border-0"
@@ -158,6 +159,12 @@ export default function ProjectsPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+        <div className="mx-auto mt-10 max-w-5xl text-center">
+          <p className="text-sm leading-6 text-[var(--ink-600)]">For more installation updates and customer stories, visit our Facebook page.</p>
+          <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center rounded-full border border-[var(--line)] px-6 py-3 text-sm font-semibold text-[var(--ink-950)] transition hover:bg-[var(--mist)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-green)]">
+            See more project updates
+          </a>
         </div>
       </section>
 

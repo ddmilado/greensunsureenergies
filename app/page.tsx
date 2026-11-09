@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CheckCircle, YoutubeLogo, Certificate, Handshake, TrendUp, SealCheck } from "@phosphor-icons/react/dist/ssr";
+import { CheckCircle, Certificate, Handshake, TrendUp, SealCheck } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "./components/ButtonLink";
 import { CTASection } from "./components/CTASection";
 import { JsonLd } from "./components/JsonLd";
@@ -10,11 +10,11 @@ import { ScrollChoreography } from "./components/ScrollChoreography";
 import { HeroVideo } from "./components/HeroVideo";
 import { SectionHeading } from "./components/SectionHeading";
 import { ServiceBento } from "./components/ServiceBento";
+import { Testimonials } from "./components/Testimonials";
 import {
   aboutCopy,
   featureList,
   site,
-  testimonials,
   valueCards,
   whyChooseUs,
   projects,
@@ -349,73 +349,7 @@ export default function Home() {
           <p>Real feedback from real clients — pulled from training events, commercial projects, and direct reviews.</p>
         </SectionHeading>
         
-        {/* Testimonial grid */}
-        <div className="mx-auto mt-14 columns-1 gap-5 space-y-5 md:columns-2 xl:columns-3 max-w-7xl">
-          {testimonials.map((item, index) => (
-            <Reveal key={item.name} delay={index * 0.04}>
-              <figure className="break-inside-avoid rounded-[2rem] bg-white p-6 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
-                <div className="flex items-center gap-1.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#f5b342" className="text-[#f5b342]">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">&ldquo;{item.quote}&rdquo;</blockquote>
-                <figcaption className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4 text-sm font-semibold text-[var(--ink-950)]">
-                  <span className="grid size-8 place-items-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: `var(--avatar-${(item.name.length * 7 + item.name.charCodeAt(0)) % 16})` }}>{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
-                  {item.name}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Video testimonials */}
-        <div className="mx-auto mt-24 max-w-7xl border-t border-[var(--line)] pt-20">
-          <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[var(--ink-950)] text-center mb-10">Video Reviews & Project Proof</h3>
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-            <div className="overflow-hidden rounded-[2.25rem] bg-white p-2.5 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
-              <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[1.85rem]">
-                <iframe
-                  src="https://www.youtube.com/embed/j_ag7FBQFyY"
-                  title="Green Sunsure Customer Review 1"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p className="mt-4 text-center text-xs font-semibold text-[var(--ink-600)] pb-2">Solar system proof @Joemarine Nautical Training Institute</p>
-            </div>
-            <div className="overflow-hidden rounded-[2.25rem] bg-white p-2.5 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
-              <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[1.85rem]">
-                <iframe
-                  src="https://www.youtube.com/embed/fWtgbOgQC3Y"
-                  title="Green Sunsure Customer Review 2"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p className="mt-4 text-center text-xs font-semibold text-[var(--ink-600)] pb-2">Residential backup system client review</p>
-            </div>
-            <div className="overflow-hidden rounded-[2.25rem] bg-white p-8 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] flex flex-col justify-center items-center text-center dark:bg-[var(--shell)] min-h-[350px]">
-              <span className="grid size-16 place-items-center rounded-2xl bg-[var(--mist)] text-[var(--brand-green-dark)]">
-                <YoutubeLogo size={36} weight="duotone" />
-              </span>
-              <h4 className="mt-6 text-xl font-bold text-[var(--ink-950)]">More Proof of Work</h4>
-              <p className="mt-3 text-sm text-[var(--ink-600)] leading-6 max-w-xs">We install and maintain clean energy systems with absolute transparency. Check our social media for constant updates.</p>
-              <a
-                href={site.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--surface)] px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-[var(--brand-blue-dark)] hover:text-white"
-              >
-                Visit Facebook Page
-              </a>
-            </div>
-          </div>
-        </div>
+        <Testimonials />
       </section>
 
       {/* Referral / Affiliate program */}
