@@ -22,7 +22,7 @@ export function ButtonLink({
 
   const variants = {
     primary:
-      "bg-[var(--solar-lime)] text-[var(--ink-950)] shadow-[0_12px_36px_rgba(0,230,118,0.28)] hover:bg-white hover:shadow-[0_16px_44px_rgba(255,255,255,0.22)]",
+      "bg-[var(--solar-lime)] text-[#03150d] shadow-[0_6px_20px_rgba(0,100,50,0.12)] hover:bg-[#9af4bf] hover:shadow-[0_8px_24px_rgba(0,100,50,0.16)]",
     secondary:
       "border border-white/20 bg-white/10 text-white backdrop-blur-xl hover:border-white/40 hover:bg-white/18 shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
     dark:
@@ -32,7 +32,7 @@ export function ButtonLink({
   };
 
   const iconVariants = {
-    primary: "bg-[var(--ink-950)]/12 text-[var(--ink-950)] group-hover:bg-[var(--ink-950)] group-hover:text-white",
+    primary: "bg-black/10 text-[#03150d] group-hover:bg-[#03150d] group-hover:text-white",
     secondary: "bg-white/15 text-white group-hover:bg-white group-hover:text-[var(--ink-950)]",
     dark: "bg-white/12 text-white group-hover:bg-[var(--solar-lime)] group-hover:text-[var(--ink-950)]",
     ghost: "bg-[var(--mist)] text-[var(--ink-950)] group-hover:bg-[var(--brand-green)] group-hover:text-white dark:bg-white/10 dark:text-white",

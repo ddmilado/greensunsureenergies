@@ -1,19 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "@phosphor-icons/react";
+import { AuthPasswordField } from "../components/AuthPasswordField";
 import { useActionState } from "react";
 import { loginAction, type AuthFormState } from "@/app/lib/actions/auth";
 
 export function LoginForm() {
   const [state, action, pending] = useActionState<AuthFormState | undefined, FormData>(loginAction, undefined);
   return (
-    <form action={action} className="grid gap-5">
+    <form action={action} className="auth-form" aria-busy={pending}>
       <div>
-        <label htmlFor="email" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-600)]">
+        <label htmlFor="email" >
           Email
         </label>
         <input
           id="email"
+          aria-invalid={state?.errors?.email?.length ? true : undefined}
+          aria-describedby={state?.errors?.email?.length ? "email-error" : undefined}
           name="email"
           type="email"
           required
@@ -21,34 +25,20 @@ export function LoginForm() {
           className="form-field mt-1.5"
           placeholder="you@example.com"
         />
-        {state?.errors?.email && <p className="mt-1 text-xs text-red-500">{state.errors.email[0]}</p>}
+        {state?.errors?.email && <p id="email-error" className="auth-field-error">{state.errors.email[0]}</p>}
       </div>
-      <div>
-        <label htmlFor="password" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-600)]">
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          required
-          autoComplete="current-password"
-          className="form-field mt-1.5"
-          placeholder="Enter your password"
-        />
-        {state?.errors?.password && <p className="mt-1 text-xs text-red-500">{state.errors.password[0]}</p>}
-      </div>
-      {state?.message && <p className="text-sm text-red-500">{state.message}</p>}
+      <AuthPasswordField errors={state?.errors?.password} />
+      {state?.message && <p role="alert" className="auth-message">{state.message}</p>}
       <button
         disabled={pending}
         type="submit"
-        className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--solar-lime)] px-4 text-sm font-semibold text-[var(--ink-950)] transition hover:bg-[var(--brand-green-dark)] hover:text-white disabled:opacity-60"
+        className="auth-submit"
       >
-        {pending ? "Signing in..." : "Sign in"}
+        {pending ? "Signing in…" : "Sign in"}<ArrowRight size={18} aria-hidden="true" />
       </button>
-      <p className="text-center text-sm text-[var(--ink-600)]">
+      <p className="auth-switch">
         New here?{" "}
-        <Link href="/signup" className="font-semibold text-[var(--brand-green)] underline underline-offset-2 hover:text-[var(--brand-green-dark)]">
+        <Link href="/signup" >
           Create an account
         </Link>
       </p>
