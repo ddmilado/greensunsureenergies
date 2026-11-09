@@ -14,7 +14,6 @@ import {
   aboutCopy,
   featureList,
   site,
-  stats,
   testimonials,
   valueCards,
   whyChooseUs,
@@ -23,7 +22,6 @@ import {
   faqItems,
 } from "./data/site";
 import { packages } from "./data/catalog";
-import { AnimatedCounter } from "./components/AnimatedCounter";
 import { faqJsonLd, serviceListJsonLd } from "./data/jsonLd";
 
 export const metadata: Metadata = {
@@ -44,12 +42,12 @@ export const revalidate = 60;
 
 export default function Home() {
   return (
-    <main id="main" className="w-full max-w-full overflow-x-hidden">
+    <main id="main" className="home-refresh w-full max-w-full overflow-x-hidden">
       <JsonLd data={[faqJsonLd(), ...serviceListJsonLd()]} />
       <ScrollChoreography />
 
       {/* Hero section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-20 text-white md:px-8 md:pt-24">
+      <section className="refresh-hero relative flex min-h-[100dvh] items-center overflow-hidden bg-[var(--surface)] px-4 pt-20 text-white md:px-8 md:pt-24">
         <HeroVideo />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl py-8 md:py-12">
@@ -66,7 +64,7 @@ export default function Home() {
 
             <h1 className="max-w-4xl text-balance text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-[-0.04em] [text-shadow:0_3px_24px_rgba(0,0,0,0.7)]">
               Reliable Solar Power.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-[var(--solar-lime)] to-teal-200">
+              <span className="text-emerald-300">
                 Zero Generator Stress.
               </span>
             </h1>
@@ -76,7 +74,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <ButtonLink href="/solar-calculator" variant="primary" className="shadow-[0_8px_32px_rgba(0,230,118,0.35)]">
+              <ButtonLink href="/solar-calculator" variant="primary" >
                 Instant Solar Calculator
               </ButtonLink>
               <ButtonLink href={site.phoneHref} variant="secondary">
@@ -84,60 +82,18 @@ export default function Home() {
               </ButtonLink>
             </div>
 
-            {/* Quick trust metrics bar - compact and accessible */}
-            <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3 max-w-4xl pt-6 border-t border-white/10">
-              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Installations</p>
-                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">540+</p>
-                <p className="text-[10px] text-white/50">Homes & Businesses</p>
-              </div>
-
-              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Fuel Savings</p>
-                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">Up to 80%</p>
-                <p className="text-[10px] text-white/50">Monthly Fuel Cut</p>
-              </div>
-
-              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Power Uptime</p>
-                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">24/7</p>
-                <p className="text-[10px] text-white/50">Pure Sine Wave</p>
-              </div>
-
-              <div className="rounded-xl border border-white/8 bg-black/35 p-3 backdrop-blur-md">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">Warranty</p>
-                <p className="mt-0.5 font-mono text-xl font-bold tracking-tight text-white">5 Years</p>
-                <p className="text-[10px] text-white/50">Local Support</p>
-              </div>
+            <div className="hero-proof" aria-label="Our service commitments">
+              <span><CheckCircle size={18} /> Designed around your needs</span>
+              <span><CheckCircle size={18} /> Professional installation</span>
+              <span><CheckCircle size={18} /> Local aftercare</span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Statistics */}
-      <section className="px-4 py-20 md:px-8 md:py-32">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.05}>
-              <div className="machined-card rounded-[2.25rem] p-7 md:p-8">
-                <p className="font-mono text-4xl md:text-5xl font-bold tracking-tight text-[var(--brand-green-dark)] tabular-nums">
-                  {stat.value.endsWith("+") ? (
-                    <AnimatedCounter value={Number.parseInt(stat.value)} suffix="+" />
-                  ) : (
-                    <AnimatedCounter value={Number.parseFloat(stat.value)} decimals={1} />
-                  )}
-                </p>
-                <p className="mt-3 text-sm font-semibold text-[var(--ink-700)] dark:text-white/80">{stat.label}</p>
-                <div className="mt-4 h-1 w-12 rounded-full bg-[var(--brand-green)]/30" />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* Value statement */}
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Energy that works" title="Power back in your hands. Comfort back in your day.">
+        <SectionHeading eyebrow="Energy that works" title="Power for a more comfortable day.">
           <p>{aboutCopy.intro}</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-5 lg:grid-cols-3">
@@ -145,7 +101,7 @@ export default function Home() {
             const Icon = card.icon;
             return (
               <Reveal key={card.title} delay={index * 0.06}>
-                <article className="group h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
+                <article className="value-tile group h-full rounded-[2.25rem] bg-[var(--shell)] p-1.5 ring-1 ring-[var(--line)]">
                   <div className="relative h-full overflow-hidden rounded-[1.85rem] bg-white p-7 dark:bg-[var(--shell)]">
                     {index === 1 && (
                       <div className="absolute -bottom-10 -right-10 h-52 w-52 rounded-full bg-[var(--energy-cyan)] opacity-[0.06] blur-3xl" />
@@ -168,7 +124,7 @@ export default function Home() {
 
       {/* Services grid */}
       <section className="px-4 py-24 md:px-8 md:py-40">
-        <SectionHeading eyebrow="What we offer" title="Solar solutions engineered around the way you actually use power.">
+        <SectionHeading eyebrow="What we offer" title="The right solution for your power needs.">
           <p>Save costs, boost productivity, and enjoy uninterrupted clean power with systems designed for your property, load, and long-term support needs.</p>
         </SectionHeading>
         <div className="mt-14">
@@ -178,13 +134,13 @@ export default function Home() {
 
       {/* Solar packages section */}
       <section className="px-4 py-24 md:px-8 md:py-40 bg-[var(--shell)] border-y border-[var(--line)]">
-        <SectionHeading eyebrow="Solar Packages" title="Pre-configured solar packages built for Nigerian homes and offices.">
+        <SectionHeading eyebrow="Solar Packages" title="Find your starting point for solar.">
           <p>Choose from our reliable, NERC-accredited solar installations. Includes free site assessment, professional installation, and warranty support.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
           {packages.map((pkg, idx) => (
             <Reveal key={pkg.id} delay={idx * 0.1}>
-              <article className="flex h-full flex-col overflow-hidden rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_34px_100px_rgba(0,100,50,0.08)] dark:bg-[var(--shell)]">
+              <article className="package-tile flex h-full flex-col overflow-hidden rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.05)] ring-1 ring-[var(--line)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_34px_100px_rgba(0,100,50,0.08)] dark:bg-[var(--shell)]">
                 <div className="relative aspect-video w-full overflow-hidden rounded-[2.1rem] bg-[var(--mist)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={pkg.image} alt={pkg.name} className="h-full w-full object-cover" />
@@ -194,8 +150,8 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">
                   <h3 className="text-2xl font-bold tracking-[-0.03em] text-[var(--ink-950)] sm:text-3xl">{pkg.name}</h3>
-                  <p className="mt-2 text-sm text-[var(--ink-600)]">{pkg.description}</p>
-                  <div className="mt-5 flex items-baseline gap-1 border-y border-[var(--line)] py-4">
+                  <p className="package-description mt-2 text-sm text-[var(--ink-600)]">{pkg.description}</p>
+                  <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1 border-y border-[var(--line)] py-4">
                     <span className="text-3xl font-extrabold tracking-[-0.04em] text-[var(--brand-green-dark)]">₦{pkg.price.toLocaleString()}</span>
                     <span className="text-xs text-[var(--ink-300)] font-medium">all-inclusive</span>
                   </div>
@@ -221,7 +177,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <div className="mt-8 flex flex-col gap-3 xl:flex-row">
                     <ButtonLink href="/contact-us#quote" className="flex-1 text-center justify-center">Request Quote</ButtonLink>
                     <a
                       href={`https://wa.me/2349038260459?text=Hello%20Green%20Sunsure,%20I%20am%20interested%20in%20your%20${encodeURIComponent(pkg.name)}`}
@@ -272,19 +228,19 @@ export default function Home() {
 
       {/* Recent projects */}
       <section className="px-4 py-24 md:px-8 md:py-40 bg-[var(--shell)] border-y border-[var(--line)]">
-        <SectionHeading eyebrow="Recent projects" title="Real solar work for roofs, facilities, and businesses.">
+        <SectionHeading eyebrow="Recent projects" title="Installed locally. Built to last.">
           <p>See our latest installations across Warri, Delta State — from residential rooftops to commercial hotels and industrial plants.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.slice(0, 6).map((project, index) => (
             <Reveal key={project.title} delay={index * 0.06}>
-              <article className={`group relative overflow-hidden rounded-[2.5rem] bg-white ring-1 ring-[var(--line)] dark:bg-[var(--shell)] ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}>
-                <div className={`relative w-full overflow-hidden bg-[var(--mist)] ${index === 0 ? "aspect-[16/7]" : "aspect-[16/9]"}`}>
+              <article className={`project-tile group relative overflow-hidden rounded-[2.5rem] bg-white ring-1 ring-[var(--line)] dark:bg-[var(--shell)]`}>
+                <div className={`relative w-full overflow-hidden bg-[var(--mist)] aspect-[4/3]`}>
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes={index === 0 ? "(min-width: 768px) 100vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover transition duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -305,19 +261,19 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <ButtonLink href="/projects" variant="secondary">View All Projects</ButtonLink>
+          <ButtonLink href="/projects" variant="ghost">View All Projects</ButtonLink>
         </div>
       </section>
 
       {/* Team section */}
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="Our team" title="Experienced professionals powering clean energy across Delta State.">
+        <SectionHeading eyebrow="Our team" title="Meet the people behind your power.">
           <p>Meet the certified engineers and technicians behind every successful Green Sunsure installation.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-3">
           {teamMembers.map((member, index) => (
             <Reveal key={member.name} delay={index * 0.1}>
-              <article className="group overflow-hidden rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
+              <article className="team-tile group overflow-hidden rounded-[2.5rem] bg-white p-2 shadow-[0_24px_80px_rgba(3,30,48,0.07)] ring-1 ring-[var(--line)] dark:bg-[var(--shell)]">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-[var(--mist)]">
                   <Image
                     src={member.image}
@@ -379,7 +335,7 @@ export default function Home() {
 
       {/* How it works */}
       <section className="px-4 py-24 md:px-8 md:py-40">
-        <SectionHeading eyebrow="How it works" title="A clear roadmap from audit to reliable power.">
+        <SectionHeading eyebrow="How it works" title="From first conversation to reliable power.">
           <p>The team assesses your needs, designs the right system, installs safely, and hands over a solar setup you understand.</p>
         </SectionHeading>
         <div className="mt-14">
@@ -405,7 +361,7 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">"{item.quote}"</blockquote>
+                <blockquote className="mt-4 text-base leading-7 tracking-[-0.01em] text-[var(--ink-700)]">&ldquo;{item.quote}&rdquo;</blockquote>
                 <figcaption className="mt-5 flex items-center gap-2 border-t border-[var(--line)] pt-4 text-sm font-semibold text-[var(--ink-950)]">
                   <span className="grid size-8 place-items-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: `var(--avatar-${(item.name.length * 7 + item.name.charCodeAt(0)) % 16})` }}>{item.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
                   {item.name}
@@ -505,7 +461,7 @@ export default function Home() {
 
       {/* Solar Energy FAQs */}
       <section className="px-4 py-24 md:px-8 md:py-36">
-        <SectionHeading eyebrow="FAQs" title="Solar Energy FAQs — Answers to common questions about going solar.">
+        <SectionHeading eyebrow="FAQs" title="Your solar questions, answered.">
           <p>Get clarity on solar installation, costs, warranties, and more before you decide.</p>
         </SectionHeading>
         <div className="mx-auto mt-14 grid max-w-7xl gap-5 md:grid-cols-2">
