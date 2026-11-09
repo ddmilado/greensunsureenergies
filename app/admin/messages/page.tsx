@@ -1,32 +1,62 @@
 import { listLeads } from "@/app/lib/dal";
+import { AdminHeader, AdminEmpty, Panel } from "../AdminUI";
 
 export const metadata = { title: "Admin · Messages | Green Sunsure" };
 export const dynamic = "force-dynamic";
+
+const fmt = (v: string) => {
+  try {
+    return new Date(v).toLocaleString("en-NG", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  } catch {
+    return v;
+  }
+};
 
 export default async function AdminMessagesPage() {
   const leads = await listLeads();
   const messages = leads.filter((l) => l.kind === "contact" || l.kind === "support");
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">Messages</h1>
-      <p className="mt-1 text-sm text-neutral-500">Contact and support messages from the website.</p>
-      <div className="mt-6 grid gap-4">
-        {messages.length === 0 && (
-          <p className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-sm text-neutral-500">
-            No messages yet.
-          </p>
+      <AdminHeader
+        eyebrow="Inbox"
+        title="Messages"
+        description="Contact and support notes from the website forms."
+      />
+
+      <div className="mt-6">
+        {messages.length === 0 ? (
+          <Panel>
+            <AdminEmpty
+              title="No messages yet"
+              body="General contact-form and support messages will appear here."
+            />
+          </Panel>
+        ) : (
+          <div className="grid gap-4">
+            {messages.map((lead) => (
+              <article
+                key={lead.id}
+                className="overflow-hidden rounded-[1.5rem] bg-[var(--panel)] ring-1 ring-[var(--line)] shadow-[0_2px_16px_rgba(3,21,13,0.04)] transition hover:shadow-[0_10px_32px_rgba(3,21,13,0.08)]"
+              >
+                <div className="p-5 md:p-6">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--ink-600)]">
+                      {lead.kind} · {lead.status}
+                    </p>
+                    <p className="tnum text-xs text-[var(--ink-300)]">{fmt(lead.created_at)}</p>
+                  </div>
+                  <h2 className="mt-1.5 font-semibold tracking-[-0.02em] text-[var(--ink-950)]">{lead.name ?? "(no name)"}</h2>
+                  <p className="text-sm text-[var(--ink-600)]">{lead.email ?? lead.phone ?? "—"}</p>
+                  {lead.message && (
+                    <p className="mt-3 whitespace-pre-wrap rounded-xl bg-[var(--panel-muted)] p-4 text-sm leading-6 text-[var(--ink-700)] ring-1 ring-[var(--line)]">
+                      {lead.message}
+                    </p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         )}
-        {messages.map((lead) => (
-          <article key={lead.id} className="rounded-2xl border border-neutral-200 bg-white p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-              {lead.kind} · {lead.status}
-            </p>
-            <h2 className="mt-1 font-semibold">{lead.name ?? "(no name)"}</h2>
-            <p className="text-sm text-neutral-600">{lead.email ?? lead.phone ?? "—"}</p>
-            {lead.message && <p className="mt-3 whitespace-pre-wrap rounded-lg bg-neutral-50 p-3 text-sm">{lead.message}</p>}
-            <p className="mt-2 text-xs text-neutral-400">{new Date(lead.created_at).toLocaleString("en-NG")}</p>
-          </article>
-        ))}
       </div>
     </div>
   );

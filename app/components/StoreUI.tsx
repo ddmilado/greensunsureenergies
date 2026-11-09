@@ -10,21 +10,40 @@ export function BrandSubmit({
   label,
   pendingLabel,
   fullWidth = false,
+  icon,
+  tone = "dark",
 }: {
   label: string;
   pendingLabel?: string;
   fullWidth?: boolean;
+  icon?: React.ReactNode;
+  tone?: "dark" | "lime";
 }) {
   const { pending } = useFormStatus();
   return (
     <button
       type="submit"
       disabled={pending}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-white transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[var(--brand-blue)] active:scale-[0.98] disabled:opacity-60 disabled:active:scale-100 ${
-        fullWidth ? "w-full" : ""
-      }`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] disabled:opacity-60 disabled:active:scale-100 ${
+        tone === "lime"
+          ? "bg-[var(--solar-lime)] text-[var(--ink-950)] hover:bg-white"
+          : "bg-[var(--surface)] text-white hover:bg-[var(--brand-blue)]"
+      } ${fullWidth ? "w-full" : ""}`}
     >
-      {pending ? (pendingLabel ?? "Saving…") : label}
+      {pending ? (
+        <>
+          <svg viewBox="0 0 24 24" fill="none" className="size-4 animate-spin" aria-hidden>
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
+            <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+          {pendingLabel ?? "Saving…"}
+        </>
+      ) : (
+        <>
+          {icon}
+          {label}
+        </>
+      )}
     </button>
   );
 }

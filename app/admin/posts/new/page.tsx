@@ -1,5 +1,6 @@
-import { PostForm } from "../PostForm";
 import { createPostAction } from "@/app/lib/actions/content";
+import { PostForm } from "../PostForm";
+import { AdminHeader } from "../../AdminUI";
 
 export const metadata = { title: "Admin · New post | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -7,8 +8,7 @@ export const dynamic = "force-dynamic";
 export default function NewPostPage() {
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">New blog post</h1>
-      <p className="mt-1 text-sm text-neutral-500">Add a new article to the blog.</p>
+      <AdminHeader eyebrow="Content · New" title="Write post" description="Publish a new article to the blog." />
       <div className="mt-6">
         <PostForm action={createPostAction} />
       </div>

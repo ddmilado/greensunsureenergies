@@ -10,8 +10,8 @@ type Action = (prev: ActionState, formData: FormData) => Promise<ActionState>;
 type ImageRow = { url: string; alt: string };
 
 const input =
-  "w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none";
-const label = "text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500";
+  "w-full rounded-xl border border-[var(--line)] bg-[var(--panel-muted)] px-3.5 py-2.5 text-sm text-[var(--ink-950)] outline-none transition duration-300 focus:border-[var(--brand-green)] focus:bg-white focus:ring-2 focus:ring-[var(--ring)]";
+const label = "text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ink-600)]";
 
 export function ProductForm({
   action,
@@ -73,9 +73,9 @@ export function ProductForm({
       className="grid gap-5"
     >
       {state?.message && (
-        <p className="rounded-md bg-red-50 p-3 text-sm text-red-800">{state.message}</p>
+        <p className="rounded-xl bg-red-50 p-3.5 text-sm text-red-700 ring-1 ring-red-200">{state.message}</p>
       )}
-      {uploadError && <p className="rounded-md bg-red-50 p-3 text-sm text-red-800">{uploadError}</p>}
+      {uploadError && <p className="rounded-xl bg-red-50 p-3.5 text-sm text-red-700 ring-1 ring-red-200">{uploadError}</p>}
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-1.5">
@@ -184,10 +184,10 @@ export function ProductForm({
       </label>
 
       {/* Images */}
-      <div className="grid gap-3 rounded-xl border border-neutral-200 p-4">
+      <div className="grid gap-3 rounded-2xl bg-[var(--panel-muted)] p-5 ring-1 ring-[var(--line)]">
         <div className="flex items-center justify-between">
           <span className={label}>Images</span>
-          <label className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-neutral-900 px-3 py-1.5 text-xs font-semibold hover:bg-neutral-900 hover:text-white">
+          <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-white transition duration-500 ease-[var(--ease-out-heavy)] hover:bg-[var(--brand-blue)] active:scale-[0.96]">
             {uploading ? "Uploading…" : "Upload image"}
             <input type="file" accept="image/*" className="hidden" disabled={uploading} onChange={handleUpload} />
           </label>
@@ -209,12 +209,12 @@ export function ProductForm({
             />
             {img.url && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={img.url} alt="" className="size-10 shrink-0 rounded object-cover" />
+              <img src={img.url} alt="" className="size-10 shrink-0 rounded-lg object-cover ring-1 ring-black/10" />
             )}
             <button
               type="button"
               onClick={() => setImages((prev) => prev.filter((_, idx) => idx !== i))}
-              className="shrink-0 rounded-md border border-neutral-300 px-2 py-2 text-xs text-red-600"
+              className="shrink-0 rounded-full border border-red-200 px-3 py-2 text-xs font-medium text-red-600 transition hover:bg-red-50"
             >
               Remove
             </button>
@@ -224,7 +224,7 @@ export function ProductForm({
         <button
           type="button"
           onClick={() => setImages((prev) => [...prev, { url: "", alt: "" }])}
-          className="justify-self-start rounded-md border border-dashed border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-50"
+          className="justify-self-start rounded-full border border-dashed border-[var(--ink-300)] px-4 py-2 text-xs font-medium text-[var(--ink-600)] transition hover:border-[var(--brand-green)] hover:text-[var(--ink-950)]"
         >
           + Add image URL
         </button>
@@ -232,13 +232,18 @@ export function ProductForm({
       </div>
 
       <div className="flex items-center gap-6">
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" name="active" defaultChecked={defaults ? checked("active") : true} />
+        <label className="flex items-center gap-2.5 text-sm text-[var(--ink-700)]">
+          <input
+            type="checkbox"
+            name="active"
+            defaultChecked={defaults ? checked("active") : true}
+            className="size-4 rounded accent-[var(--brand-green)]"
+          />
           Active (show on site)
         </label>
       </div>
 
-      <div className="flex items-center justify-end gap-3 border-t border-neutral-200 pt-4">
+      <div className="flex items-center justify-end gap-3 border-t border-[var(--line)] pt-5">
         <SubmitButton label={isEdit ? "Save changes" : "Create product"} pendingLabel={isEdit ? "Saving…" : "Creating…"} />
       </div>
     </form>

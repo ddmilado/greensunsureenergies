@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Package } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, ArrowRight, Package } from "@phosphor-icons/react/dist/ssr";
 import { listUserOrders } from "@/app/lib/dal";
 import { formatNGN } from "@/app/lib/format";
 import { StatusPill } from "../../components/StoreUI";
@@ -61,8 +61,11 @@ export default async function OrdersPage() {
                         <p className="mt-0.5 text-xs text-[var(--ink-300)]">Ref: {o.paystack_reference}</p>
                       </div>
                       <StatusPill status={o.status} />
-                      <span className="text-sm font-semibold text-[var(--brand-blue)] transition group-hover:translate-x-1">
-                        →
+                      <span
+                        aria-hidden
+                        className="grid size-9 shrink-0 place-items-center rounded-full bg-[var(--mist)] text-[var(--ink-700)] transition duration-500 ease-[var(--ease-out-heavy)] group-hover:bg-[var(--surface)] group-hover:text-white"
+                      >
+                        <ArrowRight size={16} weight="bold" />
                       </span>
                     </div>
                   </Link>

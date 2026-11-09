@@ -89,7 +89,20 @@ export default async function CheckoutReturnPage({
               <p className="mt-4 text-base leading-8 text-[var(--ink-600)]">
                 No charge was made. Please try again or contact us if the issue persists.
               </p>
-
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href="/cart"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-blue)]"
+                >
+                  Try again
+                </Link>
+                <a
+                  href="https://wa.me/2349038260459"
+                  className="inline-flex min-h-12 items-center rounded-full border border-[var(--line)] bg-white px-6 py-3 text-sm font-semibold text-[var(--ink-700)] transition hover:border-[var(--brand-blue)]"
+                >
+                  Contact support
+                </a>
+              </div>
             </>
           ) : (
             <>

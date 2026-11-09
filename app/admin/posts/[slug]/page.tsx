@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/app/lib/dal";
 import { updatePostAction } from "@/app/lib/actions/content";
 import { PostForm } from "../PostForm";
+import { AdminHeader } from "../../AdminUI";
 
 export const dynamic = "force-dynamic";
 
@@ -13,10 +14,7 @@ export default async function EditPostPage({ params }: { params: Promise<Params>
   if (!post) notFound();
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">Edit post</h1>
-      <p className="mt-1 text-sm text-neutral-500">
-        Slug: <code>{post.slug}</code>
-      </p>
+      <AdminHeader eyebrow="Content · Edit" title={`Edit post`} description={`Slug: ${post.slug}`} />
       <div className="mt-6">
         <PostForm
           slug={post.slug}

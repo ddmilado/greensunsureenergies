@@ -1,5 +1,6 @@
-import { ProjectForm } from "../ProjectForm";
 import { createProjectAction } from "@/app/lib/actions/content";
+import { ProjectForm } from "../ProjectForm";
+import { AdminHeader } from "../../AdminUI";
 
 export const metadata = { title: "Admin · New project | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -7,8 +8,7 @@ export const dynamic = "force-dynamic";
 export default function NewProjectPage() {
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">New project</h1>
-      <p className="mt-1 text-sm text-neutral-500">Add a new project case study.</p>
+      <AdminHeader eyebrow="Content · New" title="Add project" description="Publish a new installation case study." />
       <div className="mt-6">
         <ProjectForm action={createProjectAction} />
       </div>

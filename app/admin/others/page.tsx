@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listCategories } from "@/app/lib/dal";
+import { AdminHeader, Panel } from "../AdminUI";
 
 export const metadata = { title: "Admin · Others | Green Sunsure" };
 export const dynamic = "force-dynamic";
@@ -8,40 +9,54 @@ export default async function AdminOthersPage() {
   const categories = await listCategories();
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">Others</h1>
-      <p className="mt-1 text-sm text-neutral-500">Categories, settings, and quick links.</p>
+      <AdminHeader
+        eyebrow="Workspace"
+        title="Others"
+        description="Store categories, settings, and quick links."
+      />
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-neutral-200 bg-white p-6">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">Categories</h2>
-          <ul className="mt-4 grid gap-2">
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <Panel title="Categories" hint="Store filter groups">
+          <ul className="grid gap-2 p-5 md:p-6">
             {categories.map((c: any) => (
-              <li key={c.id} className="flex items-center justify-between rounded-xl bg-neutral-50 px-4 py-3">
-                <span className="font-medium">{c.name}</span>
-                <span className="text-xs text-neutral-500">{c.slug}</span>
+              <li
+                key={c.id}
+                className="flex items-center justify-between rounded-xl bg-[var(--panel-muted)] px-4 py-3 ring-1 ring-[var(--line)]"
+              >
+                <span className="font-medium text-[var(--ink-950)]">{c.name}</span>
+                <span className="font-mono text-xs text-[var(--ink-300)]">{c.slug}</span>
               </li>
             ))}
+            {categories.length === 0 && <li className="py-4 text-center text-sm text-[var(--ink-600)]">No categories yet.</li>}
           </ul>
-        </div>
+        </Panel>
 
-        <div className="rounded-2xl border border-neutral-200 bg-white p-6">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">Quick actions</h2>
-          <div className="mt-4 grid gap-3">
-            <Link href="/admin/products/new" className="rounded-xl bg-black px-4 py-3 text-center text-sm font-medium text-white hover:bg-neutral-800">
+        <Panel title="Quick actions" hint="Create content" surface>
+          <div className="grid gap-2.5 p-5 md:p-6">
+            <Link
+              href="/admin/products/new"
+              className="rounded-xl bg-[var(--solar-lime)] px-4 py-3 text-center text-sm font-semibold text-[var(--ink-950)] transition duration-500 ease-[var(--ease-out-heavy)] hover:bg-white active:scale-[0.96]"
+            >
               Add product
             </Link>
-            <Link href="/admin/projects/new" className="rounded-xl border border-neutral-200 px-4 py-3 text-center text-sm font-medium hover:bg-neutral-50">
+            <Link
+              href="/admin/projects/new"
+              className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/15"
+            >
               Add project
             </Link>
-            <Link href="/admin/posts/new" className="rounded-xl border border-neutral-200 px-4 py-3 text-center text-sm font-medium hover:bg-neutral-50">
+            <Link
+              href="/admin/posts/new"
+              className="rounded-xl border border-white/10 px-4 py-3 text-center text-sm font-semibold text-white/85 transition hover:bg-white/10"
+            >
               Add blog post
             </Link>
+            <div className="mt-2 rounded-xl bg-white/[0.05] p-4 text-xs leading-5 text-white/55 ring-1 ring-white/10">
+              <p className="font-semibold text-white/85">Tip</p>
+              <p className="mt-0.5">Manage prices and images under Products. Order statuses update in Orders.</p>
+            </div>
           </div>
-          <div className="mt-6 rounded-xl bg-[var(--shell)] p-4 text-sm text-[var(--ink-600)] ring-1 ring-[var(--line)]">
-            <p className="font-semibold text-[var(--ink-950)]">Tip</p>
-            <p className="mt-1">Use Products to manage prices and images. Orders update status there.</p>
-          </div>
-        </div>
+        </Panel>
       </div>
     </div>
   );

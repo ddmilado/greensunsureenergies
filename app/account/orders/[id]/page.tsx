@@ -29,8 +29,11 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
 
   return (
     <main id="main" className="overflow-x-hidden">
-      <section className="px-4 pt-32 md:px-8 md:pt-40">
+      <section className="px-4 pt-28 md:px-8 md:pt-36">
         <div className="mx-auto max-w-4xl pb-16">
+          <Link href="/account/orders" className="inline-flex items-center gap-1.5 text-sm text-[var(--ink-600)] transition hover:text-[var(--ink-950)]">
+            <ArrowLeft size={16} /> Back to my orders
+          </Link>
           <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
             <div>
               <h1 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--ink-950)] md:text-4xl">

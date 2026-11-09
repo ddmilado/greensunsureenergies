@@ -1,56 +1,89 @@
 import Link from "next/link";
 import { getSessionUser } from "@/app/lib/dal";
 import { redirect } from "next/navigation";
+import { AdminNav } from "./AdminNav";
 
 export const dynamic = "force-dynamic";
-
-const nav = [
-  { label: "Overview", href: "/admin" },
-  { label: "Products", href: "/admin/products" },
-  { label: "Orders", href: "/admin/orders" },
-  { label: "Projects", href: "/admin/projects" },
-  { label: "Blog posts", href: "/admin/posts" },
-  { label: "Leads", href: "/admin/leads" },
-  { label: "Messages", href: "/admin/messages" },
-  { label: "Others", href: "/admin/others" },
-];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const user = await getSessionUser();
   if (!user) redirect("/login?next=/admin");
   if (!user.isAdmin) redirect("/account");
 
+  const initials = (user.fullName ?? user.email)
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? "")
+    .join("");
+
   return (
-    <div className="mx-auto grid min-h-[85vh] max-w-7xl gap-6 px-4 py-8 md:grid-cols-[260px_1fr] md:px-6 lg:px-8">
-      <aside className="h-fit overflow-hidden rounded-[1.75rem] border border-[var(--line)] bg-white p-2 shadow-[0_8px_32px_rgba(3,21,13,0.06)] md:sticky md:top-24">
-        <div className="rounded-[1.25rem] bg-[var(--surface)] px-4 py-4 text-white">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">Admin</p>
-          <p className="mt-1 text-sm font-semibold">{user.fullName}</p>
-          <p className="text-xs text-white/60">{user.email}</p>
-          <span className="mt-3 inline-flex rounded-full bg-[var(--solar-lime)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--ink-950)]">
-            Administrator
-          </span>
-        </div>
-        <nav className="mt-2 grid gap-1 p-2">
-          {nav.map((item) => (
+    <div className="relative min-h-screen">
+      {/* Ambient brand glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-72 opacity-[0.14]"
+        style={{
+          background:
+            "radial-gradient(42rem 16rem at 18% 0%, rgba(0,230,118,0.9), transparent 70%), radial-gradient(30rem 14rem at 72% 4%, rgba(0,200,83,0.7), transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl gap-5 px-0 pb-12 pt-24 md:grid md:grid-cols-[256px_1fr] md:gap-6 md:px-4 md:pt-28 lg:px-6 xl:px-8">
+        {/* Sidebar — dark brand panel on desktop, full-width header block on mobile */}
+        <aside className="relative md:pb-4">
+          <div className="rounded-[1.25rem] md:sticky md:top-28 md:rounded-[1.75rem] bg-[var(--surface)] px-5 py-6 text-white md:px-3 md:py-4">
+            {/* User card */}
             <Link
-              key={item.href}
-              href={item.href}
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--ink-700)] transition hover:bg-[var(--shell)] hover:text-[var(--ink-950)]"
+              href="/account"
+              className="group mb-4 flex items-center gap-3 rounded-2xl bg-white/[0.06] p-3 ring-1 ring-white/10 transition hover:bg-white/10 md:hidden"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--ink-300)]" />
-              {item.label}
+              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--solar-lime)] text-sm font-bold text-[var(--ink-950)]">
+                {initials || "A"}
+              </span>
+              <span className="min-w-0">
+                <span className="block truncate text-sm font-semibold">{user.fullName}</span>
+                <span className="block truncate text-xs text-white/55">{user.email}</span>
+              </span>
             </Link>
-          ))}
-        </nav>
-        <div className="mx-2 mt-2 rounded-xl bg-[var(--shell)] p-3 text-xs leading-5 text-[var(--ink-600)] ring-1 ring-[var(--line)]">
-          <p className="font-semibold text-[var(--ink-950)]">Need help?</p>
-          <p>Manage products, orders, and incoming leads from here.</p>
-        </div>
-      </aside>
-      <section className="min-w-0 rounded-[1.75rem] border border-[var(--line)] bg-white p-5 shadow-[0_8px_32px_rgba(3,21,13,0.06)] md:p-7">
-        {children}
-      </section>
+
+            <div className="hidden md:block">
+              <div className="mb-4 flex items-center gap-3 rounded-[1.25rem] bg-white/[0.06] p-3 ring-1 ring-white/10">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--solar-lime)] text-sm font-bold text-[var(--ink-950)]">
+                  {initials || "A"}
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-semibold">{user.fullName}</span>
+                  <span className="mt-0.5 inline-flex items-center gap-1 rounded-full bg-[var(--solar-lime)]/15 px-1.5 text-[9px] font-bold uppercase tracking-[0.16em] text-[var(--solar-lime)] ring-1 ring-[var(--solar-lime)]/40">
+                    Admin
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <AdminNav />
+
+            <div className="mt-5 hidden rounded-2xl bg-white/[0.05] p-3 ring-1 ring-white/10 md:block">
+              <p className="text-xs font-semibold text-white/85">Control center</p>
+              <p className="mt-0.5 text-[11px] leading-4 text-white/45">
+                Manage the store, published content, and every incoming enquiry.
+              </p>
+              <Link
+                href="/"
+                className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-[var(--solar-lime)] hover:underline"
+              >
+                View public site →
+              </Link>
+            </div>
+          </div>
+        </aside>
+
+        {/* Content */}
+        <main className="min-w-0 px-4 pt-6 md:px-0 md:pt-10">
+          <div className="md:rounded-[1.75rem] md:border md:border-[var(--line)] md:bg-[var(--panel)] md:p-7 md:shadow-[0_8px_32px_rgba(3,21,13,0.07)]">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

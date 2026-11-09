@@ -1,73 +1,73 @@
-import Link from "next/link";
 import { formatNGN } from "@/app/lib/format";
 import { adminListOrders } from "@/app/lib/dal";
+import { AdminHeader, AdminTable, AdminEmpty, StatusPill, Panel } from "../AdminUI";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin · Orders | Green Sunsure" };
 
-function statusColor(status: string): string {
-  switch (status) {
-    case "paid":
-    case "delivered":
-      return "bg-emerald-100 text-emerald-800";
-    case "shipped":
-      return "bg-sky-100 text-sky-800";
-    case "failed":
-    case "cancelled":
-      return "bg-red-100 text-red-700";
-    default:
-      return "bg-amber-100 text-amber-800";
+const fmtDate = (v: string) => {
+  try {
+    return new Date(v).toLocaleDateString("en-NG", { day: "numeric", month: "short", year: "numeric" });
+  } catch {
+    return v;
   }
-}
+};
 
 export default async function AdminOrdersPage() {
   const orders = await adminListOrders();
+  const pending = orders.filter((o: any) => o.status === "pending").length;
+
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">Orders</h1>
-      <p className="mt-1 text-sm text-neutral-500">Customer purchases via Paystack checkout.</p>
+      <AdminHeader
+        eyebrow="Commerce"
+        title="Orders"
+        description="Every Paystack checkout, newest first."
+        action={
+          pending > 0 ? (
+            <span className="tnum inline-flex items-center gap-2 rounded-full bg-amber-50 px-3.5 py-2 text-xs font-semibold text-amber-800 ring-1 ring-amber-300/60">
+              <span className="size-1.5 rounded-full bg-amber-500" />
+              {pending} pending
+            </span>
+          ) : null
+        }
+      />
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-neutral-200 bg-white">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-neutral-50 text-xs uppercase tracking-wider text-neutral-500">
-            <tr>
-              <th className="px-4 py-3">Customer</th>
-              <th className="px-4 py-3">Reference</th>
-              <th className="px-4 py-3 text-right">Total</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Date</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-neutral-100">
-            {orders.map((o: any) => (
-              <tr key={o.id} className="hover:bg-neutral-50">
-                <td className="px-4 py-3">
-                  <Link href={`/admin/orders/${o.id}`} className="font-medium text-neutral-900 hover:underline">
-                    {o.ship_full_name || o.email}
-                  </Link>
-                  <div className="text-xs text-neutral-500">{o.email}</div>
-                </td>
-                <td className="px-4 py-3 font-mono text-xs text-neutral-600">{o.paystack_reference}</td>
-                <td className="px-4 py-3 text-right font-medium">{formatNGN(o.total_kobo)}</td>
-                <td className="px-4 py-3">
-                  <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${statusColor(o.status)}`}>
-                    {o.status}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-xs text-neutral-500">
-                  {new Date(o.created_at).toLocaleString("en-NG")}
-                </td>
-              </tr>
-            ))}
-            {orders.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-neutral-500">
-                  No orders yet. Completed checkouts will appear here.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+      <div className="mt-6">
+        {orders.length === 0 ? (
+          <Panel>
+            <AdminEmpty
+              title="No orders yet"
+              body="Completed checkouts will appear here with customer, reference, and status."
+            />
+          </Panel>
+        ) : (
+          <Panel>
+            <AdminTable head={["Customer", "Reference", "Total", "Status", "Date"]} colSpan={5} count={orders.length}>
+              {orders.map((o: any) => (
+                <tr key={o.id} className="transition hover:bg-[var(--panel-muted)]">
+                  <td className="px-4 py-3.5 md:px-5">
+                    <a
+                      href={`/admin/orders/${o.id}`}
+                      className="block font-semibold text-[var(--ink-950)] hover:underline"
+                    >
+                      {o.ship_full_name || o.email}
+                    </a>
+                    <span className="mt-0.5 block text-xs text-[var(--ink-600)]">{o.email}</span>
+                  </td>
+                  <td className="tnum font-mono text-xs text-[var(--ink-600)] md:px-5">{o.paystack_reference}</td>
+                  <td className="tnum whitespace-nowrap px-4 py-3.5 text-right font-semibold">{formatNGN(o.total_kobo)}</td>
+                  <td className="px-4 py-3.5 md:px-5">
+                    <StatusPill status={o.status} />
+                  </td>
+                  <td className="tnum whitespace-nowrap px-4 py-3.5 text-xs text-[var(--ink-600)] md:px-5">
+                    {fmtDate(o.created_at)}
+                  </td>
+                </tr>
+              ))}
+            </AdminTable>
+          </Panel>
+        )}
       </div>
     </div>
   );

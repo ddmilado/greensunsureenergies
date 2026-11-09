@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/app/lib/dal";
 import { updateProjectAction } from "@/app/lib/actions/content";
 import { ProjectForm } from "../ProjectForm";
+import { AdminHeader } from "../../AdminUI";
 
 export const dynamic = "force-dynamic";
 
@@ -13,10 +14,7 @@ export default async function EditProjectPage({ params }: { params: Promise<Para
   if (!project) notFound();
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-tight">Edit project</h1>
-      <p className="mt-1 text-sm text-neutral-500">
-        Slug: <code>{project.slug}</code>
-      </p>
+      <AdminHeader eyebrow="Content · Edit" title={`Edit project`} description={`Slug: ${project.slug}`} />
       <div className="mt-6">
         <ProjectForm
           slug={project.slug}

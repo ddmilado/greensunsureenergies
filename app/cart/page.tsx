@@ -135,16 +135,16 @@ export default async function CartPage() {
             </ul>
 
             {/* Summary */}
-            <aside className="h-fit rounded-[2rem] bg-[var(--surface)] p-6 text-white lg:sticky lg:top-24">
+            <aside className="h-fit rounded-[2rem] bg-[var(--surface)] p-6 text-white lg:sticky lg:top-28">
               <h2 className="text-lg font-semibold tracking-[-0.03em]">Summary</h2>
               <dl className="mt-5 space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-white/60">Subtotal</dt>
-                  <dd className="font-medium">{formatNGN(subtotal)}</dd>
+                  <dd className="tnum font-medium">{formatNGN(subtotal)}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-white/60">Shipping</dt>
-                  <dd className="font-medium">
+                  <dd className="tnum font-medium">
                     {shipping === 0 ? (
                       <span className="text-[var(--solar-lime)]">Free</span>
                     ) : (
@@ -153,12 +153,22 @@ export default async function CartPage() {
                   </dd>
                 </div>
                 {shipping > 0 && (
-                  <dd className="text-xs text-white/40">
-                    Free shipping on orders over {formatNGN(5_000_00)}
-                  </dd>
+                  <>
+                    <div className="pt-1">
+                      <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                        <div
+                          className="h-full rounded-full bg-[var(--solar-lime)]"
+                          style={{ width: `${Math.min(100, (subtotal / 5_000_00) * 100)}%` }}
+                        />
+                      </div>
+                      <p className="tnum mt-2 text-xs text-white/50">
+                        Spend {formatNGN(5_000_00 - subtotal)} more to unlock free delivery
+                      </p>
+                    </div>
+                  </>
                 )}
               </dl>
-              <div className="mt-5 flex justify-between border-t border-white/10 pt-4">
+              <div className="tnum mt-5 flex justify-between border-t border-white/10 pt-4">
                 <span className="text-base font-semibold">Total</span>
                 <span className="text-2xl font-semibold tracking-[-0.02em]">{formatNGN(subtotal)}</span>
               </div>

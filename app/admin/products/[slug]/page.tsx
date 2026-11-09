@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { adminGetProduct, listCategories } from "@/app/lib/dal";
 import { updateProductAction } from "@/app/lib/actions/products";
 import { ProductForm } from "../ProductForm";
+import { AdminHeader } from "../../AdminUI";
 
 export const dynamic = "force-dynamic";
 type Params = { slug: string };
@@ -15,18 +16,15 @@ export default async function EditProductPage({ params }: { params: Promise<Para
 
   return (
     <div>
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Edit product</h1>
-          <p className="mt-1 text-sm text-neutral-500">Slug: <code>{product.slug}</code></p>
-        </div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <AdminHeader eyebrow="Commerce · Edit" title="Edit product" description={`Slug: ${product.slug}`} />
         <a
           href={`/store/${product.slug}`}
           target="_blank"
           rel="noreferrer"
-          className="rounded-md border border-neutral-300 px-3 py-2 text-xs font-medium hover:bg-neutral-100"
+          className="inline-flex min-h-10 items-center rounded-full border border-[var(--line)] bg-[var(--panel-muted)] px-4 text-xs font-semibold text-[var(--ink-700)] transition hover:border-[var(--brand-green)] hover:text-[var(--ink-950)]"
         >
-          View on site
+          View on site ↗
         </a>
       </div>
       <div className="mt-6">

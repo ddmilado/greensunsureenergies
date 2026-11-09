@@ -7,8 +7,8 @@ type ActionState = { errors?: Record<string, string[]>; message?: string } | und
 type Action = (prev: ActionState, formData: FormData) => Promise<ActionState>;
 
 const input =
-  "w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none";
-const label = "text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500";
+  "w-full rounded-xl border border-[var(--line)] bg-[var(--panel-muted)] px-3.5 py-2.5 text-sm text-[var(--ink-950)] outline-none transition duration-300 focus:border-[var(--brand-green)] focus:bg-white focus:ring-2 focus:ring-[var(--ring)]";
+const label = "text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ink-600)]";
 
 export function ProjectForm({
   action,
@@ -35,7 +35,7 @@ export function ProjectForm({
   return (
     <form action={formAction} className="grid gap-5">
       {state?.message && (
-        <p className="rounded-md bg-red-50 p-3 text-sm text-red-800">{state.message}</p>
+        <p className="rounded-xl bg-red-50 p-3.5 text-sm text-red-700 ring-1 ring-red-200">{state.message}</p>
       )}
 
       <div className="grid gap-4 md:grid-cols-2">
