@@ -12,9 +12,9 @@ export default function LoginPage() {
       image="/assets/solar5-BNpRpaJY.jpg"
     >
       <p className="auth-form-eyebrow">Your Green Sunsure account</p>
-      <h1 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">Welcome back.</h1>
-      <p className="mt-1.5 text-sm text-[var(--ink-600)]">Use your Green Sunsure account email and password.</p>
-      <div className="mt-7">
+      <h1 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--ink-950)]">Welcome back.</h1>
+      <p className="mt-1 text-[13px] text-[var(--ink-600)] leading-relaxed">Sign in with your email or Google account.</p>
+      <div className="mt-5">
         <LoginForm />
       </div>
     </AuthLayout>

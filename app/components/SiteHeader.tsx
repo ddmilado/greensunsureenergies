@@ -80,7 +80,7 @@ export function SiteHeader() {
           <Link
             href="/account"
             aria-label="Account"
-            className="hidden md:grid size-11 place-items-center rounded-full border border-white/16 bg-white/8 text-white transition hover:bg-white/16"
+            className="grid size-11 place-items-center rounded-full border border-white/16 bg-white/8 text-white transition hover:bg-white/16"
           >
             <User size={20} weight="bold" />
           </Link>
