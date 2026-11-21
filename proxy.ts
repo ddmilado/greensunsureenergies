@@ -22,8 +22,8 @@ export async function proxy(request: NextRequest) {
   } else {
     // Supabase reads single and chunked session cookies, refreshing them as needed.
     // Account and admin pages still check the user's permissions in the DAL.
-    const { data } = await supabase.auth.getClaims();
-    if (!data?.claims) {
+    const { data } = await supabase.auth.getUser();
+    if (!data?.user) {
       const params = new URLSearchParams({ next: pathname + search });
       const location = `/login?${params}`;
       return applyCookies(new NextResponse(null, { status: 303, headers: { location } }));
